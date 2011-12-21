@@ -1,0 +1,39 @@
+<%= form_for branch do |f| %>		
+	<%= render 'shared/error_messages', :target => branch %>	  
+	<table>
+	    <tbody>	
+			<tr>
+				<td> 
+					<strong><%= f.label :name %> </strong> 
+				</td>
+				<td> 	 
+			    	<%= f.text_field :name %>	</td>
+				</td>
+			</tr>					
+			<tr>
+				<td> 
+					<strong><%= f.label :address%>  </strong> 
+				</td>
+				<td> 	 
+			    	<%= f.text_area :address, :rows => 5 %>	</td>
+				</td>
+			</tr>					
+			<tr>
+				<td> 
+					<strong><%= f.label :resource_type_id, "Type" %>  </strong> 
+				</td>
+				<td> 	 	
+					<%
+					if branch
+					  res_type_id = branch.resource_type_id
+					else
+					  res_type_id = 0
+					end
+					%>
+					<%= select("branch", "resource_type_id", ResourceType.all.collect {|p| [ p.name, p.id ] }, {:include_blank => true, :selected => res_type_id  }) %>		
+				</td>
+			</tr>
+		</tbody>
+	</table>				 
+    <p class='button'> <%= f.submit %> </p>
+<% end %>

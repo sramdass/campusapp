@@ -1,0 +1,11 @@
+<div id="main-column">
+<div id="branch_details">
+<h1> Branch Details </h1>
+</h2><%= @branch.name %></h2><br>
+<%= @branch.address %><br>
+<%= @branch.resource_type.name %><br>
+<p>
+  <%= link_to "Edit this Branch", edit_branch_path(@branch) %>
+</p>
+</div>	
+</div>

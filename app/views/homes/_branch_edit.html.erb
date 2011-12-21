@@ -1,0 +1,33 @@
+<%= form_for(@branch, :url => branch_create_home_path(@branch)) do |f| %>		
+	<%= render 'shared/error_messages', :target => @branch %>	  
+	<table>
+	    <tbody>	
+			<tr>
+				<td> 
+					<strong><%= f.label :name %> </strong> 
+				</td>
+				<td> 	 
+			    	<%= f.text_field :name %>	</td>
+				</td>
+			</tr>					
+			<tr>
+				<td> 
+					<strong><%= f.label :address%>  </strong> 
+				</td>
+				<td> 	 
+			    	<%= f.text_area :address, :rows => 5 %>	</td>
+				</td>
+			</tr>					
+			<tr>
+				<td> 
+					<strong><%= f.label :resource_type_id, "Type" %>  </strong> 
+				</td>
+				<td> 	 						 
+			    	<%= f.text_field :resource_type_id %>
+				</td>
+			</tr>
+		</tbody>
+	</table>				 
+    <p class='button'> <%= f.submit %> </p>
+<% end %>
+
