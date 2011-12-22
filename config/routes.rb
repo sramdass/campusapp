@@ -1,7 +1,8 @@
 Campusapp::Application.routes.draw do
 
-  resources :branches do
-  	
+  resources :branches do  	
+  end
+  resources :faculties do
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
