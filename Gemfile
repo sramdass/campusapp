@@ -17,7 +17,6 @@ group :assets do
 end
 
 group :development do
-  gem 'hirb'
   gem "annotate", "~> 2.4.0"
 end
 
@@ -27,6 +26,9 @@ group :development, :test do
   gem 'spork', '~> 0.9.0.rc'
   # Pretty printed test output
   gem 'turn', :require => false  
+  gem 'webrat'
+  gem 'hirb'
+  gem "factory_girl_rails", "~> 1.4.0"
 end
 
 # To use ActiveModel has_secure_password

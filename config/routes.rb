@@ -1,6 +1,10 @@
 Campusapp::Application.routes.draw do
 
-  resources :branches do  	
+  resources :branches do 
+    member do
+      get 'facultynew'
+      put 'facultycreate'
+    end 	
   end
   resources :faculties do
   end

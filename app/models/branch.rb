@@ -22,7 +22,15 @@ class Branch < ActiveRecord::Base
                					    :length => {:maximum => 50}
   validates 	:address, 	:presence => true,                					
 										:length => {:maximum => 300}
-										
+  validate :resource_type_id_should_correspond_for_Branch										
+
+
+  def resource_type_id_should_correspond_for_Branch
+  	res = Resource.find_by_name("Branch")
+  	if ResourceType.where("id = ? and resource_id = ?", resource_type_id, res.id).empty?
+       errors.add(:resource_type_id, "does not correspond to Branch")  		
+  	end
+  end										
 #Returns true if there is only "_destroy" attribute available for nested models.
   def has_only_destroy?(attrs)
     attrs.each do |k,v|

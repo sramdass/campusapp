@@ -13,5 +13,36 @@
 require 'spec_helper'
 
 describe Branch do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  before(:each) do
+    @attr = { :name => "Jawahar", :address => "Neyveli-15", :resource_type_id => 2 }
+  end
+
+  it "should create a new instance given valid attributes" do
+    Branch.create!(@attr)
+  end
+  it "should require a name" do
+    no_name_branch = Branch.new(@attr.merge(:name => ""))
+    no_name_branch.should_not be_valid
+  end
+  it "should require a address" do
+    no_address_branch = Branch.new(@attr.merge(:address => ""))
+    no_address_branch.should_not be_valid
+  end  
+  it "should reject names that are too long" do
+    long_name = "a" * 51
+    long_name_branch = Branch.new(@attr.merge(:name => long_name))
+    long_name_branch.should_not be_valid
+  end
+  it "should reject addresses that are too long" do
+    long_address = "a" * 301
+    long_address_branch = Branch.new(@attr.merge(:name => long_address))
+    long_address_branch.should_not be_valid
+  end
+  
+  #Associations
+  it "should respond to faculties (association)" do
+    branch = Branch.new
+    branch.should respond_to(:faculties)
+  end  
 end

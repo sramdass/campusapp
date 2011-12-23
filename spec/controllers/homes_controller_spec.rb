@@ -1,12 +1,19 @@
 require 'spec_helper'
 
 describe HomesController do
+  render_views
+#--------------------------------------#
 
-  describe "GET 'new'" do
+  describe "GET 'home'" do 
     it "returns http success" do
-      get 'new'
+      get 'home'
       response.should be_success
     end
-  end
-
+    
+    it "should have the right title" do
+      get 'home'
+      response.should have_selector("title",
+                    :content => "Home")
+      end    
+    end
 end
