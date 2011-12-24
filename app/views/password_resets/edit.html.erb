@@ -1,0 +1,14 @@
+<div id="main-columncontent">
+	<%= form_for @profile, :url => password_reset_path(params[:id]) do |f| %>
+	<%= render 'shared/error_messages', :target => @profile%>
+		<div class="field">
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+		</div>
+		<div class="field">
+			<%= f.label :password_confirmation %>
+			<%= f.password_field :password_confirmation %>
+		</div>
+		<div class="actions"><%= f.submit "Update Password" %></div>
+	<% end %>
+</div>

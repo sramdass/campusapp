@@ -20,6 +20,8 @@ class Faculty < ActiveRecord::Base
   
   belongs_to :resource_type
   
+  has_one :user_profile, :as => :user
+  
   validates 	:name, 	:presence => true, 
                        				:length => {:maximum => 50}
   validates 	:id_no,	:presence => true, 

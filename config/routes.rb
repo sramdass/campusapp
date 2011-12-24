@@ -1,5 +1,8 @@
 Campusapp::Application.routes.draw do
 
+  resources :sessions
+  resources :password_resets
+  resources :user_profiles
   resources :branches do 
     member do
       get 'facultynew'
@@ -58,6 +61,9 @@ Campusapp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'homes#home'
+  match '/sign_up' => 'user_profiles#new'
+  match '/log_in'  => 'sessions#new'
+  match '/log_out' => 'sessions#destroy'
 
   # See how all your routes lay out with "rake routes"
 

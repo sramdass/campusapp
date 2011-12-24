@@ -36,6 +36,8 @@
             <string>..\white_reports\app\views\students\show.html.erb</string>
             <key>TEACHERS_con</key>
             <string>..\white_reports\app\controllers\teachers_controller.rb</string>
+            <key>UserProfile.rb</key>
+            <string>app\models\user_profile.rb</string>
             <key>_Edit</key>
             <string>..\white_reports\app\views\sections\_edit.html.erb</string>
             <key>_Teacher_co</key>
@@ -248,6 +250,8 @@
             <string>..\white_reports\public\stylesheets\backup\application.css</string>
             <key>application.css</key>
             <string>..\white_reports\public\stylesheets\application.css</string>
+            <key>application.he</key>
+            <string>app\views\layouts\application.html.erb</string>
             <key>application.ht</key>
             <string>..\white_reports\app\views\layouts\application.html.erb</string>
             <key>application.htm</key>
@@ -263,7 +267,7 @@
             <key>application_c</key>
             <string>..\white_reports\app\controllers\application_controller.rb</string>
             <key>application_co</key>
-            <string>..\white_reports\app\controllers\application_controller.rb</string>
+            <string>app\controllers\application_controller.rb</string>
             <key>application_con</key>
             <string>..\white_reports\app\controllers\application_controller.rb</string>
             <key>application_contr</key>
@@ -282,6 +286,8 @@
             <string>..\white_reports\app\helpers\application_helper.rb</string>
             <key>applicationcss</key>
             <string>..\white_reports\public\stylesheets\backup\application.css</string>
+            <key>applicaton.htm</key>
+            <string>app\views\layouts\application.html.erb</string>
             <key>arrers</key>
             <string>..\white_reports\db\migrate\20111014052836_add_arrears_to_marks.rb</string>
             <key>attenda</key>
@@ -462,6 +468,8 @@
             <string>..\white_reports\public\stylesheets\form_styles.css</string>
             <key>from_sec</key>
             <string>..\white_reports\db\migrate\20110902042737_remove_branch_id_from_sections.rb</string>
+            <key>gef</key>
+            <string>Gemfile</string>
             <key>gem</key>
             <string>..\white_reports\Gemfile</string>
             <key>gemfi</key>
@@ -591,11 +599,11 @@
             <key>negative_St</key>
             <string>..\white_reports\app\views\marks\negative_stack.html.erb</string>
             <key>new</key>
-            <string>app\views\faculties\new.html.erb</string>
+            <string>app\views\sessions\new.html.erb</string>
             <key>new.ht</key>
             <string>..\white_reports\spec\views\institutions\new.html.erb_spec.rb</string>
             <key>new.htm</key>
-            <string>..\white_reports\app\views\branches\new.html.erb</string>
+            <string>app\views\sessions\new.html.erb</string>
             <key>new.html</key>
             <string>app\views\branches\new.html.erb</string>
             <key>new.html.e</key>
@@ -620,8 +628,14 @@
             <string>..\white_reports\app\views\branches\_period_fields.html.erb</string>
             <key>pie_anc</key>
             <string>..\white_reports\app\views\marks\pie_and_col.erb</string>
+            <key>pr_co</key>
+            <string>app\controllers\password_resets_controller.rb</string>
             <key>prof</key>
             <string>..\white_reports\app\controllers\profiles_controller.rb</string>
+            <key>profil</key>
+            <string>db\migrate\20111224045712_create_user_profiles.rb</string>
+            <key>profile</key>
+            <string>app\models\user_profile.rb</string>
             <key>profile.r</key>
             <string>..\white_reports\app\models\profile.rb</string>
             <key>profile.rb</key>
@@ -810,6 +824,8 @@
             <string>..\white_reports\app\controllers\sessions_controller.rb</string>
             <key>sessions_</key>
             <string>..\white_reports\app\controllers\sessions_controller.rb</string>
+            <key>sessions_C</key>
+            <string>app\controllers\sessions_controller.rb</string>
             <key>sessions_c</key>
             <string>..\white_reports\app\controllers\sessions_controller.rb</string>
             <key>sessions_con</key>
@@ -898,6 +914,8 @@
             <string>..\white_reports\app\views\branches\subnew.html.erb</string>
             <key>subnew.html</key>
             <string>..\white_reports\app\views\schools\subnew.html.erb</string>
+            <key>t_u_p</key>
+            <string>db\migrate\20111224111726_add_branch_id_to_user_profiles.rb</string>
             <key>table_St</key>
             <string>..\white_reports\public\stylesheets\fb_table_styles.css</string>
             <key>table_Sty</key>
@@ -976,6 +994,8 @@
             <string>..\dynamic_models\app\models\user.rb</string>
             <key>user.rb</key>
             <string>C:\Users\sramdass.PSFT\Desktop\ruby\source\stffn-decl_auth_demo_app-b1c29dc\stffn-decl_auth_demo_app-b1c29dc\app\models\user.rb</string>
+            <key>user_profiles_C</key>
+            <string>app\controllers\user_profiles_controller.rb</string>
             <key>users_cont</key>
             <string>..\dynamic_models\app\controllers\users_controller.rb</string>
         </dict>

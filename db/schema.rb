@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111222030629) do
+ActiveRecord::Schema.define(:version => 20111224111726) do
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,20 @@ ActiveRecord::Schema.define(:version => 20111222030629) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_profiles", :force => true do |t|
+    t.string   "login"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.string   "password_reset_token"
+    t.string   "auth_token"
+    t.datetime "password_reset_sent_at"
+    t.string   "user_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "branch_id"
   end
 
   create_table "years", :force => true do |t|
