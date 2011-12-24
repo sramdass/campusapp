@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_profile  
+  helper_method :current_profile
+  helper_method :temp_branch  #This has to be removed once the multitenant architecture is in place
+  before_filter :mailer_set_url_options  
+  
   def current_profile
   #Destroying  a cookie using code just empties the cookie. So just checking for nil is not sufficient.
     if cookies[:auth_token] && !(cookies[:auth_token].empty?)
@@ -9,4 +12,12 @@ class ApplicationController < ActionController::Base
       nil
     end
   end  
+  
+  def mailer_set_url_options
+    ActionMailer::Base.default_url_options[:host] = 'localhost:3000'
+  end  
+  
+  def temp_branch
+  	return Branch.first
+  end
 end

@@ -10,9 +10,10 @@ class UserProfilesController < ApplicationController
     if user
       @profile = UserProfile.new(params[:user_profile])
       @profile.user=user
+      @profile.branch=temp_branch
       if @profile.save
-        flash[:notice] = "Welcome #{user.name}!"
-        redirect_to root_path
+        flash[:notice] = "Signed up! Please login."
+        redirect_to log_in_path
       else
         render :new
       end

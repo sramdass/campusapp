@@ -32,7 +32,7 @@ class UserProfile < ActiveRecord::Base
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
     save!
-    #SchoolMailer.password_reset(self).deliver
+    CampusMailer.password_reset(self).deliver
   end
   
   def generate_token(column)
