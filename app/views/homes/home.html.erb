@@ -13,6 +13,7 @@
 	
 	<h1> Links </h1>
 	<% if @branch %>
-		<%= link_to "Quick Add Faculties", facultynew_branch_path(@branch)%>
+		<%= link_to "Quick Add Faculties", facultynew_branch_path(@branch)%> <br>
+		<%= link_to "Faculties index", faculties_path%>
 	<% end %>
 </div>

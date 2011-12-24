@@ -49,4 +49,20 @@ class Faculty < ActiveRecord::Base
   	  end
   	end
   end	  
+  
+  def gender
+  	if female?
+  	  return "Female"
+  	else
+  	  return "Male"
+  	end
+  end
+  
+  def type
+  	if self.resource_type
+  		return self.resource_type.name
+  	else
+  		return "N/A"
+  	end
+  end
 end

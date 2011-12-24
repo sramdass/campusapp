@@ -1,4 +1,10 @@
 class FacultiesController < ApplicationController
+
+  def index
+  	@title = "Faculty Index"
+  	@faculties = Faculty.all
+  end
+
   def new
   	@title = 'New Faculty'
   	@faculty = Faculty.new

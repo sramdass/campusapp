@@ -428,6 +428,8 @@
             <string>spec\factories.rb</string>
             <key>facult.rb</key>
             <string>app\models\faculty.rb</string>
+            <key>facult_c</key>
+            <string>app\controllers\faculties_controller.rb</string>
             <key>faculties_c</key>
             <string>app\controllers\faculties_controller.rb</string>
             <key>faculties_co</key>
@@ -470,6 +472,8 @@
             <string>Gemfile</string>
             <key>git</key>
             <string>.gitignore</string>
+            <key>gm</key>
+            <string>Gemfile</string>
             <key>graph</key>
             <string>..\white_reports\public\javascripts\graph_input.js</string>
             <key>graph_in</key>
@@ -587,7 +591,7 @@
             <key>negative_St</key>
             <string>..\white_reports\app\views\marks\negative_stack.html.erb</string>
             <key>new</key>
-            <string>app\views\branches\new.html.erb</string>
+            <string>app\views\faculties\new.html.erb</string>
             <key>new.ht</key>
             <string>..\white_reports\spec\views\institutions\new.html.erb_spec.rb</string>
             <key>new.htm</key>
