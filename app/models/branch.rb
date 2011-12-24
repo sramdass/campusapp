@@ -22,7 +22,17 @@ class Branch < ActiveRecord::Base
                					    :length => {:maximum => 50}
   validates 	:address, 	:presence => true,                					
 										:length => {:maximum => 300}
-  validate :resource_type_id_should_correspond_for_Branch										
+  validate :resource_type_id_should_correspond_for_Branch			
+  
+  class << self
+    def current
+      Thread.current[:current_tenant]
+    end
+
+    def current=(tenant)
+      Thread.current[:current_tenant] = tenant
+    end
+  end							
 
 
   def resource_type_id_should_correspond_for_Branch

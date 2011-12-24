@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_profile
   helper_method :temp_branch  #This has to be removed once the multitenant architecture is in place
   before_filter :mailer_set_url_options  
+  before_filter :set_tenant_branch
+  
+  def set_tenant_branch
+    Branch.current = current_profile.branch.id
+  end
   
   def current_profile
   #Destroying  a cookie using code just empties the cookie. So just checking for nil is not sufficient.

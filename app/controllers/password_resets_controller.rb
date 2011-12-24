@@ -1,5 +1,5 @@
 class PasswordResetsController < ApplicationController
-
+  skip_before_filter :set_tenant_branch
   def new
   	@title = 'Password Reset request'
    #Nothing's needed here. We are just getting the 'login' to send the password

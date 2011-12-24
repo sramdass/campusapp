@@ -1,4 +1,5 @@
 class UserProfilesController < ApplicationController
+  skip_before_filter :set_tenant_branch
   def new
     @title = 'Sign Up'
     @profile = UserProfile.new

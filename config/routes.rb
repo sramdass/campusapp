@@ -15,5 +15,6 @@ Campusapp::Application.routes.draw do
   end
   resources :faculties do
   end
+  resources :clazzs
   root :to => 'sessions#new'
 end

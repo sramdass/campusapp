@@ -269,7 +269,7 @@
             <key>application_co</key>
             <string>app\controllers\application_controller.rb</string>
             <key>application_con</key>
-            <string>..\white_reports\app\controllers\application_controller.rb</string>
+            <string>app\controllers\application_controller.rb</string>
             <key>application_contr</key>
             <string>..\white_reports\app\controllers\application_controller.rb</string>
             <key>application_contro</key>
@@ -320,6 +320,8 @@
             <string>..\white_reports\app\views\institutions\_branch_fields.html.erb</string>
             <key>branch_s</key>
             <string>spec\models\branch_spec.rb</string>
+            <key>branch_sco</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>branches</key>
             <string>..\white_reports\app\controllers\branches_controller.rb</string>
             <key>branches_c</key>
@@ -336,10 +338,14 @@
             <string>..\white_reports\app\views\institutions\_branchnew.html.erb</string>
             <key>campu</key>
             <string>app\mailers\campus_mailer.rb</string>
+            <key>clazz</key>
+            <string>app\models\clazz.rb</string>
             <key>clazz.r</key>
             <string>..\white_reports\app\models\clazz.rb</string>
             <key>clazz.rb</key>
             <string>..\white_reports\app\models\clazz.rb</string>
+            <key>clazz_C</key>
+            <string>app\controllers\clazzs_controller.rb</string>
             <key>clazzs</key>
             <string>..\white_reports\app\controllers\clazzs_controller.rb</string>
             <key>clazzs_C</key>
@@ -614,6 +620,8 @@
             <string>..\white_reports\app\views\branches\_clznew.html.erb</string>
             <key>new.t</key>
             <string>..\white_reports\new.txt</string>
+            <key>password_Re_c</key>
+            <string>app\controllers\password_resets_controller.rb</string>
             <key>password_Reset</key>
             <string>..\white_reports\app\controllers\password_resets_controller.rb</string>
             <key>password_Rest</key>
@@ -647,7 +655,7 @@
             <key>profile_controller</key>
             <string>..\white_reports\app\controllers\profiles_controller.rb</string>
             <key>profiles_c</key>
-            <string>..\white_reports\app\controllers\profiles_controller.rb</string>
+            <string>app\controllers\user_profiles_controller.rb</string>
             <key>profiles_co</key>
             <string>..\white_reports\app\controllers\profiles_controller.rb</string>
             <key>profiles_con</key>
@@ -730,6 +738,8 @@
             <string>..\white_reports\app\controllers\schools_controller.rb</string>
             <key>schools_cont</key>
             <string>..\white_reports\app\controllers\schools_controller.rb</string>
+            <key>scoped</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>search</key>
             <string>..\white_reports\app\views\searches\_section_search_marks.html.erb</string>
             <key>searches</key>
@@ -836,6 +846,8 @@
             <string>app\controllers\sessions_controller.rb</string>
             <key>sessions_con</key>
             <string>..\white_reports\app\controllers\sessions_controller.rb</string>
+            <key>sessions_cont</key>
+            <string>app\controllers\sessions_controller.rb</string>
             <key>setup_ma</key>
             <string>..\white_reports\config\initializers\setup_mail.rb</string>
             <key>show</key>
