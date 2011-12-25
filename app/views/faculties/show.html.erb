@@ -1,9 +1,11 @@
 <div id="main-column">
+	User profile branch: <%= current_profile.branch.name %>
 	<h1><%= @faculty.name %> </h1><br>
 	<% if @faculty.female? %> Female <% else %> Male <%end%><br>
 	<%= @faculty.id_no %><br>
 	Joined on <%= @faculty.date_joined %> <br>
 	Departed on <%= @faculty.date_departed %><br>
+	Works at <%= @faculty.branch.name %>
 	<p>
 		<%= link_to "Edit this faculty", edit_faculty_path(@faculty) %>
 	</p>

@@ -8,7 +8,7 @@ class BranchesController < ApplicationController
     @branch = Branch.new(params[:branch])
     if @branch.save
       flash[:notice] = 'Branch successfully created'
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -22,7 +22,7 @@ class BranchesController < ApplicationController
     @branch = Branch.find(params[:id])
       if @branch.update_attributes(params[:branch])
       	flash[:notice] = 'Branch successfully updated'
-        redirect_to root_path
+        redirect_to dashboard_path
       else
         render :edit
       end
@@ -42,12 +42,25 @@ class BranchesController < ApplicationController
   end
   
   def facultycreate
-  	 @branch = Branch.find(params[:id])
-      if @branch.update_attributes(params[:branch])
-		redirect_to root_path
-      else
-	    render :facultynew
-      end
+    @branch = Branch.find(params[:id])
+    if @branch.update_attributes(params[:branch])
+	  redirect_to dashboard_path
+    else
+      render :facultynew
     end
+  end
+  
+  def clazznew
+    @branch = Branch.find(params[:id])
+  end
+  
+  def clazzcreate
+    @branch = Branch.find(params[:id])
+    if @branch.update_attributes(params[:branch])
+	  redirect_to dashboard_path
+    else
+      render :clazznew
+    end
+  end  
  
 end

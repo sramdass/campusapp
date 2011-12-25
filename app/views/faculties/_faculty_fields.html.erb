@@ -1,9 +1,3 @@
-<!-- Pass the branch id as a hidden field. Once the multitenant architecture is implemented, this will not be required-->
-<% if f.object.new_record?%>
-	<%= f.hidden_field :branch_id, :value => Branch.first.id %>
-<% else %>
-	<%= f.hidden_field :branch_id, :value => f.object.branch_id %>
-<% end %>		
 <table>
     <tbody>	
 		<tr>

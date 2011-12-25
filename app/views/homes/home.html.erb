@@ -12,8 +12,16 @@
 	<% end %>
 	
 	<h1> Links </h1>
+	<h2> Faculties </h2> <br>
 	<% if @branch %>
 		<%= link_to "Quick Add Faculties", facultynew_branch_path(@branch)%> <br>
-		<%= link_to "Faculties index", faculties_path%>
 	<% end %>
+	<%= link_to "Faculties index", faculties_path%><br>
+	<%= link_to "Add Faculty", new_faculty_path %>
+	<h2> Classes </h2> <br>
+	<% if @branch %>
+		<%= link_to "Quick Add Classes", clazznew_branch_path(@branch)%> <br>
+	<% end %>
+	<%= link_to "Classes index", clazzs_path%><br>
+	<%= link_to "Add Class", new_clazz_path %>
 </div>

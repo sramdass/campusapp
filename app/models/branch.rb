@@ -14,6 +14,9 @@ class Branch < ActiveRecord::Base
   has_many :faculties, :dependent => :destroy
   accepts_nested_attributes_for :faculties, :reject_if => :has_only_destroy?, :allow_destroy => true
   
+  has_many :clazzs, :dependent => :destroy
+  accepts_nested_attributes_for :clazzs, :reject_if => :has_only_destroy?, :allow_destroy => true  
+  
   belongs_to :resource_type
   validates_presence_of :resource_type
   

@@ -1,0 +1,22 @@
+<h1>Class Index </h1>
+<div id="main-column">
+	User profile branch: <%= current_profile.branch.name %> </h1>
+	<table class='index_table_z' >
+	    <thead>	
+			<tr>
+				<th>Name </th>
+			</tr>
+		</thead>
+	    <tbody>
+		<% @clazzs.each do |clazz| %>
+			<tr>
+				<td><%= link_to clazz.name, clazz %></td>
+				<td> <%= link_to 'Show', clazz_path(clazz) %> | 
+						<%= link_to 'Edit', edit_clazz_path(clazz) %> | 
+					    <%= link_to 'Destroy', clazz, :confirm => 'Are you sure?', :method => :delete %> 
+				</td>
+			</tr>
+		<% end %>
+	    </tbody>	
+	</table>		
+</div>

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_profile
+  helper_method :current_profile, :current_year, :current_year_id
   helper_method :temp_branch  #This has to be removed once the multitenant architecture is in place
   before_filter :mailer_set_url_options  
   before_filter :set_tenant_branch
@@ -24,5 +24,13 @@ class ApplicationController < ActionController::Base
   
   def temp_branch
   	return Branch.first
+  end
+  
+  def current_year
+  	Year.find_by_current(true)
+  end
+  
+  def current_year_id
+  	current_year.id
   end
 end

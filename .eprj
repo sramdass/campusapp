@@ -240,8 +240,12 @@
             <string>app\views\layouts\application.html.erb</string>
             <key>applica</key>
             <string>..\white_reports\public\stylesheets\application.css</string>
+            <key>applicahtm</key>
+            <string>app\views\layouts\application.html.erb</string>
             <key>applicati</key>
             <string>..\white_reports\public\stylesheets\application.css</string>
+            <key>applicatiocont</key>
+            <string>app\controllers\application_controller.rb</string>
             <key>application</key>
             <string>app\assets\stylesheets\application.css</string>
             <key>application.c</key>
@@ -343,9 +347,11 @@
             <key>clazz.r</key>
             <string>..\white_reports\app\models\clazz.rb</string>
             <key>clazz.rb</key>
-            <string>..\white_reports\app\models\clazz.rb</string>
+            <string>app\models\clazz.rb</string>
             <key>clazz_C</key>
             <string>app\controllers\clazzs_controller.rb</string>
+            <key>clazzfi</key>
+            <string>app\views\branches\_clazz_fields.html.erb</string>
             <key>clazzs</key>
             <string>..\white_reports\app\controllers\clazzs_controller.rb</string>
             <key>clazzs_C</key>
@@ -354,6 +360,8 @@
             <string>..\white_reports\app\controllers\clazzs_controller.rb</string>
             <key>clazzs_con</key>
             <string>..\white_reports\app\controllers\clazzs_controller.rb</string>
+            <key>clazzscon</key>
+            <string>app\controllers\clazzs_controller.rb</string>
             <key>clzne</key>
             <string>..\white_reports\app\views\branches\clznew.html.erb</string>
             <key>clznew</key>
@@ -438,6 +446,8 @@
             <string>spec\models\faculty_spec.rb</string>
             <key>facne</key>
             <string>app\views\branches\facultynew.erb</string>
+            <key>facnew</key>
+            <string>app\views\branches\facultynew.erb</string>
             <key>factories</key>
             <string>spec\factories.rb</string>
             <key>facult.rb</key>
@@ -504,6 +514,10 @@
             <string>app\views\homes\home.html.erb</string>
             <key>home.html.erb</key>
             <string>app\views\homes\home.html.erb</string>
+            <key>homeh</key>
+            <string>app\views\homes\home.html.erb</string>
+            <key>homehtm</key>
+            <string>app\views\homes\home.html.erb</string>
             <key>homes_c</key>
             <string>app\controllers\homes_controller.rb</string>
             <key>homes_c_s</key>
@@ -511,6 +525,8 @@
             <key>homes_co</key>
             <string>spec\controllers\homes_controller_spec.rb</string>
             <key>homes_contr</key>
+            <string>app\controllers\homes_controller.rb</string>
+            <key>homescon</key>
             <string>app\controllers\homes_controller.rb</string>
             <key>ignore</key>
             <string>..\white_reports\.gitignore</string>
@@ -607,7 +623,7 @@
             <key>negative_St</key>
             <string>..\white_reports\app\views\marks\negative_stack.html.erb</string>
             <key>new</key>
-            <string>app\views\sessions\new.html.erb</string>
+            <string>app\views\faculties\new.html.erb</string>
             <key>new.ht</key>
             <string>..\white_reports\spec\views\institutions\new.html.erb_spec.rb</string>
             <key>new.htm</key>
@@ -695,7 +711,7 @@
             <key>routes</key>
             <string>config\routes.rb</string>
             <key>routes.</key>
-            <string>..\white_reports\config\routes.rb</string>
+            <string>config\routes.rb</string>
             <key>routes.r</key>
             <string>config\routes.rb</string>
             <key>routes.rb</key>
@@ -847,6 +863,8 @@
             <key>sessions_con</key>
             <string>..\white_reports\app\controllers\sessions_controller.rb</string>
             <key>sessions_cont</key>
+            <string>app\controllers\sessions_controller.rb</string>
+            <key>sessionscon</key>
             <string>app\controllers\sessions_controller.rb</string>
             <key>setup_ma</key>
             <string>..\white_reports\config\initializers\setup_mail.rb</string>
@@ -1008,6 +1026,8 @@
             <string>..\white_reports\app\views\schools\tnew.html.erb</string>
             <key>to_Fac</key>
             <string>db\migrate\20111222030629_add_id_no_to_faculties.rb</string>
+            <key>upcon</key>
+            <string>app\controllers\user_profiles_controller.rb</string>
             <key>user.r</key>
             <string>..\dynamic_models\app\models\user.rb</string>
             <key>user.rb</key>
@@ -1018,10 +1038,14 @@
             <string>app\models\user_profile.rb</string>
             <key>user_profiles_C</key>
             <string>app\controllers\user_profiles_controller.rb</string>
+            <key>userp.rb</key>
+            <string>app\models\user_profile.rb</string>
             <key>userprofilesc</key>
             <string>app\controllers\user_profiles_controller.rb</string>
             <key>users_cont</key>
             <string>..\dynamic_models\app\controllers\users_controller.rb</string>
+            <key>year</key>
+            <string>app\models\year.rb</string>
         </dict>
     </dict>
 </plist>

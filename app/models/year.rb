@@ -10,4 +10,5 @@
 #
 
 class Year < ActiveRecord::Base
+  has_many :clazzs
 end

@@ -1,6 +1,4 @@
-<%= debug params%>
 <%= form_for([@branch], { :url => { :action => "facultycreate" } }) do |f| %>	
-			
     <%= render 'shared/error_messages', :target => @branch %>
 	<table class="input_form_table">
 		<thead>

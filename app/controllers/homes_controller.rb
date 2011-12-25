@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   def home
   	@title = 'Home'
-    @branch = Branch.first
+    @branch = current_profile.branch
   end
 end

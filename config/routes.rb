@@ -11,6 +11,8 @@ Campusapp::Application.routes.draw do
     member do
       get 'facultynew'
       put 'facultycreate'
+      get 'clazznew'
+      put 'clazzcreate'      
     end 	
   end
   resources :faculties do

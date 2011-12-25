@@ -14,10 +14,8 @@
 #  id_no            :string(255)
 #
 
-class Faculty < ActiveRecord::Base
+class Faculty < BranchScopedModel
   belongs_to :branch
-  validates_presence_of :branch
-  
   belongs_to :resource_type
   
   has_one :user_profile, :as => :user
