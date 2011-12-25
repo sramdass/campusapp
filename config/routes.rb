@@ -1,5 +1,4 @@
 Campusapp::Application.routes.draw do
-
   get 'log_out'			 	=> 'sessions#destroy', 			:as => 'log_out'
   get 'log_in' 					=> 'sessions#new', 					:as => 'log_in'
   get 'sign_up' 				=> 'user_profiles#new', 			:as => 'sign_up'
@@ -13,10 +12,12 @@ Campusapp::Application.routes.draw do
       put 'facultycreate'
       get 'clazznew'
       put 'clazzcreate'      
+      get 'subjectnew'
+      put 'subjectcreate'
     end 	
   end
-  resources :faculties do
-  end
+  resources :faculties
   resources :clazzs
+  resources :subjects
   root :to => 'sessions#new'
 end

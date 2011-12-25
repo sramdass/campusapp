@@ -1,4 +1,4 @@
-class Clazz < BranchScopedModel
+class Subject < BranchScopedModel
   belongs_to :year
   validates_presence_of :year
   
@@ -6,5 +6,5 @@ class Clazz < BranchScopedModel
   
   validates 	:name, 	:presence => true, 
                						:length => {:maximum => 30},
-               						:uniqueness => true
+               						:uniqueness => true	
 end

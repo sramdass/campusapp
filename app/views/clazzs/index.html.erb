@@ -5,12 +5,16 @@
 	    <thead>	
 			<tr>
 				<th>Name </th>
+				<th>Branch (same) </th>
+				<th>Year </th>
 			</tr>
 		</thead>
 	    <tbody>
 		<% @clazzs.each do |clazz| %>
 			<tr>
 				<td><%= link_to clazz.name, clazz %></td>
+				<td><%= link_to clazz.branch.name, branch_path(clazz.branch) %></td>
+				<td><%= clazz.year.year  %></td>
 				<td> <%= link_to 'Show', clazz_path(clazz) %> | 
 						<%= link_to 'Edit', edit_clazz_path(clazz) %> | 
 					    <%= link_to 'Destroy', clazz, :confirm => 'Are you sure?', :method => :delete %> 

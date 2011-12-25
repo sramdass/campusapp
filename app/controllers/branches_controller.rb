@@ -62,5 +62,18 @@ class BranchesController < ApplicationController
       render :clazznew
     end
   end  
+  
+  def subjectnew
+    @branch = Branch.find(params[:id])
+  end
+  
+  def subjectcreate
+    @branch = Branch.find(params[:id])
+    if @branch.update_attributes(params[:branch])
+	  redirect_to dashboard_path
+    else
+      render :subjectnew
+    end
+  end  
  
 end

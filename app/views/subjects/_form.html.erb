@@ -1,0 +1,5 @@
+<%= form_for subject do |f| %>		
+	<%= render 'shared/error_messages', :target => subject %>	  
+	<%= render 'subject_fields', :f => f, :subject => subject %>
+    <p class='button'> <%= f.submit %> </p>
+<% end %>

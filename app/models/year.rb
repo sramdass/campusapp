@@ -11,4 +11,5 @@
 
 class Year < ActiveRecord::Base
   has_many :clazzs
+  has_many :subjects
 end

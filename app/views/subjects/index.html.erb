@@ -1,0 +1,26 @@
+<h1>Class Index </h1>
+<div id="main-column">
+	User profile branch: <%= current_profile.branch.name %> </h1>
+	<table class='index_table_z' >
+	    <thead>	
+			<tr>
+				<th>Name </th>
+				<th>Branch (same) </th>
+				<th>Year </th>
+			</tr>
+		</thead>
+	    <tbody>
+		<% @subjects.each do |subject| %>
+			<tr>
+				<td><%= link_to subject.name, subject %></td>
+				<td><%= link_to subject.branch.name, branch_path(subject.branch) %></td>
+				<td><%= subject.year.year  %></td>				
+				<td> <%= link_to 'Show', subject_path(subject) %> | 
+						<%= link_to 'Edit', edit_subject_path(subject) %> | 
+					    <%= link_to 'Destroy', subject, :confirm => 'Are you sure?', :method => :delete %> 
+				</td>
+			</tr>
+		<% end %>
+	    </tbody>	
+	</table>		
+</div>

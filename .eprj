@@ -342,6 +342,8 @@
             <string>..\white_reports\app\views\institutions\_branchnew.html.erb</string>
             <key>campu</key>
             <string>app\mailers\campus_mailer.rb</string>
+            <key>claznew</key>
+            <string>app\views\branches\clazznew.html.erb</string>
             <key>clazz</key>
             <string>app\models\clazz.rb</string>
             <key>clazz.r</key>
@@ -361,6 +363,8 @@
             <key>clazzs_con</key>
             <string>..\white_reports\app\controllers\clazzs_controller.rb</string>
             <key>clazzscon</key>
+            <string>app\controllers\clazzs_controller.rb</string>
+            <key>clazzscont</key>
             <string>app\controllers\clazzs_controller.rb</string>
             <key>clzne</key>
             <string>..\white_reports\app\views\branches\clznew.html.erb</string>
@@ -458,6 +462,8 @@
             <string>app\controllers\faculties_controller.rb</string>
             <key>faculties_co</key>
             <string>app\controllers\faculties_controller.rb</string>
+            <key>faculty.</key>
+            <string>app\models\faculty.rb</string>
             <key>faculty.r</key>
             <string>app\models\faculty.rb</string>
             <key>faculty.rb</key>
@@ -512,6 +518,8 @@
             <string>app\views\homes\home.html.erb</string>
             <key>home.h</key>
             <string>app\views\homes\home.html.erb</string>
+            <key>home.htm.</key>
+            <string>app\views\homes\home.html.erb</string>
             <key>home.html.erb</key>
             <string>app\views\homes\home.html.erb</string>
             <key>homeh</key>
@@ -531,7 +539,7 @@
             <key>ignore</key>
             <string>..\white_reports\.gitignore</string>
             <key>index</key>
-            <string>..\white_reports\app\views\institutions\index.html.erb</string>
+            <string>app\views\subjects\index.html.erb</string>
             <key>index.h</key>
             <string>..\white_reports\app\views\branches\index.html.erb</string>
             <key>index.ht</key>
@@ -869,7 +877,7 @@
             <key>setup_ma</key>
             <string>..\white_reports\config\initializers\setup_mail.rb</string>
             <key>show</key>
-            <string>app\views\faculties\show.html.erb</string>
+            <string>app\views\subjects\show.html.erb</string>
             <key>show.ht</key>
             <string>..\white_reports\app\views\subjects\show.html.erb</string>
             <key>show.htm</key>
@@ -935,7 +943,7 @@
             <key>subject.r</key>
             <string>..\white_reports\app\models\subject.rb</string>
             <key>subject.rb</key>
-            <string>..\white_reports\app\models\subject.rb</string>
+            <string>app\models\subject.rb</string>
             <key>subject_fi</key>
             <string>..\white_reports\app\views\branches\_subject_fields.html.erb</string>
             <key>subject_fiel</key>
@@ -1040,11 +1048,15 @@
             <string>app\controllers\user_profiles_controller.rb</string>
             <key>userp.rb</key>
             <string>app\models\user_profile.rb</string>
+            <key>userprofilecon</key>
+            <string>app\controllers\user_profiles_controller.rb</string>
             <key>userprofilesc</key>
             <string>app\controllers\user_profiles_controller.rb</string>
             <key>users_cont</key>
             <string>..\dynamic_models\app\controllers\users_controller.rb</string>
             <key>year</key>
+            <string>app\models\year.rb</string>
+            <key>year.rb</key>
             <string>app\models\year.rb</string>
         </dict>
     </dict>

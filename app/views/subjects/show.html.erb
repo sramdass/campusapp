@@ -1,0 +1,12 @@
+<div id="main-column">
+	User profile branch: <%= current_profile.branch.name%>
+	<h1><%= @subject.name %> </h1><br>
+	In branch: <%= @subject.branch.name %><br>
+	Applicable to year: <%= @subject.year.year %>
+	<p>
+		<%= link_to "Edit this Subject", edit_subject_path(@subject) %>
+	</p>
+</div>
+
+	
+
