@@ -59,7 +59,7 @@ describe BranchesController do
     
     describe "success" do
       before(:each) do
-        @attr = { :name => "Jawahar", :address => "Neyveli", :resource_type_id => 2}
+        @attr = { :name => "Cluny", :address => "Neyveli", :resource_type_id => ResourceType.find_by_name("School").id}
       end
 
       it "should create a branch" do
@@ -68,14 +68,14 @@ describe BranchesController do
         end.should change(Branch, :count).by(1)
       end
             
-      it "should redirect to the branch show page" do
+      it "should redirect to the dashboard page" do
         post :create, :branch => @attr
-        response.should redirect_to(:controller => 'homes', :action => 'home')
+        response.should redirect_to dashboard_path
       end    
       
       it "should have a success notice" do
         post :create, :branch => @attr
-        flash[:notice].should =~ /successfully created/i
+        flash[:notice].should  match(/success/i)
       end
     end   #describe "success" do
   end
@@ -95,7 +95,7 @@ describe BranchesController do
       	@branch.should_receive(:update_attributes).and_return(true)
       	put :update, :id => "1", :branch => {}
       	flash[:notice].should match(/success/i) 
-      	response.should redirect_to(:controller => 'homes', :action => 'home')
+      	response.should redirect_to dashboard_path
       end
     end
   end

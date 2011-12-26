@@ -331,7 +331,7 @@
             <key>branch_sco</key>
             <string>app\models\branch_scoped_model.rb</string>
             <key>branch_spec</key>
-            <string>spec\controllers\branches_controller_spec.rb</string>
+            <string>spec\models\branch_spec.rb</string>
             <key>branch_spec.r</key>
             <string>spec\models\branch_spec.rb</string>
             <key>branches</key>
@@ -350,6 +350,8 @@
             <string>..\white_reports\app\views\institutions\_branchnew.html.erb</string>
             <key>branchspec</key>
             <string>spec\models\branch_spec.rb</string>
+            <key>brancontsp</key>
+            <string>spec\controllers\branches_controller_spec.rb</string>
             <key>campu</key>
             <string>app\mailers\campus_mailer.rb</string>
             <key>claznew</key>

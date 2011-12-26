@@ -16,6 +16,7 @@ describe Branch do
 
   before(:each) do
     @attr = { :name => "Jawahar", :address => "Neyveli-15", :resource_type_id => 2 }
+    @branch = Branch.new
   end
 
   it "should create a new instance given valid attributes" do
@@ -42,7 +43,15 @@ describe Branch do
   
   #Associations
   it "should respond to faculties (association)" do
-    branch = Branch.new
-    branch.should respond_to(:faculties)
+    @branch.should respond_to(:faculties)
   end  
+  it "should respond to clazzzs (association)" do
+    @branch.should respond_to(:clazzs)
+  end  
+  it "should respond to subjects (association)" do
+    @branch.should respond_to(:subjects)
+  end  
+  it "should respond to resource_type (association)" do
+    @branch.should respond_to(:resource_type)
+  end        
 end

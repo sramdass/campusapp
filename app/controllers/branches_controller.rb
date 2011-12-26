@@ -1,4 +1,6 @@
 class BranchesController < ApplicationController
+  skip_before_filter :set_tenant_branch
+  
   def new
   	@title = "New Branch"
   	@branch = Branch.new

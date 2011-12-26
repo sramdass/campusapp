@@ -1,0 +1,99 @@
+Git commands:
+*************
+
+git config --system key value  -> for the entire system
+git config --globla key value  -> for the user
+git config key value -> for a porject.
+
+*--------------------------------------------------------*
+To list the values
+------------------
+git config --list
+git config <key>
+
+*--------------------------------------------------------*
+
+git init
+git add <file name>
+git commit -m "<comment>"
+
+*--------------------------------------------------------*
+
+Cloning an Existing Repository
+
+git clone git://github.com/schacon/grit.git  -> creates grit with .git inside
+git clone git://github.com/schacon/grit.git mygrit -> creates mygrit with .git inside
+
+*--------------------------------------------------------*
+
+Recording Changes to the Repository
+
+git status
+
+Changes to be committed: --> list of staged files need to be commited
+Changed but not updated: --> modified by not staged (use git add)
+
+*--------------------------------------------------------*
+
+Difference
+
+git diff - To see what you’ve changed but not yet staged
+git diff --cached or git diff --stages -> changes between stage and the commited project
+
+*--------------------------------------------------------*
+Commiting without staging
+
+git commit -a -m "comment" -> to commit staged and tracked modified (not staged) files
+
+*--------------------------------------------------------*
+
+Removing files
+
+git rm <files name> -> removes from staging area and hence from working dir
+rm file name -> (simple delete) after this you shd run a 'git rm <file_name>'
+
+git rm --cached readme.txt  -> removes only from staging, but not from the hard drive
+
+*--------------------------------------------------------*
+
+Renaming files
+
+git mv file_from file_to -> renames the file in the staging area.
+git mv README.txt README is equal to the following
+
+mv README.txt README
+git rm README.txt
+git add README
+
+*--------------------------------------------------------*
+
+Commit history
+
+git log
+git log -p -2 (-p to see the diff and -2 to see the last 2 entries)
+
+git log --stat (to get the stats on the commit)
+git log --pretty==oneline (mainly for formatting. Look at the documentation)
+
+git log --since=2.weeks
+git log -n -> list last 2 commits
+
+*--------------------------------------------------------*
+
+Undo
+
+git commit --amend  -> recommit the staging area with new commit message. The previous commit will not show in the history
+
+*--------------------------------------------------------*
+
+Unstaging
+
+git reset HEAD benchmarks.rb -> this will make the file from staged to tracked at unstaged area.
+
+*--------------------------------------------------------*
+
+Unmodifying a modified file
+
+git checkout --<file name> -> This will revert the changes in the file and bring it equal to the file in the staging area
+
+*--------------------------------------------------------*

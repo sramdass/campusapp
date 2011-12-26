@@ -43,8 +43,12 @@ class Branch < ActiveRecord::Base
 
   def resource_type_id_should_correspond_for_Branch
   	res = Resource.find_by_name("Branch")
-  	if ResourceType.where("id = ? and resource_id = ?", resource_type_id, res.id).empty?
-       errors.add(:resource_type_id, "does not correspond to Branch")  		
+  	if res
+  	  if ResourceType.where("id = ? and resource_id = ?", resource_type_id, res.id).empty?
+         errors.add(:resource_type_id, "does not correspond to Branch")
+  	  end
+  	else
+  		errors.add(:resource_type_id, ' - cannot find the resource type "Branch"')  		
   	end
   end										
 #Returns true if there is only "_destroy" attribute available for nested models.
