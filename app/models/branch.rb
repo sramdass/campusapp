@@ -10,7 +10,7 @@
 #  updated_at       :datetime
 #
 
-class Branch < ActiveRecord::Base
+class Branch < ActiveRecord::Base 
   has_many :faculties, :dependent => :destroy
   accepts_nested_attributes_for :faculties, :reject_if => :has_only_destroy?, :allow_destroy => true
   

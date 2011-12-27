@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :clazz do
-    name "MyString"
-    branch_id 1
+    name                  			"LKG"
+    branch_id     					{Branch.first.id}
+    year_id							{Year.find_by_current(true)}
   end
 end

@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :subject do
-    name "MyString"
-    branch_id 1
-    year_id 1
+    name                  			"english"
+    branch_id     					{Branch.first.id}
+    year_id							{Year.find_by_current(true)}
   end
 end

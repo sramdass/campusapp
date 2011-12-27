@@ -2,21 +2,6 @@ require 'spec_helper'
 
 describe BranchesController do
   render_views
-#--------------------------------------#
-
-  describe "GET 'new'" do 
-    it "returns http success" do
-      get 'new'
-      response.should be_success
-    end
-    
-    it "should have the right title" do
-      get 'new'
-      response.should have_selector("title",
-                    :content => "New")
-      end    
-    end
-#--------------------------------------#
 #--we do not have a show action for the branch--#
 =begin
   describe "GET 'show'" do
@@ -65,7 +50,7 @@ describe BranchesController do
       it "should create a branch" do
         lambda do
           post :create, :branch => @attr
-        end.should change(Branch, :count).by(1)
+        end.should change(Branch, :count).by(1) 
       end
             
       it "should redirect to the dashboard page" do
@@ -78,7 +63,7 @@ describe BranchesController do
         flash[:notice].should  match(/success/i)
       end
     end   #describe "success" do
-  end
+  end  # describe "POST 'create'" do
 #--------------------------------------#
 
  # UPDATE
@@ -86,38 +71,171 @@ describe BranchesController do
 
     describe "with valid params" do
       before(:each) do
+      	#Here the update_attributes() of @branch is stubbed, not that of Branch.
         @branch = mock_model(Branch, :update_attributes => true)
         Branch.stub!(:find).with("1").and_return(@branch)
       end
-      
-      it "should find branch and return object" do
+      it "should find and update the branch" do
         Branch.should_receive(:find).with("1").and_return(@branch)
       	@branch.should_receive(:update_attributes).and_return(true)
       	put :update, :id => "1", :branch => {}
+      end
+      it "should display success notice and redirect to dashboard" do
+      	put :update, :id => "1", :branch => {}
       	flash[:notice].should match(/success/i) 
       	response.should redirect_to dashboard_path
+      end      
+    end
+    
+    describe "with invalid params" do 
+      before(:each) do
+      	#When we need to render the edit template, the attributes should not be null.
+      	#So, the attributes have to valid ones, unlike the successful tests above
+	    @branch=mock_model(Branch, FactoryGirl.attributes_for(:branch))
+        Branch.stub!(:find).with("#{@branch.id}").and_return(@branch)
+        @branch.stub!(:update_attributes).and_return(false)
       end
+      it "should find and update the particular instance" do 
+        Branch.should_receive(:find).with("#{@branch.id}").and_return(@branch)  
+      	@branch.should_receive(:update_attributes).and_return(false)      	
+      	put :update, :id => @branch
+      end
+      it "should render the edit template" do 
+      	put :update, :id => @branch
+ 		response.should be_successful
+  		response.should render_template(:edit)
+      end      
     end
-  end
-#--------------------------------------#
-
- # EDIT
-  describe "GET edit" do
-
-    before(:each) do
-      #Using stub, optional!
-      #@branch = stub_model(Branch)
-      @branch = mock_model(Branch, :id => 1, :name => "aaa", :address => "aaa", :resource_type_id => 2)
-      Branch.stub!(:find).with("1").and_return(@branch)
+  end #End -   describe "PUT branches/:id" do
+#--------------------------------------# 
+  describe "GET" do
+    before do
+      #All the associations (Faculties, subjects and clazzs have been created in branches.rb factory)
+      #If you try to create again, it will give uniqueness error
+      @branch = FactoryGirl.create(:branch)
+      Branch.stub!(:find).with("#{@branch.id}").and_return(@branch)
+    end     
+    it "new returns http success" do
+      get :new
+      response.should be_success
     end
-      
-    it "should find branch and return object" do
-      Branch.should_receive(:find).with("1").and_return(@branch) 
+    it "new should have the right title" do
+      get :new
+      response.should have_selector("title", :content => "New")
+    end        
+    it "edit should find branch and return object" do
+      Branch.should_receive(:find).with("#{@branch.id}").and_return(@branch) 
       get :edit, :id => @branch
       #If we have used stub_model, then the call should be
       #get :edit, :id => "1", :branch => {}
       response.should be_success
       response.should have_selector("title", :content => "Edit")
+    end   
+    it " facultynew should find and update branch " do
+      Branch.should_receive(:find).with("#{@branch.id}").and_return(@branch) 
+      get :facultynew, :id => @branch
+      response.should be_success
+      response.should have_selector("title", :content => "New Faculty")
+    end  
+    it "subjectnew should find and update branch" do
+      Branch.should_receive(:find).with("#{@branch.id}").and_return(@branch) 
+      get :subjectnew, :id => @branch
+      response.should be_success
+      response.should have_selector("title", :content => "New Subject")
+    end
+    it " clazznew should find and update branch" do
+      Branch.should_receive(:find).with("#{@branch.id}").and_return(@branch) 
+      get :clazznew, :id => @branch
+      response.should be_success
+      response.should have_selector("title", :content => "New Class")
+    end    
+    after do
+    	@branch.delete
     end
   end
+#--------------------------------------# 
+  describe "PUT facultycreate/:id" do
+  	before do
+      @branch = FactoryGirl.create(:branch)
+      Branch.stub!(:find).with("#{@branch.id}").and_return(@branch)
+    end
+  	describe "with valid values for update" do
+      before do
+       @branch.stub!(:update_attributes).and_return(true)
+      end
+      it "should find and update the particular instance" do 
+        Branch.should_receive(:find).with("#{@branch.id}").and_return(@branch)  
+     	@branch.should_receive(:update_attributes).and_return(true)      	
+     	put :facultycreate, :id => @branch
+      end
+      it "should redirect to dashboard with success notice" do 
+     	put :facultycreate, :id => @branch
+     	flash[:notice].should match(/success/i) 
+     	response.should redirect_to dashboard_path  		
+      end      
+    end
+    
+    describe "with valid invaid values for update" do
+      before do
+        @branch.stub!(:update_attributes).and_return(false)
+      end
+      it "should find and update the particular instance" do 
+        Branch.should_receive(:find).with("#{@branch.id}").and_return(@branch)  
+      	@branch.should_receive(:update_attributes).and_return(false)      	
+      	put :facultycreate, :id => @branch
+      end
+      it "should render the facultynew template" do 
+      	put :facultycreate, :id => @branch
+      	response.should render_template(:facultynew)		
+      end   
+    end    
+    after do
+    	@branch.delete
+    end
+  end #End of describe "PUT facultycreate/:id" do
+  
+#--------------------------------------#   
+
+  describe "PUT clazzcreate/:id" do
+  	before do
+      @branch = FactoryGirl.create(:branch)
+      Branch.stub!(:find).with("#{@branch.id}").and_return(@branch)
+    end
+  	describe "with valid values for update" do
+      before do
+       @branch.stub!(:update_attributes).and_return(true)
+      end
+     it "should find and update the particular instance" do 
+       Branch.should_receive(:find).with("#{@branch.id}").and_return(@branch)  
+     	@branch.should_receive(:update_attributes).and_return(true)      	
+     	put :clazzcreate, :id => @branch
+     end
+     it "should redirect to dashboard with success notice" do 
+     	put :clazzcreate, :id => @branch
+     	flash[:notice].should match(/success/i) 
+     	response.should redirect_to dashboard_path  		
+     end      
+    end
+    
+    describe "with valid invaid values for update" do
+      before do
+        @branch.stub!(:update_attributes).and_return(false)
+      end
+      it "should find and update the particular instance" do 
+        Branch.should_receive(:find).with("#{@branch.id}").and_return(@branch)  
+      	@branch.should_receive(:update_attributes).and_return(false)      	
+      	put :clazzcreate, :id => @branch
+      end
+      it "should render the clazznew template" do 
+      	put :clazzcreate, :id => @branch
+      	response.should render_template(:clazznew)		
+      end   
+    end    
+    after do
+      @branch.delete
+    end
+  end #End of describe "PUT clazzcreate/:id" do
+  
+#--------------------------------------#   
+  
 end

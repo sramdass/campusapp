@@ -23,3 +23,12 @@ end
 if !Branch.first
   Branch.create!(name: "Jawahar", address: "Neyveli-15", resource_type_id: 1)
 end
+
+["2010-11", "2011-12", "2012-13", "2013-14"].each do |yr|
+  Year.find_or_create_by_year_and_current(:year => yr, :current=>false)
+end
+
+#set the current_year.
+yr = Year.find_by_year("2011-12")
+yr.current=true
+yr.save!

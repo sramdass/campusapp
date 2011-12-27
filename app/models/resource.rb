@@ -9,5 +9,5 @@
 #
 
 class Resource < ActiveRecord::Base
-  has_many :resource_types
+  has_many :resource_types, :dependent => :destroy
 end

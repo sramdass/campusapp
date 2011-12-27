@@ -58,6 +58,8 @@
             <string>..\white_reports\app\views\branches\_branches.html.erb</string>
             <key>_branch</key>
             <string>..\white_reports\app\views\branches\_branches.html.erb</string>
+            <key>_branch_fields</key>
+            <string>app\views\branches\_branch_fields.html.erb</string>
             <key>_branchn</key>
             <string>..\white_reports\app\views\institutions\_branchnew.html.erb</string>
             <key>_branchnew</key>
@@ -464,6 +466,8 @@
             <string>app\views\branches\facultynew.erb</string>
             <key>facnew</key>
             <string>app\views\branches\facultynew.erb</string>
+            <key>facto</key>
+            <string>spec\factories.rb</string>
             <key>factories</key>
             <string>spec\factories.rb</string>
             <key>facult.rb</key>
@@ -722,6 +726,8 @@
             <string>..\white_reports\app\views\sections\_report_options.html.erb</string>
             <key>reso</key>
             <string>app\models\resource.rb</string>
+            <key>resourc</key>
+            <string>app\models\resource.rb</string>
             <key>resource_on_schedulers.rb</key>
             <string>..\white_reports\db\migrate\20111110130508_rename_resource_on_schedulers.rb</string>
             <key>role</key>
@@ -874,6 +880,8 @@
             <string>..\white_reports\spec\controllers\sections_controller_spec.rb</string>
             <key>secure_ran</key>
             <string>..\white_reports\annotate\ruby\1.8\gems\activesupport-3.0.9\lib\active_support\secure_random.rb</string>
+            <key>seeds.rb</key>
+            <string>db\seeds.rb</string>
             <key>session.rb</key>
             <string>..\white_reports\annotate\ruby\1.8\gems\rack-test-0.5.7\lib\rack\mock_session.rb</string>
             <key>sessions</key>
@@ -1048,6 +1056,8 @@
             <string>..\white_reports\db\migrate\20111116124955_add_time_to_sec_test_maps.rb</string>
             <key>timetable</key>
             <string>..\white_reports\app\models\time_table.rb</string>
+            <key>tips</key>
+            <string>ruby on rails_tips.txt</string>
             <key>tnew</key>
             <string>..\white_reports\app\views\schools\tnew.html.erb</string>
             <key>to_Fac</key>
