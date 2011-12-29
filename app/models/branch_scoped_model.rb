@@ -10,6 +10,6 @@ class BranchScopedModel < ActiveRecord::Base
   end
 
   belongs_to :branch
-  default_scope lambda { where('branch_id = ?', Branch.current) }
-  before_save { self.branch_id = Branch.current }	
+  #default_scope lambda { where('branch_id = ?', Branch.current) }
+  #before_save { self.branch_id = Branch.current }	
 end

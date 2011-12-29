@@ -22,6 +22,12 @@ describe BranchesController do
   end
 =end
 #--------------------------------------#
+  before do
+  	#Branch.delete_all
+  	Faculty.delete_all
+  	Subject.delete_all
+  	Clazz.delete_all  	
+  end
 
   describe "POST 'create'" do
     
@@ -43,8 +49,8 @@ describe BranchesController do
     end #describe "failure" do
     
     describe "success" do
-      before(:each) do
-        @attr = { :name => "Cluny", :address => "Neyveli", :resource_type_id => ResourceType.find_by_name("School").id}
+      before do
+        @attr = FactoryGirl.attributes_for(:branch)
       end
 
       it "should create a branch" do
@@ -62,6 +68,10 @@ describe BranchesController do
         post :create, :branch => @attr
         flash[:notice].should  match(/success/i)
       end
+      
+      after(:each) do
+	    #Branch.delete_all
+	  end
     end   #describe "success" do
   end  # describe "POST 'create'" do
 #--------------------------------------#
@@ -70,10 +80,11 @@ describe BranchesController do
   describe "PUT branches/:id" do
 
     describe "with valid params" do
-      before(:each) do
+      before do
       	#Here the update_attributes() of @branch is stubbed, not that of Branch.
-        @branch = mock_model(Branch, :update_attributes => true)
+        @branch = Factory(:branch)
         Branch.stub!(:find).with("1").and_return(@branch)
+        @branch.stub!(:update_attributes).and_return(true)
       end
       it "should find and update the branch" do
         Branch.should_receive(:find).with("1").and_return(@branch)
@@ -85,13 +96,14 @@ describe BranchesController do
       	flash[:notice].should match(/success/i) 
       	response.should redirect_to dashboard_path
       end      
+      after do
+      	#Branch.delete_all
+      end
     end
     
     describe "with invalid params" do 
-      before(:each) do
-      	#When we need to render the edit template, the attributes should not be null.
-      	#So, the attributes have to valid ones, unlike the successful tests above
-	    @branch=mock_model(Branch, FactoryGirl.attributes_for(:branch))
+      before do
+	    @branch = Factory(:branch)
         Branch.stub!(:find).with("#{@branch.id}").and_return(@branch)
         @branch.stub!(:update_attributes).and_return(false)
       end
@@ -104,15 +116,16 @@ describe BranchesController do
       	put :update, :id => @branch
  		response.should be_successful
   		response.should render_template(:edit)
-      end      
+      end   
+      after do
+      	#Branch.delete_all
+      end         
     end
   end #End -   describe "PUT branches/:id" do
 #--------------------------------------# 
   describe "GET" do
     before do
-      #All the associations (Faculties, subjects and clazzs have been created in branches.rb factory)
-      #If you try to create again, it will give uniqueness error
-      @branch = FactoryGirl.create(:branch)
+      @branch = Factory(:branch_with_all)
       Branch.stub!(:find).with("#{@branch.id}").and_return(@branch)
     end     
     it "new returns http success" do
@@ -150,16 +163,19 @@ describe BranchesController do
       response.should have_selector("title", :content => "New Class")
     end    
     after do
-    	@branch.delete
-    end
+      #Branch.delete_all
+      Faculty.delete_all
+      Subject.delete_all
+      Clazz.delete_all
+    end    
   end
 #--------------------------------------# 
   describe "PUT facultycreate/:id" do
-  	before do
-      @branch = FactoryGirl.create(:branch)
+  	before do 
+      @branch = Factory(:branch_with_all)
       Branch.stub!(:find).with("#{@branch.id}").and_return(@branch)
     end
-  	describe "with valid values for update" do
+  	describe "with valid values for update" do 
       before do
        @branch.stub!(:update_attributes).and_return(true)
       end
@@ -171,7 +187,7 @@ describe BranchesController do
       it "should redirect to dashboard with success notice" do 
      	put :facultycreate, :id => @branch
      	flash[:notice].should match(/success/i) 
-     	response.should redirect_to dashboard_path  		
+     	response.should redirect_to dashboard_path 
       end      
     end
     
@@ -190,15 +206,18 @@ describe BranchesController do
       end   
     end    
     after do
-    	@branch.delete
-    end
+  	  #Branch.delete_all
+      Faculty.delete_all
+      Subject.delete_all
+      Clazz.delete_all
+    end    
   end #End of describe "PUT facultycreate/:id" do
   
 #--------------------------------------#   
 
   describe "PUT clazzcreate/:id" do
   	before do
-      @branch = FactoryGirl.create(:branch)
+      @branch = Factory(:branch_with_all)
       Branch.stub!(:find).with("#{@branch.id}").and_return(@branch)
     end
   	describe "with valid values for update" do
@@ -232,10 +251,18 @@ describe BranchesController do
       end   
     end    
     after do
-      @branch.delete
-    end
+      #Branch.delete_all
+      Faculty.delete_all
+      Subject.delete_all
+      Clazz.delete_all
+    end    
   end #End of describe "PUT clazzcreate/:id" do
   
 #--------------------------------------#   
-  
+  after do
+  	#Branch.delete_all
+  	Faculty.delete_all
+  	Subject.delete_all
+  	Clazz.delete_all  	
+  end
 end

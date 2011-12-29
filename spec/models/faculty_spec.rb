@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: faculties
+#
+#  id               :integer         not null, primary key
+#  name             :string(255)
+#  female           :boolean
+#  date_joined      :date
+#  date_departed    :date
+#  branch_id        :integer
+#  resource_type_id :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#  id_no            :string(255)
+#
+
 require 'spec_helper'
 
 describe Faculty do

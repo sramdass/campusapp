@@ -330,12 +330,18 @@
             <string>..\white_reports\app\views\institutions\_branch_fields.html.erb</string>
             <key>branch_s</key>
             <string>spec\models\branch_spec.rb</string>
+            <key>branch_sc</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>branch_sco</key>
             <string>app\models\branch_scoped_model.rb</string>
             <key>branch_spec</key>
             <string>spec\models\branch_spec.rb</string>
             <key>branch_spec.r</key>
             <string>spec\models\branch_spec.rb</string>
+            <key>branch_spec.rb</key>
+            <string>spec\models\branch_spec.rb</string>
+            <key>branchecontspec</key>
+            <string>spec\controllers\branches_controller_spec.rb</string>
             <key>branches</key>
             <string>..\white_reports\app\controllers\branches_controller.rb</string>
             <key>branches_c</key>
@@ -351,6 +357,8 @@
             <key>branchnew</key>
             <string>..\white_reports\app\views\institutions\_branchnew.html.erb</string>
             <key>branchspec</key>
+            <string>spec\models\branch_spec.rb</string>
+            <key>branchspec.rb</key>
             <string>spec\models\branch_spec.rb</string>
             <key>brancontsp</key>
             <string>spec\controllers\branches_controller_spec.rb</string>
@@ -469,6 +477,8 @@
             <key>facto</key>
             <string>spec\factories.rb</string>
             <key>factories</key>
+            <string>spec\factories.rb</string>
+            <key>factories.r</key>
             <string>spec\factories.rb</string>
             <key>facult.rb</key>
             <string>app\models\faculty.rb</string>
@@ -924,6 +934,8 @@
             <string>..\white_reports\app\views\teachers\_sms_fields.html.erb</string>
             <key>smsnew</key>
             <string>..\white_reports\app\views\teachers\_smsnew.html.erb</string>
+            <key>spec_he</key>
+            <string>spec\spec_helper.rb</string>
             <key>spec_hel</key>
             <string>spec\spec_helper.rb</string>
             <key>stack</key>
@@ -1072,6 +1084,10 @@
             <string>app\models\user_profile.rb</string>
             <key>user_profile.rb</key>
             <string>app\models\user_profile.rb</string>
+            <key>user_profile_sp</key>
+            <string>spec\models\user_profile_spec.rb</string>
+            <key>user_profiles.rb</key>
+            <string>spec\factories\user_profiles.rb</string>
             <key>user_profiles_C</key>
             <string>app\controllers\user_profiles_controller.rb</string>
             <key>userp.rb</key>

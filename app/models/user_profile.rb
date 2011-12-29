@@ -1,6 +1,24 @@
+# == Schema Information
+#
+# Table name: user_profiles
+#
+#  id                     :integer         not null, primary key
+#  login                  :string(255)
+#  password_hash          :string(255)
+#  password_salt          :string(255)
+#  password_reset_token   :string(255)
+#  auth_token             :string(255)
+#  password_reset_sent_at :datetime
+#  user_type              :string(255)
+#  user_id                :integer
+#  created_at             :datetime
+#  updated_at             :datetime
+#  branch_id              :integer
+#
+
 class UserProfile < ActiveRecord::Base
   belongs_to :user, :polymorphic => true
-  attr_accessible :login, :password, :password_confirmation, :role_ids
+  attr_accessible :login, :password, :password_confirmation, :user, :branch
   belongs_to :branch
   validates_presence_of :branch
   
@@ -10,6 +28,7 @@ class UserProfile < ActiveRecord::Base
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
+  validates_length_of :value, :minimum => 6, :maximum => 50
   validates_presence_of :login
   validates_uniqueness_of :login
 

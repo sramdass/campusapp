@@ -13,9 +13,15 @@
 require 'spec_helper'
 
 describe Branch do
+  before do
+  	Branch.delete_all
+  	Faculty.delete_all
+  	Subject.delete_all
+  	Clazz.delete_all  	
+  end	
 
   before(:each) do
-    @attr = { :name => "Jawahar", :address => "Neyveli-15", :resource_type_id => 2 }
+    @attr = FactoryGirl.attributes_for(:branch)
     @branch = Branch.new
   end
 
@@ -53,5 +59,11 @@ describe Branch do
   end  
   it "should respond to resource_type (association)" do
     @branch.should respond_to(:resource_type)
-  end        
+  end       
+  after do
+  	Branch.delete_all
+  	Faculty.delete_all
+  	Subject.delete_all
+  	Clazz.delete_all  	
+  end   
 end

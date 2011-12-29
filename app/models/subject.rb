@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: subjects
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  branch_id  :integer
+#  year_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Subject < BranchScopedModel
   belongs_to :year
   validates_presence_of :year
