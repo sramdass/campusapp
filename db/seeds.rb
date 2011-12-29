@@ -21,7 +21,7 @@ res = Resource.find_by_name!("Faculty")
 end
 
 if !Branch.first
-  Branch.create!(name: "Jawahar", address: "Neyveli-15", resource_type_id: 1)
+  Branch.create!(name: "Jawahar", address: "Neyveli-15", resource_type_id: ResourceType.find_by_name("School").id)
 end
 
 ["2010-11", "2011-12", "2012-13", "2013-14"].each do |yr|

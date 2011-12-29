@@ -22,12 +22,6 @@ describe BranchesController do
   end
 =end
 #--------------------------------------#
-  before do
-  	#Branch.delete_all
-  	Faculty.delete_all
-  	Subject.delete_all
-  	Clazz.delete_all  	
-  end
 
   describe "POST 'create'" do
     
@@ -68,43 +62,34 @@ describe BranchesController do
         post :create, :branch => @attr
         flash[:notice].should  match(/success/i)
       end
-      
-      after(:each) do
-	    #Branch.delete_all
-	  end
     end   #describe "success" do
   end  # describe "POST 'create'" do
 #--------------------------------------#
 
  # UPDATE
   describe "PUT branches/:id" do
-
+    before do
+      @branch = Factory(:branch)
+      Branch.stub!(:find).with("#{@branch.id}").and_return(@branch)
+    end
     describe "with valid params" do
-      before do
-      	#Here the update_attributes() of @branch is stubbed, not that of Branch.
-        @branch = Factory(:branch)
-        Branch.stub!(:find).with("1").and_return(@branch)
+      before do        
         @branch.stub!(:update_attributes).and_return(true)
       end
       it "should find and update the branch" do
-        Branch.should_receive(:find).with("1").and_return(@branch)
+        Branch.should_receive(:find).with("#{@branch.id}").and_return(@branch)
       	@branch.should_receive(:update_attributes).and_return(true)
-      	put :update, :id => "1", :branch => {}
+      	put :update, :id => @branch.id
       end
       it "should display success notice and redirect to dashboard" do
-      	put :update, :id => "1", :branch => {}
+      	put :update, :id => @branch.id
       	flash[:notice].should match(/success/i) 
       	response.should redirect_to dashboard_path
       end      
-      after do
-      	#Branch.delete_all
-      end
     end
     
     describe "with invalid params" do 
       before do
-	    @branch = Factory(:branch)
-        Branch.stub!(:find).with("#{@branch.id}").and_return(@branch)
         @branch.stub!(:update_attributes).and_return(false)
       end
       it "should find and update the particular instance" do 
@@ -113,18 +98,15 @@ describe BranchesController do
       	put :update, :id => @branch
       end
       it "should render the edit template" do 
-      	put :update, :id => @branch
- 		response.should be_successful
+      	put :update, :id => @branch, :branch => {}
+ 		#response.should be_successful
   		response.should render_template(:edit)
       end   
-      after do
-      	#Branch.delete_all
-      end         
     end
   end #End -   describe "PUT branches/:id" do
 #--------------------------------------# 
   describe "GET" do
-    before do
+    before(:all) do
       @branch = Factory(:branch_with_all)
       Branch.stub!(:find).with("#{@branch.id}").and_return(@branch)
     end     
@@ -162,12 +144,6 @@ describe BranchesController do
       response.should be_success
       response.should have_selector("title", :content => "New Class")
     end    
-    after do
-      #Branch.delete_all
-      Faculty.delete_all
-      Subject.delete_all
-      Clazz.delete_all
-    end    
   end
 #--------------------------------------# 
   describe "PUT facultycreate/:id" do
@@ -201,15 +177,9 @@ describe BranchesController do
       	put :facultycreate, :id => @branch
       end
       it "should render the facultynew template" do 
-      	put :facultycreate, :id => @branch
+      	put :facultycreate, :id => @branch, :branch => {}
       	response.should render_template(:facultynew)		
       end   
-    end    
-    after do
-  	  #Branch.delete_all
-      Faculty.delete_all
-      Subject.delete_all
-      Clazz.delete_all
     end    
   end #End of describe "PUT facultycreate/:id" do
   
@@ -250,19 +220,14 @@ describe BranchesController do
       	response.should render_template(:clazznew)		
       end   
     end    
-    after do
-      #Branch.delete_all
-      Faculty.delete_all
-      Subject.delete_all
-      Clazz.delete_all
-    end    
   end #End of describe "PUT clazzcreate/:id" do
   
 #--------------------------------------#   
-  after do
-  	#Branch.delete_all
-  	Faculty.delete_all
-  	Subject.delete_all
-  	Clazz.delete_all  	
+  after(:all) do
+  	# we cannot fire the delete commands right after the individual tests. 
+  	#The tests with mock_models does not expect another :find (because of :delete).
+  	#These will throw an error
+  	delete_extra_resources
   end
+
 end

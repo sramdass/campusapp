@@ -28,7 +28,7 @@ class UserProfile < ActiveRecord::Base
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
-  validates_length_of :value, :minimum => 6, :maximum => 50
+  validates_length_of :password, :minimum => 6, :maximum => 50
   validates_presence_of :login
   validates_uniqueness_of :login
 

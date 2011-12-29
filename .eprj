@@ -272,6 +272,8 @@
             <string>..\white_reports\public\javascripts\application.js</string>
             <key>application.js</key>
             <string>app\assets\javascripts\application.js</string>
+            <key>application.rb</key>
+            <string>config\application.rb</string>
             <key>application_</key>
             <string>..\white_reports\app\helpers\application_helper.rb</string>
             <key>application_c</key>
@@ -334,6 +336,8 @@
             <string>app\models\branch_scoped_model.rb</string>
             <key>branch_sco</key>
             <string>app\models\branch_scoped_model.rb</string>
+            <key>branch_scp</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>branch_spec</key>
             <string>spec\models\branch_spec.rb</string>
             <key>branch_spec.r</key>
@@ -356,6 +360,8 @@
             <string>..\white_reports\app\views\institutions\branchnew.html.erb</string>
             <key>branchnew</key>
             <string>..\white_reports\app\views\institutions\_branchnew.html.erb</string>
+            <key>branchscopedmod</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>branchspec</key>
             <string>spec\models\branch_spec.rb</string>
             <key>branchspec.rb</key>
@@ -659,7 +665,7 @@
             <key>negative_St</key>
             <string>..\white_reports\app\views\marks\negative_stack.html.erb</string>
             <key>new</key>
-            <string>app\views\faculties\new.html.erb</string>
+            <string>app\views\user_profiles\new.html.erb</string>
             <key>new.ht</key>
             <string>..\white_reports\spec\views\institutions\new.html.erb_spec.rb</string>
             <key>new.htm</key>
@@ -890,6 +896,8 @@
             <string>..\white_reports\spec\controllers\sections_controller_spec.rb</string>
             <key>secure_ran</key>
             <string>..\white_reports\annotate\ruby\1.8\gems\activesupport-3.0.9\lib\active_support\secure_random.rb</string>
+            <key>seed.rb</key>
+            <string>db\seeds.rb</string>
             <key>seeds.rb</key>
             <string>db\seeds.rb</string>
             <key>session.rb</key>
@@ -1076,16 +1084,22 @@
             <string>db\migrate\20111222030629_add_id_no_to_faculties.rb</string>
             <key>upcon</key>
             <string>app\controllers\user_profiles_controller.rb</string>
+            <key>useprof.rb</key>
+            <string>app\models\user_profile.rb</string>
             <key>user.r</key>
             <string>..\dynamic_models\app\models\user.rb</string>
             <key>user.rb</key>
             <string>C:\Users\sramdass.PSFT\Desktop\ruby\source\stffn-decl_auth_demo_app-b1c29dc\stffn-decl_auth_demo_app-b1c29dc\app\models\user.rb</string>
+            <key>user_profile</key>
+            <string>spec\models\user_profile_spec.rb</string>
             <key>user_profile.r</key>
             <string>app\models\user_profile.rb</string>
             <key>user_profile.rb</key>
             <string>app\models\user_profile.rb</string>
             <key>user_profile_sp</key>
             <string>spec\models\user_profile_spec.rb</string>
+            <key>user_profilecont</key>
+            <string>app\controllers\user_profiles_controller.rb</string>
             <key>user_profiles.rb</key>
             <string>spec\factories\user_profiles.rb</string>
             <key>user_profiles_C</key>
