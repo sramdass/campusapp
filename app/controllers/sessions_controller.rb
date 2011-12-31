@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
   #set the tenant branch only after the user logs in
   skip_before_filter :set_tenant_branch
   def new
+  	if current_profile
+  	  redirect_to dashboard_path
+  	end
   end
 
   def create

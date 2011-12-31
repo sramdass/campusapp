@@ -1,3 +1,4 @@
+$(function() {	
 $(".ajaxified a").live("click", function() {
   $.getScript(this.href);
   return false;
@@ -15,3 +16,11 @@ function add_fields(link, association, content) {
   /*$(link).parent().parent().before(content.replace(regexp, new_id));*/
   $(".input_form_table").append(content.replace(regexp, new_id));
 }
+
+$( ".datepicker" ).datepicker({
+		dateFormat: 'd MM, yy',
+		changeMonth: true,
+		changeYear: true,
+		showOtherMonths: true			
+	});
+});

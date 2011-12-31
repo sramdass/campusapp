@@ -3,6 +3,12 @@
 	<h1><%= @clazz.name %> </h1><br>
 	Branch name: <%= @clazz.branch.name %> <br>
 	Applicable to year: <%= @clazz.year.year %>
+	
+	<h2> Class Links </h2>
+	
+	<%= link_to "Quick add section", sectionnew_clazz_path(@clazz)%><br>
+	<%= link_to "Add a section", new_section_path(:clazz_id => @clazz.id)%><br>
+	<%= link_to "Section for this class", sections_path(:clazz_id => @clazz.id) %><br>
 	<p>
 		<%= link_to "Edit this Class", edit_clazz_path(@clazz) %>
 	</p>

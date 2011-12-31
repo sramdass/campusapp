@@ -1,0 +1,71 @@
+<!-- The alignments are bit messy here! Handle with care-->
+
+<!-- Initialize the variables here (to be safe if there is nil) -->
+<% subjects = section.clazz.branch.subjects ||= [] %>
+<% faculties = section.clazz.branch.faculties ||= [] %>
+<% exams = section.clazz.branch.exams ||= [] %>
+
+<%= form_for section do |f| %> 
+	<div id='form-table-div' style="width:860px;">
+		<p class='heading2'> Test Schedule </p>
+		<span >	
+			<table class="form-table" summary="Section Tests">
+			    <tbody>	
+			    		<tr><th>Tests</th><th>Start Date</th><th>End Date</th></tr>	    	
+						<% for exam in exams %>
+						<% if section.exams.include?(exam) %>
+					        <% startdate = exam.sec_exam_maps.find_by_section_id(section.id).startdate %>							 							
+					        <% enddate = exam.sec_exam_maps.find_by_section_id(section.id).enddate %>
+					        <% startdate = startdate.strftime("%d %B, %Y").to_s if startdate%>
+					        <% enddate = enddate.strftime("%d %B, %Y").to_s if enddate%>
+						<% else %>						        
+							<% startdate = enddate = nil %>
+						<% end %>
+						<tr> 
+							<td>
+								 <%= check_box_tag "section[exam_ids][]", exam.id, section.exams.include?(exam) %> <%= exam.name  %> 
+							 </td>
+							 <td>
+								<%= text_field_tag  "startdate[#{exam.id}]",  startdate, :class => 'datepicker' %> 							
+							</td>
+							 <td>
+								<%= text_field_tag  "enddate[#{exam.id}]",  enddate, :class => 'datepicker' %> 							
+							</td>							
+						</tr>
+						<% end %>	
+				</tbody>
+			</table>	
+		</span>
+		<p class='heading2'> Subjects and Teachers </p>		
+		<span>
+			<table class="form-table"  summary="Section Subjects">
+			    <tbody>
+			    	<tr><th>Subject</th><th>Teacher</th></tr>
+					<% for subject in subjects %>
+						<tr>
+							<td>
+							 	<%= check_box_tag "section[subject_ids][]", subject.id, section.subjects.include?(subject) %> <%= subject.name  %> 
+							</td>					
+							<% if section.subjects.include?(subject) %>
+						        <% t_id = subject.sec_sub_maps.find_by_section_id(section.id).faculty_id %>
+						    <% else %>
+						    	<% t_id = 0%>
+							<%  end %> 		
+							<td>
+								<%= select( "faculty", "#{subject.id}", faculties.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None', :selected => t_id}) %> 
+							</td>
+						</tr>
+					<% end %>					
+				</tbody>
+			</table>	
+		</span>		
+					<p class='button'> <%= f.submit "Update section" %> </p>
+	</div>	
+<% end %>
+
+
+
+
+
+
+

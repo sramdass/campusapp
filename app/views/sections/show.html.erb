@@ -1,0 +1,29 @@
+<div id="main-column">
+	User profile branch: <%= current_profile.branch.name%>
+	<h1><%= @section.name %> </h1>
+	<h2>Class: <%= @section.clazz.name %> </h2>
+	<h3>Branch: <%= @section.clazz.branch.name %> </h3>
+	<h3>Class Teacher: <%= @section.faculty.name %>
+	<h3>Subjects </h3>
+		<ol>
+			<% @section.sec_sub_maps.each do |map| %>
+			<li> <%= map.subject.name %> - <%= map.faculty.name %> </li>
+			<% end %>
+		</ol>
+	<h3>Tests </h3>
+		<ol>
+			<% @section.sec_exam_maps.each do |map| %>
+			<li> 
+				<%= map.exam.name %> - 
+				start: &nbsp; <%= map.startdate.strftime("%d %B, %Y").to_s if map.startdate %>   &nbsp;&nbsp;
+				end: &nbsp; <%= map.enddate.strftime("%d %B, %Y").to_s if map.enddate %>   
+			</li>
+			<% end %>
+		</ol>		
+	<p>
+		<%= link_to "Edit this Section", edit_section_path(@section) %>
+	</p>
+</div>
+
+	
+

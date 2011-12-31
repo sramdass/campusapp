@@ -19,8 +19,14 @@ Campusapp::Application.routes.draw do
     end 	
   end
   resources :faculties
-  resources :clazzs
+  resources :clazzs do
+    member do
+      get 'sectionnew'
+      put 'sectioncreate'
+    end
+  end
   resources :subjects
   resources :exams
+  resources :sections
   root :to => 'sessions#new'
 end

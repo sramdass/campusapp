@@ -19,4 +19,16 @@ class Clazz < BranchScopedModel
   validates 	:name, 	:presence => true, 
                						:length => {:maximum => 30},
                						:uniqueness => true
+               						
+  has_many :sections, :dependent => :destroy
+  accepts_nested_attributes_for :sections, :reject_if => :has_only_destroy?, :allow_destroy => true      
+  
+  def has_only_destroy?(attrs)
+    attrs.each do |k,v|
+     if k !="_destroy" && !v.blank?
+       return false
+     end
+    end
+    return true	
+  end		           						
 end

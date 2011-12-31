@@ -1,0 +1,18 @@
+<%= form_for([@clazz], { :url => { :action => "sectioncreate" } }) do |f| %>		
+	<%= render 'shared/error_messages', :target => @clazz %>
+	<table class="input_form_table"  summary="Section details">
+	<thead>
+    	<tr>
+        	<th scope="col">Name</th>
+            <th scope="col">Class Teacher</th>
+            <th scope="col">Delete</th>            
+        </tr>
+    </thead>
+    <tbody>	
+		<%= f.fields_for :sections do |builder| %>	
+	 		<%= render "section_fields", :f => builder %>	 	  
+		<% end %>
+	</table>   
+ 	<p class='add-button'> <%= link_to_add_fields "Add Section", f, :sections %> </p>	 	
+    <p class='button'> 	<%= f.submit  "Update Sections" %>
+<% end %>

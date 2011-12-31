@@ -40,5 +40,19 @@ class ClazzsController < ApplicationController
     @clazz.destroy
      redirect_to clazzs_path
   end
+  
+  def sectionnew
+    @clazz = Clazz.find(params[:id])
+  	@faculties = @clazz.branch.faculties
+  end
+  
+  def sectioncreate
+    @clazz = Clazz.find(params[:id])
+    if @clazz.update_attributes(params[:clazz])
+	  redirect_to(@clazz	, :notice => ' Sections were successfully updated.') 
+    else
+	  render :sectionnew      	        
+    end
+  end  
 
 end

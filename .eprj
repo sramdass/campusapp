@@ -85,7 +85,7 @@
             <key>_facu</key>
             <string>app\views\faculties\_faculty_fields.html.erb</string>
             <key>_form</key>
-            <string>app\views\faculties\_form.html.erb</string>
+            <string>app\views\sections\_form.html.erb</string>
             <key>_form.</key>
             <string>..\white_reports\app\views\schools\_form.html.erb</string>
             <key>_instit</key>
@@ -342,6 +342,8 @@
             <string>app\models\branch_scoped_model.rb</string>
             <key>branch_sco</key>
             <string>app\models\branch_scoped_model.rb</string>
+            <key>branch_scope</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>branch_scp</key>
             <string>app\models\branch_scoped_model.rb</string>
             <key>branch_spec</key>
@@ -368,7 +370,11 @@
             <string>..\white_reports\app\views\institutions\branchnew.html.erb</string>
             <key>branchnew</key>
             <string>..\white_reports\app\views\institutions\_branchnew.html.erb</string>
+            <key>branchscoped</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>branchscopedmod</key>
+            <string>app\models\branch_scoped_model.rb</string>
+            <key>branchscopedmodel</key>
             <string>app\models\branch_scoped_model.rb</string>
             <key>branchspec</key>
             <string>spec\models\branch_spec.rb</string>
@@ -422,6 +428,10 @@
             <string>C:\Users\sramdass.PSFT\Desktop\ruby\source\stffn-decl_auth_demo_app-b1c29dc\stffn-decl_auth_demo_app-b1c29dc\app\models\conference.rb</string>
             <key>constat</key>
             <string>..\white_reports\config\initializers\global_constants.rb</string>
+            <key>creaesectestm</key>
+            <string>db\migrate\20111231065309_create_sec_test_maps.rb</string>
+            <key>creasecsub</key>
+            <string>db\migrate\20111231065621_create_sec_sub_maps.rb</string>
             <key>create_Fa</key>
             <string>db\migrate\20111221130349_create_faculties.rb</string>
             <key>create_even</key>
@@ -534,6 +544,8 @@
             <string>spec\models\faculty_spec.rb</string>
             <key>faculty_sp</key>
             <string>spec\models\faculty_spec.rb</string>
+            <key>facultynew</key>
+            <string>app\views\branches\facultynew.html.erb</string>
             <key>fb_</key>
             <string>..\white_reports\public\stylesheets\fb_main.css</string>
             <key>fb_m</key>
@@ -550,6 +562,8 @@
             <string>..\white_reports\public\stylesheets\fb_table_styles.css</string>
             <key>fb_table</key>
             <string>..\white_reports\public\stylesheets\fb_table_styles.css</string>
+            <key>form</key>
+            <string>app\views\faculties\_form.html.erb</string>
             <key>form_St</key>
             <string>..\white_reports\public\stylesheets\form_styles.css</string>
             <key>from_sec</key>
@@ -880,6 +894,10 @@
             <string>..\white_reports\app\views\clazzs\secnew.html.erb</string>
             <key>secsu</key>
             <string>..\white_reports\app\models\sec_sub_mapper.rb</string>
+            <key>sectestma</key>
+            <string>db\migrate\20111231065309_create_sec_test_maps.rb</string>
+            <key>sectinscontro</key>
+            <string>app\controllers\sections_controller.rb</string>
             <key>sectio</key>
             <string>..\white_reports\app\models\section.rb</string>
             <key>section</key>
@@ -887,13 +905,15 @@
             <key>section.r</key>
             <string>..\white_reports\app\models\section.rb</string>
             <key>section.rb</key>
-            <string>..\white_reports\app\models\section.rb</string>
+            <string>app\models\section.rb</string>
             <key>section_an</key>
             <string>..\white_reports\app\views\marks\section_any1_graphs.html.erb</string>
             <key>section_c</key>
             <string>..\white_reports\app\controllers\sections_controller.rb</string>
             <key>section_co</key>
             <string>..\white_reports\app\controllers\sections_controller.rb</string>
+            <key>section_cont</key>
+            <string>app\controllers\sections_controller.rb</string>
             <key>section_f</key>
             <string>..\white_reports\app\views\schools\_section_fields.html.erb</string>
             <key>section_mar</key>
@@ -906,6 +926,8 @@
             <string>..\white_reports\app\views\searches\section_searches_box.html.erb</string>
             <key>section_searches</key>
             <string>..\white_reports\app\views\searches\section_searches_box.html.erb</string>
+            <key>sectionfi</key>
+            <string>app\views\clazzs\_section_fields.html.erb</string>
             <key>sections.htm</key>
             <string>..\white_reports\app\views\sections\_sections.html.erb</string>
             <key>sections_C</key>
@@ -913,7 +935,7 @@
             <key>sections_c</key>
             <string>..\white_reports\app\controllers\sections_controller.rb</string>
             <key>sections_co</key>
-            <string>..\white_reports\app\controllers\sections_controller.rb</string>
+            <string>app\controllers\sections_controller.rb</string>
             <key>sections_con</key>
             <string>..\white_reports\app\controllers\sections_controller.rb</string>
             <key>sections_cont</key>
@@ -949,7 +971,7 @@
             <key>sessions_co</key>
             <string>app\controllers\sessions_controller.rb</string>
             <key>sessions_con</key>
-            <string>..\white_reports\app\controllers\sessions_controller.rb</string>
+            <string>app\controllers\sessions_controller.rb</string>
             <key>sessions_cont</key>
             <string>app\controllers\sessions_controller.rb</string>
             <key>sessionscon</key>
@@ -957,7 +979,7 @@
             <key>setup_ma</key>
             <string>..\white_reports\config\initializers\setup_mail.rb</string>
             <key>show</key>
-            <string>app\views\subjects\show.html.erb</string>
+            <string>app\views\sections\show.html.erb</string>
             <key>show.ht</key>
             <string>..\white_reports\app\views\subjects\show.html.erb</string>
             <key>show.htm</key>
@@ -969,7 +991,7 @@
             <key>show.html.e</key>
             <string>..\white_reports\app\views\sections\show.html.erb</string>
             <key>show.html.er</key>
-            <string>..\white_reports\app\views\students\show.html.erb</string>
+            <string>app\views\clazzs\show.html.erb</string>
             <key>show.html.erb</key>
             <string>app\views\faculties\show.html.erb</string>
             <key>sms_fi</key>
