@@ -512,6 +512,8 @@
             <string>app\controllers\faculties_controller.rb</string>
             <key>faculties_con</key>
             <string>app\controllers\faculties_controller.rb</string>
+            <key>faculties_contr</key>
+            <string>app\controllers\faculties_controller.rb</string>
             <key>faculty.</key>
             <string>app\models\faculty.rb</string>
             <key>faculty.r</key>
