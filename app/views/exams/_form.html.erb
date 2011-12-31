@@ -1,0 +1,5 @@
+<%= form_for exam do |f| %>		
+	<%= render 'shared/error_messages', :target => exam %>	  
+	<%= render 'exam_fields', :f => f, :exam => exam %>
+    <p class='button'> <%= f.submit %> </p>
+<% end %>

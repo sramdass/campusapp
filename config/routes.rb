@@ -14,10 +14,13 @@ Campusapp::Application.routes.draw do
       put 'clazzcreate'      
       get 'subjectnew'
       put 'subjectcreate'
+      get 'examnew'
+      put 'examcreate'
     end 	
   end
   resources :faculties
   resources :clazzs
   resources :subjects
+  resources :exams
   root :to => 'sessions#new'
 end

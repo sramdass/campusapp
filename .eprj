@@ -362,6 +362,8 @@
             <string>app\controllers\branches_controller.rb</string>
             <key>branches_contr</key>
             <string>..\white_reports\app\controllers\branches_controller.rb</string>
+            <key>branchescont</key>
+            <string>app\controllers\branches_controller.rb</string>
             <key>branchne</key>
             <string>..\white_reports\app\views\institutions\branchnew.html.erb</string>
             <key>branchnew</key>
@@ -395,9 +397,9 @@
             <key>clazzs_C</key>
             <string>..\white_reports\app\controllers\clazzs_controller.rb</string>
             <key>clazzs_c</key>
-            <string>..\white_reports\app\controllers\clazzs_controller.rb</string>
+            <string>app\controllers\clazzs_controller.rb</string>
             <key>clazzs_con</key>
-            <string>..\white_reports\app\controllers\clazzs_controller.rb</string>
+            <string>app\controllers\clazzs_controller.rb</string>
             <key>clazzscon</key>
             <string>app\controllers\clazzs_controller.rb</string>
             <key>clazzscont</key>
@@ -426,6 +428,8 @@
             <string>..\white_reports\db\migrate\20111105104015_create_events.rb</string>
             <key>create_marks.r</key>
             <string>..\white_reports\db\migrate\20110924104013_create_marks.rb</string>
+            <key>create_s</key>
+            <string>db\migrate\20111225054948_create_subjects.rb</string>
             <key>create_sche</key>
             <string>..\white_reports\db\migrate\20111109152222_create_schedulers.rb</string>
             <key>create_su</key>
@@ -476,6 +480,10 @@
             <string>..\white_reports\app\controllers\events_controller.rb</string>
             <key>events_cont</key>
             <string>..\white_reports\app\controllers\events_controller.rb</string>
+            <key>exam.rb</key>
+            <string>app\models\exam.rb</string>
+            <key>exams_c</key>
+            <string>app\controllers\exams_controller.rb</string>
             <key>f_c_s</key>
             <string>spec\controllers\faculties_controller_spec.rb</string>
             <key>fa</key>
@@ -691,7 +699,7 @@
             <key>negative_St</key>
             <string>..\white_reports\app\views\marks\negative_stack.html.erb</string>
             <key>new</key>
-            <string>app\views\user_profiles\new.html.erb</string>
+            <string>app\views\clazzs\new.html.erb</string>
             <key>new.ht</key>
             <string>..\white_reports\spec\views\institutions\new.html.erb_spec.rb</string>
             <key>new.htm</key>
@@ -937,7 +945,7 @@
             <key>sessions_C</key>
             <string>app\controllers\sessions_controller.rb</string>
             <key>sessions_c</key>
-            <string>..\white_reports\app\controllers\sessions_controller.rb</string>
+            <string>app\controllers\sessions_controller.rb</string>
             <key>sessions_co</key>
             <string>app\controllers\sessions_controller.rb</string>
             <key>sessions_con</key>
@@ -1024,6 +1032,8 @@
             <string>..\white_reports\app\views\schools\_subject_fields.html.erb</string>
             <key>subjects_c</key>
             <string>..\white_reports\app\controllers\subjects_controller.rb</string>
+            <key>subjects_co</key>
+            <string>app\controllers\subjects_controller.rb</string>
             <key>subjects_con</key>
             <string>..\white_reports\app\controllers\subjects_controller.rb</string>
             <key>subjects_cont</key>

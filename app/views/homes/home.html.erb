@@ -32,4 +32,12 @@
 		<%= link_to "Quick Add Subjects", subjectnew_branch_path(@branch)%> <br>
 	<% end %>
 	<%= link_to "Subjects index", subjects_path%><br>	
+	<%= link_to "Add Subject", new_subject_path %>	
+	
+	<h2> Exams </h2> <br>
+	<% if @branch %>
+		<%= link_to "Quick Add Exams", examnew_branch_path(@branch)%> <br>
+	<% end %>
+	<%= link_to "Exams index", exams_path%><br>
+	<%= link_to "Add Exam", new_exam_path %>	
 </div>

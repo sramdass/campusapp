@@ -1,0 +1,14 @@
+<tr class = "tfields">
+	<% if f.object.new_record?
+			yid = current_year.id
+		else
+			yid = f.object.year_id
+		end
+	%>
+	<%= f.hidden_field :year_id, :value => yid %>
+	<td><%= f.text_field :name, :size => 15 %></td>
+	<td class='remove-button'><%= link_to_remove_fields "Delete", f %></td>	
+</tr>
+ 
+ 
+	

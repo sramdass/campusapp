@@ -79,5 +79,20 @@ class BranchesController < ApplicationController
       render :subjectnew
     end
   end  
+  
+  def examnew
+  	@title = "New Exam"  	
+    @branch = Branch.find(params[:id])
+  end
+  
+  def examcreate
+    @branch = Branch.find(params[:id])
+    if @branch.update_attributes(params[:branch])
+      flash[:notice] = "Exams successfully created (updated)"    	
+	  redirect_to dashboard_path
+	else
+      render :examnew
+    end
+  end    
  
 end

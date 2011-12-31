@@ -1,0 +1,12 @@
+<div id="main-column">
+	User profile branch: <%= current_profile.branch.name%>
+	<h1><%= @exam.name %> </h1><br>
+	Branch name: <%= @exam.branch.name %> <br>
+	Applicable to year: <%= @exam.year.year %>
+	<p>
+		<%= link_to "Edit this Exam", edit_exam_path(@exam) %>
+	</p>
+</div>
+
+	
+

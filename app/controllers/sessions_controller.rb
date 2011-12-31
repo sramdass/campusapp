@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  #set the tenant branch only after the user logs in
   skip_before_filter :set_tenant_branch
   def new
   end
@@ -11,6 +12,7 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = profile.auth_token
       end
+      set_tenant_branch  #the tenant branch can be set only after a current profile is in place
       redirect_to dashboard_path, :notice => "Logged in!"
     else
       flash.now.alert = "Invalid email or password"

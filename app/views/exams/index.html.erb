@@ -1,0 +1,26 @@
+<h1>Exam Index </h1>
+<div id="main-column">
+	User profile branch: <%= current_profile.branch.name %> </h1>
+	<table class='index_table_z' >
+	    <thead>	
+			<tr>
+				<th>Name </th>
+				<th>Branch (same) </th>
+				<th>Year </th>
+			</tr>
+		</thead>
+	    <tbody>
+		<% @exams.each do |exam| %>
+			<tr>
+				<td><%= link_to exam.name, exam %></td>
+				<td><%= link_to exam.branch.name, branch_path(exam.branch) %></td>
+				<td><%= exam.year.year  %></td>
+				<td> <%= link_to 'Show', exam_path(exam) %> | 
+						<%= link_to 'Edit', edit_exam_path(exam) %> | 
+					    <%= link_to 'Destroy', exam, :confirm => 'Are you sure?', :method => :delete %> 
+				</td>
+			</tr>
+		<% end %>
+	    </tbody>	
+	</table>		
+</div>
