@@ -20,7 +20,7 @@ res = Resource.find_by_name!("Faculty")
   ResourceType.find_or_create_by_name_and_resource_id(:name => res_type, :resource_id => res.id)
 end
 
-if !Branch.first
+if !Branch.find_by_name("Jawahar")
   Branch.create!(name: "Jawahar", address: "Neyveli-15", resource_type_id: ResourceType.find_by_name("School").id)
 end
 

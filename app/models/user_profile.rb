@@ -18,7 +18,7 @@
 
 class UserProfile < ActiveRecord::Base
   belongs_to :user, :polymorphic => true
-  attr_accessible :login, :password, :password_confirmation, :user, :branch
+  attr_accessible :login, :password, :password_confirmation, :user, :branch, :branch_id
   belongs_to :branch
   validates_presence_of :branch
   

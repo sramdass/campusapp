@@ -7,6 +7,7 @@ module TestingMacros
   	delete_extra_clazzs
   	delete_extra_exams
   	delete_extra_students
+  	delete_extra_user_profiles
   end
   	
   def delete_extra_branches
@@ -44,5 +45,16 @@ module TestingMacros
   def delete_extra_students
   	
   end
-
+  
+  def delete_extra_user_profiles
+  	users = UserProfile.find(:all, :conditions => ["login like ?", "%123%"])
+  	users.each do |u|
+  	  u.delete
+  	end  	
+  end
+  
+  def current_user
+  	c = UserProfile.find_by_login("xxxx") || Factory(:current_user)
+  end
+  
 end

@@ -68,4 +68,15 @@ Factory.define :faculty_user, :parent => :user_profile do |up|
   end	
 end
 
+Factory.define :current_user, :class => :user_profile do |cu|
+  cu.branch_id			{Branch.find_by_name("Jawahar").id} 
+  cu.user 					{|u| u.association(:faculty, 
+  																	:name => "current_faculty_user", 
+  																	:id_no => "xxxx",
+  																	:branch => Branch.find_by_name("Jawahar"))}
+  cu.login					{|u| u.user.id_no}  
+  cu.password             				 	{ "password"   }
+  cu.password_confirmation 		{ |u| u.password  }  			
+end
+
 

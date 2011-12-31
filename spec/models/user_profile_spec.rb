@@ -19,8 +19,12 @@
 require 'spec_helper'
 
 describe UserProfile do
+  before(:all) do
+  	delete_extra_resources
+  end
   before(:each) do
-    @attr = FactoryGirl.attributes_for(:user_profile)
+  	@branch = Factory(:branch)
+    @attr = FactoryGirl.attributes_for(:user_profile).merge(:branch_id => @branch.id)
   end
 
   it "should create a new instance given valid attributes" do
@@ -52,12 +56,12 @@ describe UserProfile do
   describe "password encryption" do
 
     before(:each) do
-      @up = UserProfile.create!(@attr)
+      @up = Factory(:faculty_user)
     end
-
     it "should set the encrypted password" do
       @up.password_salt.should_not be_blank
       @up.password_hash.should_not be_blank
+      @up.auth_token.should_not be_blank
     end
   end  
   

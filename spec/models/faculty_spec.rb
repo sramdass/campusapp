@@ -18,12 +18,12 @@ require 'spec_helper'
 
 describe Faculty do
 
+  before(:all) do
+    delete_extra_resources
+  end	
+
   before(:each) do
-  	branch=Branch.first
-  	if !branch
-  		branch=Branch.create!(:name => "Jawahar", :address => "Neyveli-15", :resource_type_id => 2);
-  	end
-    @attr = { :name => "Jawahar", :id_no => "1234", :female => true, :date_joined => Date.today-5, :date_departed => Date.today-1, :branch_id => branch.id, :resource_type_id => 4 }
+    @attr = FactoryGirl.attributes_for(:faculty)
   end
 
   it "should create a new instance given valid attributes" do
@@ -62,7 +62,7 @@ describe Faculty do
     long_id_no = "a" * 21
     long_id_no_faculty = Faculty.new(@attr.merge(:id_no => long_id_no))
     long_id_no_faculty.should_not be_valid
-  end
+  end 
   
   #Associations
   it "should respond to branch (association)" do

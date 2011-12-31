@@ -1,5 +1,5 @@
 class FacultiesController < ApplicationController
-
+#skip_before_filter :set_tenant_branch
   def index
   	@title = "Faculty Index"
   	@faculties = Faculty.all

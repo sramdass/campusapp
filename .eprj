@@ -6,6 +6,8 @@
         <dict>
             <key>.rsp</key>
             <string>.rspec</string>
+            <key>.rspec</key>
+            <string>.rspec</string>
             <key>.spec</key>
             <string>.rspec</string>
             <key>19145918_crea</key>
@@ -300,6 +302,8 @@
             <string>..\white_reports\public\stylesheets\backup\application.css</string>
             <key>applicaton.htm</key>
             <string>app\views\layouts\application.html.erb</string>
+            <key>appliccon</key>
+            <string>app\controllers\application_controller.rb</string>
             <key>arrers</key>
             <string>..\white_reports\db\migrate\20111014052836_add_arrears_to_marks.rb</string>
             <key>attenda</key>
@@ -316,6 +320,8 @@
             <string>spec\models\branch_spec.rb</string>
             <key>branc</key>
             <string>..\white_reports\app\models\branch.rb</string>
+            <key>branccontspec</key>
+            <string>spec\controllers\branches_controller_spec.rb</string>
             <key>branch</key>
             <string>app\models\branch.rb</string>
             <key>branch.r</key>
@@ -351,7 +357,7 @@
             <key>branches_c</key>
             <string>app\controllers\branches_controller.rb</string>
             <key>branches_co</key>
-            <string>..\white_reports\app\controllers\branches_controller.rb</string>
+            <string>app\controllers\branches_controller.rb</string>
             <key>branches_cont</key>
             <string>app\controllers\branches_controller.rb</string>
             <key>branches_contr</key>
@@ -368,6 +374,8 @@
             <string>spec\models\branch_spec.rb</string>
             <key>brancontsp</key>
             <string>spec\controllers\branches_controller_spec.rb</string>
+            <key>branspec</key>
+            <string>spec\models\branch_spec.rb</string>
             <key>campu</key>
             <string>app\mailers\campus_mailer.rb</string>
             <key>claznew</key>
@@ -470,12 +478,18 @@
             <string>..\white_reports\app\controllers\events_controller.rb</string>
             <key>f_c_s</key>
             <string>spec\controllers\faculties_controller_spec.rb</string>
+            <key>fa</key>
+            <string>spec\factories.rb</string>
             <key>fa_c_s</key>
             <string>spec\controllers\faculties_controller_spec.rb</string>
             <key>fac_c</key>
             <string>app\controllers\faculties_controller.rb</string>
             <key>fac_s</key>
             <string>spec\models\faculty_spec.rb</string>
+            <key>faccontrol</key>
+            <string>app\controllers\faculties_controller.rb</string>
+            <key>faccontrsp</key>
+            <string>spec\controllers\faculties_controller_spec.rb</string>
             <key>facne</key>
             <string>app\views\branches\facultynew.erb</string>
             <key>facnew</key>
@@ -490,9 +504,13 @@
             <string>app\models\faculty.rb</string>
             <key>facult_c</key>
             <string>app\controllers\faculties_controller.rb</string>
+            <key>facultcontsp</key>
+            <string>spec\controllers\faculties_controller_spec.rb</string>
             <key>faculties_c</key>
             <string>app\controllers\faculties_controller.rb</string>
             <key>faculties_co</key>
+            <string>app\controllers\faculties_controller.rb</string>
+            <key>faculties_con</key>
             <string>app\controllers\faculties_controller.rb</string>
             <key>faculty.</key>
             <string>app\models\faculty.rb</string>
@@ -503,6 +521,8 @@
             <key>faculty_f</key>
             <string>app\views\faculties\_faculty_fields.html.erb</string>
             <key>faculty_s</key>
+            <string>spec\models\faculty_spec.rb</string>
+            <key>faculty_sp</key>
             <string>spec\models\faculty_spec.rb</string>
             <key>fb_</key>
             <string>..\white_reports\public\stylesheets\fb_main.css</string>
@@ -626,6 +646,10 @@
             <string>..\white_reports\app\views\shared\_log_in.html.erb</string>
             <key>login</key>
             <string>..\white_reports\app\views\shared\_log_in.html.erb</string>
+            <key>macr</key>
+            <string>spec\support\testing_macros.rb</string>
+            <key>macro</key>
+            <string>spec\support\testing_macros.rb</string>
             <key>main.css</key>
             <string>..\white_reports\public\stylesheets\fb_main.css</string>
             <key>mark.r</key>
@@ -898,6 +922,8 @@
             <string>..\white_reports\annotate\ruby\1.8\gems\activesupport-3.0.9\lib\active_support\secure_random.rb</string>
             <key>seed.rb</key>
             <string>db\seeds.rb</string>
+            <key>seeds.</key>
+            <string>db\seeds.rb</string>
             <key>seeds.rb</key>
             <string>db\seeds.rb</string>
             <key>session.rb</key>
@@ -935,7 +961,7 @@
             <key>show.html.er</key>
             <string>..\white_reports\app\views\students\show.html.erb</string>
             <key>show.html.erb</key>
-            <string>..\white_reports\app\views\clazzs\show.html.erb</string>
+            <string>app\views\faculties\show.html.erb</string>
             <key>sms_fi</key>
             <string>..\white_reports\app\views\students\_sms_fields.html.erb</string>
             <key>smsfields</key>
@@ -1096,6 +1122,8 @@
             <string>app\models\user_profile.rb</string>
             <key>user_profile.rb</key>
             <string>app\models\user_profile.rb</string>
+            <key>user_profile_s</key>
+            <string>spec\models\user_profile_spec.rb</string>
             <key>user_profile_sp</key>
             <string>spec\models\user_profile_spec.rb</string>
             <key>user_profilecont</key>

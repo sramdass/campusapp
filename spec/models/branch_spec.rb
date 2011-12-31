@@ -13,11 +13,8 @@
 require 'spec_helper'
 
 describe Branch do
-  before do
-  	Branch.delete_all
-  	Faculty.delete_all
-  	Subject.delete_all
-  	Clazz.delete_all  	
+  before(:all) do
+    delete_extra_resources
   end	
 
   before(:each) do
@@ -29,7 +26,7 @@ describe Branch do
     Branch.create!(@attr)
   end
   it "should require a name" do
-    no_name_branch = Branch.new(@attr.merge(:name => ""))
+    no_name_branch = Branch.new(@attr.merge(:name => ""))  
     no_name_branch.should_not be_valid
   end
   it "should require a address" do
@@ -60,10 +57,7 @@ describe Branch do
   it "should respond to resource_type (association)" do
     @branch.should respond_to(:resource_type)
   end       
-  after do
-  	Branch.delete_all
-  	Faculty.delete_all
-  	Subject.delete_all
-  	Clazz.delete_all  	
+  after(:all) do
+    delete_extra_resources	
   end   
 end

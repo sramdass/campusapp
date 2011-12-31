@@ -1,34 +1,38 @@
 require 'spec_helper'
 describe FacultiesController do
   render_views
+  before(:all) do
+      @c=UserProfile.find_by_login("xxxx") || Factory(:current_user)    	
+      ApplicationController.stub!(:current_profile).and_return(@c)  	
+  end
 #--------------------------------------#
-
-  describe "GET 'new'" do 
-    it "returns http success" do
+  describe "GET" do
+    before(:each) do
+      @faculty = Factory(:faculty)
+      Faculty.stub!(:find).with("#{@faculty.id}").and_return(@faculty)
+    end
+    it "new should return http success" do
       get 'new'
       response.should be_success
     end
-    
-    it "should have the right title" do
+    it "new should have the right title" do
       get 'new'
       response.should have_selector("title", :content => "New")
-      end    
+    end        
+    it "edit should find faculty and return object" do
+      Faculty.should_receive(:find).with("#{@faculty.id}").and_return(@faculty) 
+      get :edit, :id => @faculty
+      response.should be_success
+      response.should have_selector("title", :content => "Edit")
     end
-#--------------------------------------#
-  describe "GET 'show'" do
-    before(:each) do
-      @faculty=FactoryGirl.create(:faculty)    	
-    end
-    
-    it "should be successful" do
+    it "show should be successful" do
       get :show, :id => @faculty
       response.should be_success
     end
-
-    it "should find the right faculty" do
+    it "show should find the right faculty" do
       get :show, :id => @faculty
       assigns(:faculty).should == @faculty
-    end
+    end    
   end
 #--------------------------------------#
 
@@ -54,7 +58,7 @@ describe FacultiesController do
     describe "success" do
       before(:each) do
       	#not  sure how to get the attributes from Factory girl
-        @attr = { :name => "aa", :id_no => "aa", :female => true, :date_joined => Date.today-2, :date_departed => Date.today-1, :branch_id => Branch.first.id, :resource_type_id => 4}
+        @attr = FactoryGirl.attributes_for(:faculty)
       end
 
       it "should create a faculty" do
@@ -65,7 +69,7 @@ describe FacultiesController do
             
       it "should redirect to the faculty show page" do
         post :create, :faculty => @attr
-        response.should redirect_to(faculty_path(:id => "1"))  #I guess any ID can be given here, not necessarily the id of the object just been created
+        response.should redirect_to(faculty_path(:id => Faculty.find_by_id_no(@attr[:id_no])))  
       end
       
       it "should have a success notice" do
@@ -79,39 +83,48 @@ describe FacultiesController do
  # UPDATE
   describe "PUT faculties/:id" do
 
+    before do
+      @faculty = Factory(:faculty)
+      Faculty.stub!(:find).with("#{@faculty.id}").and_return(@faculty)
+    end
     describe "with valid params" do
-      before(:each) do
-        @faculty = mock_model(Faculty, :update_attributes => true)
-        Faculty.stub!(:find).with("1").and_return(@faculty)
+      before do        
+        @faculty.stub!(:update_attributes).and_return(true)
       end
-      
       it "should find faculty and return object" do
-        Faculty.should_receive(:find).with("1").and_return(@faculty)
+        Faculty.should_receive(:find).with("#{@faculty.id}").and_return(@faculty)
       	@faculty.should_receive(:update_attributes).and_return(true)
-      	put :update, :id => "1", :faculty => {}
+      	put :update, :id => @faculty
       	flash[:notice].should match(/success/i) 
       	response.should redirect_to(faculty_path(@faculty))
       end
     end
+    
+    describe "with invalid params" do 
+      before do
+        @faculty.stub!(:update_attributes).and_return(false)
+      end
+      it "should find and update the particular instance" do 
+        Faculty.should_receive(:find).with("#{@faculty.id}").and_return(@faculty)  
+      	@faculty.should_receive(:update_attributes).and_return(false)      	
+      	put :update, :id => @faculty
+      end
+      it "should render the edit template" do 
+      	put :update, :id => @faculty
+ 		response.should be_successful
+  		response.should render_template(:edit)
+      end   
+    end    
   end
 #--------------------------------------#
 
- # EDIT
-  describe "GET edit" do
-
-    before(:each) do
-      @faculty = stub_model(Faculty)
-      #@faculty = mock_model(Faculty, :id => 1, :name => "aaa", :address => "aaa", :resource_type_id => 2)
-      Faculty.stub!(:find).with("1").and_return(@faculty)
-    end
-      
-    it "should find faculty and return object" do
-      Faculty.should_receive(:find).with("1").and_return(@faculty) 
-      #get :edit, :id => @faculty
-      get :edit, :id => "1", :faculty => {}
-      response.should be_success
-      response.should have_selector("title", :content => "Edit")
+  describe "get current_profile" do
+    it "should return the current profile" do
+      @c=UserProfile.find_by_login("xxxx") || Factory(:current_user)    	
+      @controller.stub!(:current_profile).and_return(@c)
+      @c.branch.name == "Jawahar"
     end
   end
+
 end
 
