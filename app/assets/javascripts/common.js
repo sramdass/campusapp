@@ -1,9 +1,3 @@
-$(function() {	
-$(".ajaxified a").live("click", function() {
-  $.getScript(this.href);
-  return false;
-});
-
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").val("1");
   $(link).closest(".tfields").hide();
@@ -16,6 +10,12 @@ function add_fields(link, association, content) {
   /*$(link).parent().parent().before(content.replace(regexp, new_id));*/
   $(".input_form_table").append(content.replace(regexp, new_id));
 }
+
+$(function() {	
+$(".ajaxified a").live("click", function() {
+  $.getScript(this.href);
+  return false;
+});
 
 $( ".datepicker" ).datepicker({
 		dateFormat: 'd MM, yy',

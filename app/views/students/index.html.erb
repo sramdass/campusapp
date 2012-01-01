@@ -1,0 +1,31 @@
+<h1>Student Index </h1>
+<div id="main-column">
+	<table class='index_table_z' >
+	    <thead>	
+			<tr>
+				<th>Name </th>
+				<th>ID</th>
+				<th>Gender</th>
+				<th> Date Joined </th>
+				<th>Date Departed</th>
+				<th>Type</th>
+			</tr>
+		</thead>
+	    <tbody>
+		<% @students.each do |student| %>
+			<tr>
+				<td><%= link_to student.name, student %></td>
+				<td><%= student.id_no %></td>
+				<td><%= student.gender %> </td>
+				<td><%= student.date_joined.to_s %> </td>
+				<td><%= student.date_departed.to_s %> </td>
+				<td><%= student.type %>
+				<td> <%= link_to 'Show', student_path(student) %> | 
+						<%= link_to 'Edit', edit_student_path(student) %> | 
+					    <%= link_to 'Destroy', student, :confirm => 'Are you sure?', :method => :delete %> 
+				</td>
+			</tr>
+		<% end %>
+	    </tbody>	
+	</table>		
+</div>

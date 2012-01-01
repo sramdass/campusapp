@@ -91,124 +91,49 @@ class SectionsController < ApplicationController
   	#class or from the entire section index. So, the redirection should happen to the page from where the 
   	#delete happened.
   	redirect_to sections_path
+  end
+  
+  def select
+  	@branch=Branch.find(params[:branch_id])
+  	@sections = Section.from_branch(@branch.id).all
+  	@assign_students = @students_index = false
+  	if params[:assign_students]
+  	  @assign_students = true
+  	elsif params[:student_index]
+  	  @student_index = true
   	end
-  end
+  end  
   
-  def stunew
-  	#@section = Section.find(params[:id])
-	@default_tab = 'stunew'
-	render :actions_box
-  end
-  
-#-----------------------------------------------------------#
-
-  def stucreate
-  	 #@section = Section.find(params[:id])
-    if @section.update_attributes(params[:section])
-		@default_tab='show'
-			redirect_to(@section,  :notice => 'Students were successfully updated.')
-    else
-    	@default_tab = 'stunew'
-        render :actions_box
+  def assign_students
+  	@section=Section.find(params[:id])
+  	@selected_student_id = params[:selected_student_id]
+  	@deleted_student_id = params[:deleted_student_id]
+  	#Make sure when a student is clicked more than once, it does not create any duplicate entries.
+  	if @selected_student_id 
+  	  if !SecStudentMap.for_student(@selected_student_id ).for_section(@section.id).all.empty? 
+  	  	flash[:error] = "Student is already present in this section"
+  	  	return
+  	  end
+  	  sec_student_map = @section.sec_student_maps.new(:student_id => @selected_student_id)  
+  	  if sec_student_map.save
+  	    respond_to do |format|
+          format.html # assign_students.html.erb
+          format.js
+        end
+      else
+        flash[:error] = "Cannot assign the selected student to this section"
+      end
+    elsif @deleted_student_id
+      #This will return only one entry as an array. Convert the array into a single element
+      #Also, Make sure the same student id not called for delete twice (just by url, not by clicking) by checking for nil
+      if del = SecStudentMap.for_student(@deleted_student_id ).for_section(@section.id).all.first  
+      	del.delete
+      end
     end
   end
-
-#-----------------------------------------------------------#
   
-  def marknew
-  	#@section = Section.find(params[:id])
-	@test = Test.find(params[:test_id]) || Test.first
-  	@default_tab = 'marknew'	  	
-	render :actions_box
+  def studentnew
+  	@section = Section.find(params[:id])
   end
-  
-#-----------------------------------------------------------#
-
-  def markcreate
-  	 #@section = Section.find(params[:id])
-    if @section.update_attributes(params[:section])
-		@default_tab='show'			
-		redirect_to(@section,  :notice => 'Marks were successfully updated.')    	
-    else
-    	@default_tab = 'stunew'
-        render :actions_box
-    end
-  end
-
-#-----------------------------------------------------------#
-
-def actions_box
-	 #@section = Section.find(params[:id])
-	@default_tab = 'show'
-end
-#-----------------------------------------------------------#
-
-   def sort_column
-    Section.column_names.include?(params[:sort]) ? params[:sort] : "name"
-  end
-
-#-----------------------------------------------------------#
-  
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
-  
-#-----------------------------------------------------------#
-  
-	def mark_column(sub_id)
-		temp_row = @section.sec_sub_maps.find_by_subject_id(sub_id)
-		if temp_row.mark_column	
-			return temp_row.mark_column
-		else
-			cols = (1..MARKS_SUBJECTS_COUNT).to_a
-			@section.sec_sub_maps.each do |map|
-			cols.delete_if {|x| x == map.mark_column}
-			end			
-			return cols[0] if !cols.empty?
-			return -1	
-		end	
-	end
-#-----------------------------------------------------------#	
-	def initialize_test_and_marks_table
-		@section ||= Section.find(params[:id])
-		if params[:test_id]
-			@test = Test.find(params[:test_id])
-		else		
-			@test = @section.tests.first
-		end
-		if @test
-			build_marks_table(@section.id, @test.id)
-		end
-	end	
-#-----------------------------------------------------------#
-
-	def build_marks_table(section_id, test_id)
-		@section = Section.find(section_id)
-		marks = Mark.find(:all,:conditions => {:section_id.eq => section_id, :test_id.eq => test_id })
-	 	if (marks.empty?)
-	 		for student in @section.students 
-	 			m = Mark.new( {:section_id => @section.id, :test_id => test_id, :student_id => student.id })
-	 			m.save!
-	 		end
-		end 				
-		if marks.count < @section.students.count
-			@section.students.each do |student|
-				mark = Mark.find(:all,:conditions => {:section_id.eq => section_id, :test_id.eq => test_id, :student_id => student.id })
-				if (mark.empty?)
-					m = Mark.new( {:section_id => @section.id, :test_id => test_id, :student_id => student.id })
-					m.save!
-				end
-			end
-		end
-	end		
-#-----------------------------------------------------------#	
-
-	def delete_events(events)
-		if !events.empty?
-			events.each do |e|
-				e.destroy
-			end
-		end
-	end
-			
+  			
 end

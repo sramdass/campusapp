@@ -1,0 +1,5 @@
+<%= form_for student do |f| %>		
+	<%= render 'shared/error_messages', :target => student %>	  
+	<%= render 'student_fields', :f => f, :student => student %>
+    <p class='button'> <%= f.submit %> </p>
+<% end %>

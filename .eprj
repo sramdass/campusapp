@@ -354,6 +354,8 @@
             <string>spec\models\branch_spec.rb</string>
             <key>branch_spec.rb</key>
             <string>spec\models\branch_spec.rb</string>
+            <key>branchcontr</key>
+            <string>app\controllers\branches_controller.rb</string>
             <key>branchecontspec</key>
             <string>spec\controllers\branches_controller_spec.rb</string>
             <key>branches</key>
@@ -426,6 +428,8 @@
             <string>..\white_reports\app\views\marks\cols_and_spline.html.erb</string>
             <key>cols_and_spline</key>
             <string>..\white_reports\app\views\marks\cols_and_spline.html.erb</string>
+            <key>common</key>
+            <string>app\assets\javascripts\common.js</string>
             <key>con_spec</key>
             <string>spec\controllers\homes_controller_spec.rb</string>
             <key>confere</key>
@@ -528,6 +532,8 @@
             <string>app\controllers\faculties_controller.rb</string>
             <key>facultcontsp</key>
             <string>spec\controllers\faculties_controller_spec.rb</string>
+            <key>faculties</key>
+            <string>app\controllers\faculties_controller.rb</string>
             <key>faculties_c</key>
             <string>app\controllers\faculties_controller.rb</string>
             <key>faculties_co</key>
@@ -872,10 +878,12 @@
             <string>..\white_reports\app\controllers\searches_controller.rb</string>
             <key>searches_cont</key>
             <string>..\white_reports\app\controllers\searches_controller.rb</string>
+            <key>sec_stud</key>
+            <string>app\models\sec_student_map.rb</string>
             <key>sec_su</key>
             <string>..\white_reports\app\models\sec_sub_map.rb</string>
             <key>sec_sub</key>
-            <string>..\white_reports\app\models\sec_sub_map.rb</string>
+            <string>app\models\sec_sub_map.rb</string>
             <key>sec_sub_</key>
             <string>..\white_reports\app\models\sec_sub_map.rb</string>
             <key>sec_sub_m</key>
@@ -915,7 +923,7 @@
             <key>section</key>
             <string>..\white_reports\app\models\section.rb</string>
             <key>section.r</key>
-            <string>..\white_reports\app\models\section.rb</string>
+            <string>app\models\section.rb</string>
             <key>section.rb</key>
             <string>app\models\section.rb</string>
             <key>section_an</key>
@@ -972,6 +980,8 @@
             <string>db\seeds.rb</string>
             <key>seeds.rb</key>
             <string>db\seeds.rb</string>
+            <key>select.html</key>
+            <string>app\views\clazzs\select.html.erb</string>
             <key>session.rb</key>
             <string>..\white_reports\annotate\ruby\1.8\gems\rack-test-0.5.7\lib\rack\mock_session.rb</string>
             <key>sessions</key>
@@ -1029,7 +1039,7 @@
             <key>student.r</key>
             <string>..\white_reports\app\models\student.rb</string>
             <key>student.rb</key>
-            <string>..\white_reports\app\models\student.rb</string>
+            <string>app\models\student.rb</string>
             <key>student_c</key>
             <string>..\white_reports\app\models\student_contact.rb</string>
             <key>student_con</key>

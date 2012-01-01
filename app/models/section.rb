@@ -10,6 +10,9 @@ class Section < ActiveRecord::Base
   has_many :sec_exam_maps, :dependent => true, :dependent => :destroy
   has_many :exams, :through => :sec_exam_maps  
   
+  has_many :sec_student_maps, :dependent => true, :dependent => :destroy
+  has_many :students, :through => :sec_student_maps  
+  
   validates 	:name, 	:presence => true, 
                					    :length => {:maximum => 50}
                					    

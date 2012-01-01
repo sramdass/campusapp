@@ -95,4 +95,19 @@ class BranchesController < ApplicationController
     end
   end    
  
+    def studentnew
+  	@title = "New Student"  	
+    @branch = Branch.find(params[:id])
+  end
+  
+  def studentcreate
+    @branch = Branch.find(params[:id])
+    if @branch.update_attributes(params[:branch])
+      flash[:notice] = "Students successfully created (updated)"    	
+	  redirect_to dashboard_path
+	else
+      render :studentnew
+    end
+  end    
+  
 end

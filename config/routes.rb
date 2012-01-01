@@ -1,4 +1,6 @@
 Campusapp::Application.routes.draw do
+  get "students/index"
+
   get 'log_out'			 	=> 'sessions#destroy', 			:as => 'log_out'
   get 'log_in' 					=> 'sessions#new', 					:as => 'log_in'
   get 'sign_up' 				=> 'user_profiles#new', 			:as => 'sign_up'
@@ -16,6 +18,8 @@ Campusapp::Application.routes.draw do
       put 'subjectcreate'
       get 'examnew'
       put 'examcreate'
+  	  get 'studentnew'  
+  	  put 'studentcreate'      
     end 	
   end
   resources :faculties
@@ -30,6 +34,14 @@ Campusapp::Application.routes.draw do
   end
   resources :subjects
   resources :exams
-  resources :sections
+  resources :sections do
+    collection do
+      get 'select'
+    end
+    member do
+      get 'assign_students'
+	end
+  end
+  resources :students
   root :to => 'sessions#new'
 end

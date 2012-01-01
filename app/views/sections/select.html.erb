@@ -1,0 +1,31 @@
+<h1>Section Index for select </h1>
+<div id="main-column">
+	<table class='index_table_z' >
+	    <thead>	
+			<tr>
+				<th>Name </th>
+				<th>Class </th>
+				<th>Branch </th>
+				<th>Year </th>
+			</tr>
+		</thead>
+	    <tbody>
+		<% @sections.each do |section| %>
+			<tr>
+				<% if @student_index %>
+					<td><%= link_to section.name, students_path(:section_id => section.id) %></td>
+					<td><%= link_to section.clazz.name, students_path(:section_id => section.id) %></td>
+					<td><%= link_to section.clazz.branch.name, students_path(:section_id => section.id) %></td>
+					<td><%= link_to section.clazz.year.year, students_path(:section_id => section.id)  %></td>
+				<% end %>
+				<% if @assign_students %>
+					<td><%= link_to section.name, assign_students_section_path(section) %></td>
+					<td><%= link_to section.clazz.name, assign_students_section_path(section)%> </td>
+					<td><%= link_to section.clazz.branch.name, assign_students_section_path(section) %> </td>
+					<td><%= link_to section.clazz.year.year, assign_students_section_path(section)  %></td>
+				<% end %>
+			</tr>
+		<% end %>
+	    </tbody>	
+	</table>		
+</div>

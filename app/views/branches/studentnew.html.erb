@@ -1,0 +1,21 @@
+<%= form_for([@branch], { :url => { :action => "studentcreate" } }) do |f| %>	
+    <%= render 'shared/error_messages', :target => @branch %>
+	<table class="input_form_table">
+		<thead>
+	    	<tr>
+	    		<!--All the required fields for the Student model should come here-->
+	        	<th scope="col">Name</th>
+	            <th scope="col"> ID Number </th>
+	            <th scope="col">Gender</th>
+	            <th scope="col">Delete</th>            
+	        </tr>
+	    </thead>
+	    <tbody>		
+		<%= f.fields_for :students do |builder| %>	
+	 		<%= render "student_fields", :f => builder %>	 	  
+		<% end %>
+	    </tbody>		
+	</table>			
+ 	<p class='add-button'> <%= link_to_add_fields "Add Student", f, :students %> </p>
+ 	<p class='button'> <%= f.submit  "Update Students" %>  </p>
+<% end %>

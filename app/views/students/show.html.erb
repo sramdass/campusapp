@@ -1,0 +1,14 @@
+<div id="main-column">
+	<h1><%= @student.name %> </h1><br>
+	<% if @student.female? %> Female <% else %> Male <%end%><br>
+	<%= @student.id_no %><br>
+	Joined on <%= @student.date_joined %> <br>
+	Departed on <%= @student.date_departed %><br>
+	Studies at <%= @student.branch.name %>
+	<p>
+		<%= link_to "Edit this student", edit_student_path(@student) %>
+	</p>
+</div>
+
+	
+

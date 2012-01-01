@@ -1,0 +1,50 @@
+<table>
+    <tbody>	
+		<tr>
+			<td><%= f.label :name %></td>
+			<td><%= f.text_field :name, :size => 15 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :id_no, "ID" %></td>
+			<td><%= f.text_field :id_no, :size => 15 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :femlate %></td>
+			<td>
+			 	<% if f.object.new_record?%>
+					<%= f.select :female, options_for_select([  ["Female", true], ["Male", false] ] ) , {:include_blank => 'None'}  %>
+				<% else %>
+					<%= f.select :female, options_for_select([  ["Female", true], ["Male", false] ], f.object.female? ) , {:include_blank => 'None'}  %>
+				<% end %>		
+			</td> 
+		</tr>
+		<tr>
+			<td><%= f.label :date_joined, "Joining date" %></td>
+			<td><%= f.date_select :date_joined, :size => 15 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :date_departed, "Departing date" %></td>
+			<td><%= f.date_select :date_departed, :size => 15 %></td>
+		</tr>
+		<tr>
+			<td> 
+				<strong><%= f.label :resource_type_id, "Type" %>  </strong> 
+			</td>
+			<td> 	 	
+				<%
+				if student
+				  res_type_id = student.resource_type_id
+				else
+				  res_type_id = 0
+				end
+				
+				res_types = get_resource_types(student)
+				%>
+				<%= select("student", "resource_type_id", res_types.collect {|p| [ p.name, p.id ] }, {:include_blank => true, :selected => res_type_id  }) %>		
+			</td>
+		</tr>		
+	</tbody>
+</table>	
+ 
+ 
+	
