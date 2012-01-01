@@ -4,8 +4,14 @@ class SectionsController < ApplicationController
     if params[:clazz_id]
     	@sections = Clazz.find(params[:clazz_id]).sections
     else
-    	@sections = Section.all
+    	@sections = Section.from_branch(current_profile.branch.id).all
     end
+  end
+  
+  def new
+  	@section = Section.new
+  	@clazz = Clazz.find(params[:clazz_id])
+  	@section.clazz = @clazz
   end
 
   def show
@@ -23,8 +29,6 @@ class SectionsController < ApplicationController
     		
     @section.attributes = params[:section]
     		
-    # This section is for updating the teacher for a particular section + subject.
-    #Note that the subjects and the tests will be updated automatically (without any parsing)
     @section.sec_sub_maps.each do |d|
       sid = d.subject_id
       d.attributes = 	{:subject_id => sid, :faculty_id => params["faculty"]["#{sid}"], :mark_column => ""}
@@ -43,6 +47,51 @@ class SectionsController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def create
+    @section = Section.new(params[:section])
+    #Only after the section is saved, we can get hold of the @section.sec_sub_maps.
+    #Before the save, @section.sec_sub_maps and @section.sec_exam_maps will be blank.
+    #We can try parsing the parameters and create the maps manually, but with the current
+    #parameters they become duplicates, i.e. the current way of passing parameters from the
+    #browser already creates the entries when we assign the parameters to the @section object.
+    if @section.save
+      @section.sec_sub_maps.each do |d|
+        sid = d.subject_id
+        #TODO: mark_column has to be updated once the mark tables are on.
+        d.attributes = 	{:subject_id => sid, :faculty_id => params["faculty"]["#{sid}"], :mark_column => ""}
+      end			
+	  @section.sec_exam_maps.each do |semap|
+	    eid = semap.exam.id
+	    sdate = params["startdate"]["#{eid}"].to_date
+	    edate = params["enddate"]["#{eid}"].to_date
+	    semap.attributes = 	{ :exam_id => eid, :startdate => sdate, :enddate => edate}
+	  end	    
+      if @section.sec_sub_maps.all?(&:valid?) && @section.sec_exam_maps.all?(&:valid?) 
+        @section.sec_sub_maps.each(&:save!)
+        @section.sec_exam_maps.each(&:save!)
+        redirect_to(@section,  :notice => 'Section successfully created.')
+      else
+      	#Section has been saved, but the subjects or exams have problem.
+      	#TODO: change this to flash.now message
+        render :new, :error => "Subjects and/or exams cannot be updated"
+      end
+    else
+      #cannot save section itself
+      render :new
+    end
+  end  
+  
+  def destroy
+  	@section = Section.find(params[:id])
+  	@section.delete
+  	flash[:notice] = "Section Deleted"
+  	#The redirection should happen to the previous page. We can delete the sections from the particular
+  	#class or from the entire section index. So, the redirection should happen to the page from where the 
+  	#delete happened.
+  	redirect_to sections_path
+  	end
   end
   
   def stunew

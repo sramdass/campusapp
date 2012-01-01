@@ -1,11 +1,17 @@
 <!-- The alignments are bit messy here! Handle with care-->
 
 <!-- Initialize the variables here (to be safe if there is nil) -->
-<% subjects = section.clazz.branch.subjects ||= [] %>
-<% faculties = section.clazz.branch.faculties ||= [] %>
-<% exams = section.clazz.branch.exams ||= [] %>
+	<% subjects = section.clazz.branch.subjects ||= [] %>
+	<% faculties = section.clazz.branch.faculties ||= [] %>
+	<% exams = section.clazz.branch.exams ||= [] %>
+	<h2> Class: <%= section.clazz.name%> </h2>
 
 <%= form_for section do |f| %> 
+	<%= f.hidden_field :clazz_id, :value => section.clazz.id %>
+
+	Name: <%= f.text_field :name, :size => 15 %> <br>
+    Class Teacher: <%= f.select :faculty_id, options_for_select(section.clazz.branch.faculties.collect {|t| [ t.name, t.id ] } , f.object.faculty_id) , {:prompt => "Class teacher"}  %></td>
+
 	<div id='form-table-div' style="width:860px;">
 		<p class='heading2'> Test Schedule </p>
 		<span >	

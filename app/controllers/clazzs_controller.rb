@@ -54,5 +54,18 @@ class ClazzsController < ApplicationController
 	  render :sectionnew      	        
     end
   end  
+  
+  def select
+  	@branch=Branch.find(params[:branch_id])
+  	@clazzs = @branch.clazzs
+  	@quick_add_section = @section_index = @add_section = false
+  	if params[:quick_add_section]
+  	  @quick_add_section = true
+  	elsif params[:section_index]
+  	  @section_index = true
+  	elsif params[:add_section]
+  	  @add_section = true
+  	end
+  end
 
 end

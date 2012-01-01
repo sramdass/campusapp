@@ -46,6 +46,8 @@
             <string>app\models\user_profile.rb</string>
             <key>_Edit</key>
             <string>..\white_reports\app\views\sections\_edit.html.erb</string>
+            <key>_Facul</key>
+            <string>app\views\branches\_faculty_fields.html.erb</string>
             <key>_Teacher_co</key>
             <string>..\white_reports\app\views\teachers\_teacher_contact_fields.html.erb</string>
             <key>_Teacher_f</key>
@@ -410,6 +412,8 @@
             <string>app\controllers\clazzs_controller.rb</string>
             <key>clazzscont</key>
             <string>app\controllers\clazzs_controller.rb</string>
+            <key>clazzscontro</key>
+            <string>app\controllers\clazzs_controller.rb</string>
             <key>clzne</key>
             <string>..\white_reports\app\views\branches\clznew.html.erb</string>
             <key>clznew</key>
@@ -461,7 +465,7 @@
             <key>development.r</key>
             <string>..\white_reports\config\environments\development.rb</string>
             <key>edit</key>
-            <string>..\white_reports\app\views\students\_edit.html.erb</string>
+            <string>app\views\sections\edit.html.erb</string>
             <key>edit.htm</key>
             <string>..\white_reports\app\views\students\edit.html.erb</string>
             <key>edit.html</key>
@@ -563,7 +567,7 @@
             <key>fb_table</key>
             <string>..\white_reports\public\stylesheets\fb_table_styles.css</string>
             <key>form</key>
-            <string>app\views\faculties\_form.html.erb</string>
+            <string>app\views\branches\_form.html.erb</string>
             <key>form_St</key>
             <string>..\white_reports\public\stylesheets\form_styles.css</string>
             <key>from_sec</key>
@@ -623,7 +627,7 @@
             <key>index.ht</key>
             <string>..\white_reports\app\views\teachers\index.html.erb</string>
             <key>index.htm</key>
-            <string>..\white_reports\app\views\institutions\index.html.erb</string>
+            <string>app\views\sections\index.html.erb</string>
             <key>index.html</key>
             <string>..\white_reports\app\views\institutions\index.html.erb</string>
             <key>index.html.e</key>
@@ -632,6 +636,8 @@
             <string>..\white_reports\app\views\teachers\index.html.erb</string>
             <key>index.html.erb</key>
             <string>..\white_reports\app\views\institutions\index.html.erb</string>
+            <key>index.htmle</key>
+            <string>app\views\clazzs\index.html.erb</string>
             <key>index.js</key>
             <string>..\white_reports\app\views\teachers\index.js.erb</string>
             <key>index.js.er</key>
@@ -713,7 +719,7 @@
             <key>negative_St</key>
             <string>..\white_reports\app\views\marks\negative_stack.html.erb</string>
             <key>new</key>
-            <string>app\views\clazzs\new.html.erb</string>
+            <string>app\views\sections\new.html.erb</string>
             <key>new.ht</key>
             <string>..\white_reports\spec\views\institutions\new.html.erb_spec.rb</string>
             <key>new.htm</key>
@@ -872,12 +878,16 @@
             <string>..\white_reports\app\models\sec_sub_map.rb</string>
             <key>sec_sub_</key>
             <string>..\white_reports\app\models\sec_sub_map.rb</string>
+            <key>sec_sub_m</key>
+            <string>app\models\sec_sub_map.rb</string>
             <key>sec_sub_ma</key>
             <string>..\white_reports\app\models\sec_sub_map.rb</string>
             <key>sec_sub_map.r</key>
             <string>..\white_reports\app\models\sec_sub_map.rb</string>
             <key>sec_sub_map.rb</key>
             <string>..\white_reports\app\models\sec_sub_map.rb</string>
+            <key>sec_sub_maps</key>
+            <string>spec\models\sec_sub_map_spec.rb</string>
             <key>sec_test</key>
             <string>..\white_reports\app\models\sec_test_map.rb</string>
             <key>sec_test_ma</key>
@@ -900,6 +910,8 @@
             <string>app\controllers\sections_controller.rb</string>
             <key>sectio</key>
             <string>..\white_reports\app\models\section.rb</string>
+            <key>sectio.rb</key>
+            <string>app\models\section.rb</string>
             <key>section</key>
             <string>..\white_reports\app\models\section.rb</string>
             <key>section.r</key>
@@ -928,12 +940,14 @@
             <string>..\white_reports\app\views\searches\section_searches_box.html.erb</string>
             <key>sectionfi</key>
             <string>app\views\clazzs\_section_fields.html.erb</string>
+            <key>sectionnew</key>
+            <string>app\views\clazzs\sectionnew.html.erb</string>
             <key>sections.htm</key>
             <string>..\white_reports\app\views\sections\_sections.html.erb</string>
             <key>sections_C</key>
-            <string>..\white_reports\app\controllers\sections_controller.rb</string>
+            <string>app\controllers\sections_controller.rb</string>
             <key>sections_c</key>
-            <string>..\white_reports\app\controllers\sections_controller.rb</string>
+            <string>app\controllers\sections_controller.rb</string>
             <key>sections_co</key>
             <string>app\controllers\sections_controller.rb</string>
             <key>sections_con</key>
@@ -947,7 +961,7 @@
             <key>sections_controll</key>
             <string>..\white_reports\app\controllers\sections_controller.rb</string>
             <key>sections_controller</key>
-            <string>..\white_reports\app\controllers\sections_controller.rb</string>
+            <string>app\controllers\sections_controller.rb</string>
             <key>sections_cp</key>
             <string>..\white_reports\spec\controllers\sections_controller_spec.rb</string>
             <key>secure_ran</key>
@@ -993,7 +1007,7 @@
             <key>show.html.er</key>
             <string>app\views\clazzs\show.html.erb</string>
             <key>show.html.erb</key>
-            <string>app\views\faculties\show.html.erb</string>
+            <string>app\views\clazzs\show.html.erb</string>
             <key>sms_fi</key>
             <string>..\white_reports\app\views\students\_sms_fields.html.erb</string>
             <key>smsfields</key>

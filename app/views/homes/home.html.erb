@@ -10,34 +10,35 @@
 		  <%= link_to "Edit this Branch", edit_branch_path(@branch) %>
 		</p>
 	<% end %>
-	
-	<h1> Links </h1>
-	
-	<h2> Faculties </h2> <br>
+
 	<% if @branch %>
+	
+		<h1> Links </h1>
+		
+		<h2> Faculties </h2> <br>
 		<%= link_to "Quick Add Faculties", facultynew_branch_path(@branch)%> <br>
-	<% end %>
-	<%= link_to "Faculties index", faculties_path%><br>
-	<%= link_to "Add Faculty", new_faculty_path %>
-	
-	<h2> Classes </h2> <br>
-	<% if @branch %>
+		<%= link_to "Faculties index", faculties_path%><br>
+		<%= link_to "Add Faculty", new_faculty_path %>
+		
+		<h2> Classes </h2> <br>
 		<%= link_to "Quick Add Classes", clazznew_branch_path(@branch)%> <br>
-	<% end %>
-	<%= link_to "Classes index", clazzs_path%><br>
-	<%= link_to "Add Class", new_clazz_path %>
-	
-	<h2> Subjects </h2> <br>
-	<% if @branch %>
+		<%= link_to "Classes index", clazzs_path%><br>
+		<%= link_to "Add Class", new_clazz_path %>
+		
+		<h2> Subjects </h2> <br>
 		<%= link_to "Quick Add Subjects", subjectnew_branch_path(@branch)%> <br>
-	<% end %>
-	<%= link_to "Subjects index", subjects_path%><br>	
-	<%= link_to "Add Subject", new_subject_path %>	
-	
-	<h2> Exams </h2> <br>
-	<% if @branch %>
+		<%= link_to "Subjects index", subjects_path%><br>	
+		<%= link_to "Add Subject", new_subject_path %>	
+		
+		<h2> Exams </h2> <br>
 		<%= link_to "Quick Add Exams", examnew_branch_path(@branch)%> <br>
+		<%= link_to "Exams index", exams_path%><br>
+		<%= link_to "Add Exam", new_exam_path %>	
+		
+		<h2> Sections </h2> <br>
+		<%= link_to "Quick Add Sections", select_clazzs_path(:branch_id => @branch.id, :quick_add_section => true)%> <br>
+		<%= link_to "Sections Index from a class ", select_clazzs_path(:branch_id => @branch.id, :section_index => true)%><br>
+		<%= link_to "All Sections Index", sections_path %><br>
+		<%= link_to "Add Section", select_clazzs_path(:branch_id => @branch.id, :add_section=> true) %>		
 	<% end %>
-	<%= link_to "Exams index", exams_path%><br>
-	<%= link_to "Add Exam", new_exam_path %>	
 </div>

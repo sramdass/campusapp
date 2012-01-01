@@ -1,0 +1,33 @@
+<h1>Class Index </h1>
+<div id="main-column">
+	<table class='index_table_z' >
+	    <thead>	
+			<tr>
+				<th>Name </th>
+				<th>Branch </th>
+				<th>Year </th>
+			</tr>
+		</thead>
+	    <tbody>
+		<% @clazzs.each do |clazz| %>
+			<tr>
+				<% if @section_index %>
+					<td><%= link_to clazz.name, sections_path(:clazz_id => clazz.id) %></td>
+					<td><%= link_to clazz.branch.name, sections_path(:clazz_id => clazz.id) %></td>
+					<td><%= link_to clazz.year.year, sections_path(:clazz_id => clazz.id)  %></td>
+				<% end %>
+				<% if @quick_add_section %>
+					<td><%= link_to clazz.name, sectionnew_clazz_path(clazz)%></td>
+					<td><%= link_to clazz.branch.name, sectionnew_clazz_path(clazz) %></td>
+					<td><%= link_to clazz.year.year, sectionnew_clazz_path(clazz)  %></td>
+				<% end %>
+				<% if @add_section %>
+					<td><%= link_to clazz.name, new_section_path(:clazz_id => clazz.id) %></td>
+					<td><%= link_to clazz.branch.name, new_section_path(:clazz_id => clazz.id) %></td>
+					<td><%= link_to clazz.year.year, new_section_path(:clazz_id => clazz.id)  %></td>
+				<% end %>								
+			</tr>
+		<% end %>
+	    </tbody>	
+	</table>		
+</div>

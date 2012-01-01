@@ -3,7 +3,7 @@
 	<h1><%= @section.name %> </h1>
 	<h2>Class: <%= @section.clazz.name %> </h2>
 	<h3>Branch: <%= @section.clazz.branch.name %> </h3>
-	<h3>Class Teacher: <%= @section.faculty.name %>
+	<h3>Class Teacher: <%= @section.faculty.name if @section.faculty %>
 	<h3>Subjects </h3>
 		<ol>
 			<% @section.sec_sub_maps.each do |map| %>

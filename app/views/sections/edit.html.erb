@@ -1,4 +1,5 @@
 <div id="main-column">
+  <%= render 'shared/error_messages', :target => @section %>	
   <%= render 'form', :section => @section %>
   <%= link_to "Cancel and back to section", section_path(@section)%>
 </div>

@@ -24,6 +24,9 @@ Campusapp::Application.routes.draw do
       get 'sectionnew'
       put 'sectioncreate'
     end
+    collection do
+      get 'select'
+    end
   end
   resources :subjects
   resources :exams

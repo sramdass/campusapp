@@ -1,2 +1,4 @@
-<h1>Sections#new</h1>
-<p>Find me in app/views/sections/new.html.erb</p>
+<div id="main-column">
+  <%= render 'shared/error_messages', :target => @section %>	
+  <%= render 'form', :section => @section %>
+</div>
