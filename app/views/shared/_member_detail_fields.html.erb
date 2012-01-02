@@ -1,0 +1,37 @@
+<tr>
+	<td><%= f.label :email %></td>
+	<td><%= f.text_field :email, :size => 15 %></td>
+</tr>
+<tr>
+	<td><%= f.label :secondary_email, "Other Email" %></td>
+	<td><%= f.text_field :secondary_email, :size => 15 %></td>
+</tr>
+<tr>
+	<td><%= f.label :phone %></td>
+	<td><%= f.text_field :phone, :size => 15 %></td>
+</tr>
+<tr>
+	<td><%= f.label :secondary_phone, "Other Phone" %></td>
+	<td><%= f.text_field :secondary_phone, :size => 15 %></td>
+</tr>
+<tr>
+	<td><%= f.label :address %></td>
+	<td><%= f.text_area :address %></td>
+</tr>
+<tr>
+	<td><%= f.label :blood_group_id %></td>
+	<td>	<%= f.select :blood_group_id, BloodGroup.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}  %> </td>
+</tr>
+<tr>
+	<td><%= f.label :dob, "Date of Birth" %></td>
+	<td> 
+		<% if f.object.new_record? ||  !f.object.dob %>
+			<%= f.text_field :dob, :class =>  'datepicker' %>
+		<% else%>
+		  	<%= f.text_field :dob, :value => f.object.dob.strftime("%d %B, %Y").to_s, :class =>  'datepicker' %>
+		<% end%>
+	</td>
+</tr>
+
+
+

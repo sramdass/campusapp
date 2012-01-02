@@ -7,10 +7,12 @@ class FacultiesController < ApplicationController
   def new
   	@title = 'New Faculty'
   	@faculty = Faculty.new
+  	@faculty.build_detail
   end
 
   def create 
     @faculty = Faculty.new(params[:faculty])
+    @faculty.branch = current_profile.branch
     if @faculty.save
       flash[:notice] = "Faculty successfully created"
       redirect_to faculty_path(@faculty)
@@ -32,6 +34,7 @@ class FacultiesController < ApplicationController
   def edit
   	@title = 'Edit Faculty'
     @faculty = Faculty.find(params[:id])
+    @faculty.build_detail if !@faculty.detail
     respond_to do |format|
       format.html # edit.html.erb
       format.js

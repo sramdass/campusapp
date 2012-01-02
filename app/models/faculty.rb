@@ -18,7 +18,9 @@ class Faculty < BranchScopedModel
   belongs_to :branch
   belongs_to :resource_type
   
-  has_one :user_profile, :as => :user
+  has_one :user_profile, :as => :user, :dependent => :destroy
+  has_one :detail, :as => :member, :dependent => :destroy
+  accepts_nested_attributes_for :detail,  :reject_if => :has_only_destroy?, :allow_destroy => true  
   
   validates 	:name, 	:presence => true, 
                        				:length => {:maximum => 50}
@@ -65,4 +67,14 @@ class Faculty < BranchScopedModel
   		return "N/A"
   	end
   end
+  
+#Returns true if there is only "_destroy" attribute available for nested models.
+  def has_only_destroy?(attrs)
+    attrs.each do |k,v|
+      if k !="_destroy" && !v.blank?
+        return false
+      end
+      end
+    return true	
+  end	  
 end

@@ -86,8 +86,10 @@
             <string>..\white_reports\app\views\teachers\_email_fields.erb</string>
             <key>_facu</key>
             <string>app\views\faculties\_faculty_fields.html.erb</string>
+            <key>_facult</key>
+            <string>app\views\faculties\_faculty_fields.html.erb</string>
             <key>_form</key>
-            <string>app\views\sections\_form.html.erb</string>
+            <string>app\views\faculties\_form.html.erb</string>
             <key>_form.</key>
             <string>..\white_reports\app\views\schools\_form.html.erb</string>
             <key>_instit</key>
@@ -230,6 +232,8 @@
             <string>..\white_reports\app\views\clazzs\actions_box.html.erb</string>
             <key>actions_box</key>
             <string>..\white_reports\app\views\sections\actions_box.html.erb</string>
+            <key>add_blo</key>
+            <string>db\migrate\20120102065422_add_blood_group_to_details.rb</string>
             <key>add_bran</key>
             <string>..\white_reports\db\migrate\20110902035458_add_branch_ids.rb</string>
             <key>add_max</key>
@@ -316,6 +320,8 @@
             <string>..\white_reports\config\authorization_rules.rb</string>
             <key>b_c_c</key>
             <string>spec\controllers\branches_controller_spec.rb</string>
+            <key>blood.rb</key>
+            <string>app\models\blood_group.rb</string>
             <key>bra_c</key>
             <string>app\controllers\branches_controller.rb</string>
             <key>bran_s</key>
@@ -452,6 +458,8 @@
             <string>..\white_reports\db\migrate\20111109152222_create_schedulers.rb</string>
             <key>create_su</key>
             <string>..\white_reports\db\migrate\20110815163153_create_subjects.rb</string>
+            <key>createdeta</key>
+            <string>db\migrate\20120102051110_create_details.rb</string>
             <key>css</key>
             <string>..\white_reports\public\stylesheets\form_styles.css</string>
             <key>day</key>
@@ -460,6 +468,8 @@
             <string>..\white_reports\db\migrate\20111115161935_add_dates_to_sec_test_maps.rb</string>
             <key>description_to_ev</key>
             <string>..\white_reports\db\migrate\20111108120137_add_recurring_description_to_events.rb</string>
+            <key>detail.rb</key>
+            <string>app\models\detail.rb</string>
             <key>dev</key>
             <string>..\white_reports\log\development.log</string>
             <key>deve</key>
@@ -500,6 +510,8 @@
             <string>..\white_reports\app\controllers\events_controller.rb</string>
             <key>exam.rb</key>
             <string>app\models\exam.rb</string>
+            <key>examnew</key>
+            <string>app\views\branches\examnew.html.erb</string>
             <key>exams_c</key>
             <string>app\controllers\exams_controller.rb</string>
             <key>f_c_s</key>
@@ -526,12 +538,16 @@
             <string>spec\factories.rb</string>
             <key>factories.r</key>
             <string>spec\factories.rb</string>
+            <key>facucon</key>
+            <string>app\controllers\faculties_controller.rb</string>
             <key>facult.rb</key>
             <string>app\models\faculty.rb</string>
             <key>facult_c</key>
             <string>app\controllers\faculties_controller.rb</string>
             <key>facultcontsp</key>
             <string>spec\controllers\faculties_controller_spec.rb</string>
+            <key>facultiecont</key>
+            <string>app\controllers\faculties_controller.rb</string>
             <key>faculties</key>
             <string>app\controllers\faculties_controller.rb</string>
             <key>faculties_c</key>
@@ -550,6 +566,8 @@
             <string>app\models\faculty.rb</string>
             <key>faculty_f</key>
             <string>app\views\faculties\_faculty_fields.html.erb</string>
+            <key>faculty_fields</key>
+            <string>app\views\branches\_faculty_fields.html.erb</string>
             <key>faculty_s</key>
             <string>spec\models\faculty_spec.rb</string>
             <key>faculty_sp</key>
@@ -715,7 +733,9 @@
             <key>master_g</key>
             <string>..\white_reports\app\views\marks\student_master_graphs.html.erb</string>
             <key>member</key>
-            <string>..\white_reports\app\models\membership.rb</string>
+            <string>db\migrate\20120102072054_add_member_id_to_details.rb</string>
+            <key>member_f</key>
+            <string>app\views\shared\_member_detail_fields.html.erb</string>
             <key>membership.rb</key>
             <string>..\white_reports\app\models\membership.rb</string>
             <key>my_page</key>
@@ -725,7 +745,7 @@
             <key>negative_St</key>
             <string>..\white_reports\app\views\marks\negative_stack.html.erb</string>
             <key>new</key>
-            <string>app\views\sections\new.html.erb</string>
+            <string>app\views\faculties\new.html.erb</string>
             <key>new.ht</key>
             <string>..\white_reports\spec\views\institutions\new.html.erb_spec.rb</string>
             <key>new.htm</key>
@@ -963,7 +983,7 @@
             <key>sections_con</key>
             <string>..\white_reports\app\controllers\sections_controller.rb</string>
             <key>sections_cont</key>
-            <string>..\white_reports\app\controllers\sections_controller.rb</string>
+            <string>app\controllers\sections_controller.rb</string>
             <key>sections_contr</key>
             <string>..\white_reports\app\controllers\sections_controller.rb</string>
             <key>sections_contro</key>
@@ -1054,12 +1074,14 @@
             <string>..\white_reports\app\views\students\_student_fields.html.erb</string>
             <key>student_fields</key>
             <string>..\white_reports\app\views\students\_student_fields.html.erb</string>
+            <key>student_fil</key>
+            <string>app\views\branches\_student_fields.html.erb</string>
             <key>student_tota</key>
             <string>..\white_reports\app\views\marks\student_total_graphs.html.erb</string>
             <key>students_c</key>
-            <string>..\white_reports\app\controllers\students_controller.rb</string>
+            <string>app\controllers\students_controller.rb</string>
             <key>students_co</key>
-            <string>..\white_reports\app\controllers\students_controller.rb</string>
+            <string>app\controllers\students_controller.rb</string>
             <key>students_cont</key>
             <string>..\white_reports\app\controllers\students_controller.rb</string>
             <key>students_contr</key>

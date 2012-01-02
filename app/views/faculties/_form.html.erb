@@ -1,5 +1,12 @@
 <%= form_for faculty do |f| %>		
 	<%= render 'shared/error_messages', :target => faculty %>	  
-	<%= render 'faculty_fields', :f => f, :faculty => faculty %>
+	<table>
+	    <tbody>		
+			<%= render 'faculty_fields', :f => f, :faculty => faculty %>
+			<%= f.fields_for :detail do |builder| %>	
+			    <%= render 'shared/member_detail_fields', :f => builder %>	 	  
+			<% end %>
+		</tbody>
+	</table>		
     <p class='button'> <%= f.submit %> </p>
 <% end %>

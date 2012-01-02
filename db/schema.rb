@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120101164420) do
+ActiveRecord::Schema.define(:version => 20120102072054) do
+
+  create_table "blood_groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -27,6 +33,20 @@ ActiveRecord::Schema.define(:version => 20120101164420) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "year_id"
+  end
+
+  create_table "details", :force => true do |t|
+    t.string   "email"
+    t.string   "secondary_email"
+    t.string   "phone"
+    t.string   "secondary_phone"
+    t.string   "address"
+    t.date     "dob"
+    t.string   "member_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "blood_group_id"
+    t.integer  "member_id"
   end
 
   create_table "exams", :force => true do |t|

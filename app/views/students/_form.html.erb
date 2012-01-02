@@ -1,5 +1,12 @@
 <%= form_for student do |f| %>		
 	<%= render 'shared/error_messages', :target => student %>	  
-	<%= render 'student_fields', :f => f, :student => student %>
+	<table>
+	    <tbody>		
+			<%= render 'student_fields', :f => f, :student => student %>
+			<%= f.fields_for :detail do |builder| %>	
+			    <%= render 'shared/member_detail_fields', :f => builder %>	 	  
+			<% end %>
+		</tbody>
+	</table>			
     <p class='button'> <%= f.submit %> </p>
 <% end %>

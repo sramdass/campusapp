@@ -7,10 +7,12 @@ class StudentsController < ApplicationController
   def new
   	@title = 'New Student'
   	@student = Student.new
+  	@student.build_detail
   end
 
   def create 
     @student = Student.new(params[:student])
+    @student.branch = current_profile.branch
     if @student.save
       flash[:notice] = "Student successfully created"
       redirect_to student_path(@student)
@@ -32,6 +34,7 @@ class StudentsController < ApplicationController
   def edit
   	@title = 'Edit Student'
     @student = Student.find(params[:id])
+    @student.build_detail if !@student.detail
     respond_to do |format|
       format.html # edit.html.erb
       format.js
