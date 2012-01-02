@@ -1,6 +1,4 @@
 Campusapp::Application.routes.draw do
-  get "students/index"
-
   get 'log_out'			 	=> 'sessions#destroy', 			:as => 'log_out'
   get 'log_in' 					=> 'sessions#new', 					:as => 'log_in'
   get 'sign_up' 				=> 'user_profiles#new', 			:as => 'sign_up'
@@ -43,5 +41,11 @@ Campusapp::Application.routes.draw do
 	end
   end
   resources :students
+  resources :resources do
+  	member do
+  	  get 'resource_typenew'
+  	  put 'resource_typecreate'
+  	end
+  end
   root :to => 'sessions#new'
 end

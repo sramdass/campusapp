@@ -1,0 +1,17 @@
+<div id="main-column">
+	<h1><%= @resource.name %> </h1>
+	<h2> ResourceTypes: </h2>
+	<ol>
+	<% @resource.resource_types.each do |rt| %>
+		<li>  <%= rt.name  %> </li>
+	<% end %>
+	</ol>
+	
+	<h2> Resource Links </h2>
+	<%= link_to "Add types to this resource", resource_typenew_resource_path(@resource)%><br>
+	<%= link_to "Edit this Resource", edit_resource_path(@resource) %> <br>
+	<%= link_to "Back to dashboard", dashboard_path %>
+</div>
+
+	
+

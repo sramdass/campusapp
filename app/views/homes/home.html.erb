@@ -46,5 +46,9 @@
 		<%= link_to "Sections Index from a class ", select_clazzs_path(:branch_id => @branch.id, :section_index => true)%><br>
 		<%= link_to "All Sections Index", sections_path %><br>
 		<%= link_to "Add Section", select_clazzs_path(:branch_id => @branch.id, :add_section=> true) %>	<br>	
+		
+		<h2>Resources </h2> <br>
+		<%= link_to "Add new resource", new_resource_path %> <br>
+		<%= link_to "Resources Index ", resources_path %>
 	<% end %>
 </div>
