@@ -1,0 +1,25 @@
+<h2> Selected students list  for section: <%= @section.name%>(<%= @section.clazz.name %>)</h2>
+<table class='index_table_z' >
+    <thead>	
+		<tr>
+			<th>Name </th>
+			<th>ID</th>
+			<th>Gender</th>
+			<th> Date Joined </th>
+			<th>Date Departed</th>
+			<th>Type</th>
+		</tr>
+	</thead>
+    <tbody>
+	<% @section.students.each do |student| %>
+		<tr>
+			<td class = 'ajaxified'><%= link_to student.name, assign_students_section_path(@section, :deleted_student_id => student.id ) %></td>
+			<td><%= student.id_no %></td>
+			<td><%= student.gender %> </td>
+			<td><%= student.date_joined.to_s %> </td>
+			<td><%= student.date_departed.to_s %> </td>
+			<td><%= student.type %>
+		</tr>
+	<% end %>
+    </tbody>	
+</table>	

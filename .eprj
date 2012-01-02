@@ -253,7 +253,7 @@
             <key>applicahtm</key>
             <string>app\views\layouts\application.html.erb</string>
             <key>applicati</key>
-            <string>..\white_reports\public\stylesheets\application.css</string>
+            <string>app\views\layouts\application.html.erb</string>
             <key>applicatiocont</key>
             <string>app\controllers\application_controller.rb</string>
             <key>application</key>
@@ -910,6 +910,8 @@
             <string>..\white_reports\app\views\schools\secnew.html.erb</string>
             <key>secnew.h</key>
             <string>..\white_reports\app\views\clazzs\secnew.html.erb</string>
+            <key>secstud</key>
+            <string>app\models\sec_student_map.rb</string>
             <key>secsu</key>
             <string>..\white_reports\app\models\sec_sub_mapper.rb</string>
             <key>sectestma</key>
