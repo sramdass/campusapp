@@ -223,7 +223,7 @@
             <key>ability</key>
             <string>..\white_reports\app\models\ability.rb</string>
             <key>ability.rb</key>
-            <string>..\white_reports\app\models\ability.rb</string>
+            <string>app\models\ability.rb</string>
             <key>action_box</key>
             <string>..\white_reports\app\views\branches\actions_box.html.erb</string>
             <key>actions</key>
@@ -256,6 +256,8 @@
             <string>app\views\layouts\application.html.erb</string>
             <key>applica</key>
             <string>..\white_reports\public\stylesheets\application.css</string>
+            <key>applicacontro</key>
+            <string>app\controllers\application_controller.rb</string>
             <key>applicahtm</key>
             <string>app\views\layouts\application.html.erb</string>
             <key>applicati</key>
@@ -567,6 +569,8 @@
             <key>faculties_con</key>
             <string>app\controllers\faculties_controller.rb</string>
             <key>faculties_contr</key>
+            <string>app\controllers\faculties_controller.rb</string>
+            <key>facultiesco</key>
             <string>app\controllers\faculties_controller.rb</string>
             <key>faculty.</key>
             <string>app\models\faculty.rb</string>
@@ -1113,7 +1117,7 @@
             <key>show.html.er</key>
             <string>app\views\clazzs\show.html.erb</string>
             <key>show.html.erb</key>
-            <string>app\views\clazzs\show.html.erb</string>
+            <string>app\views\faculties\show.html.erb</string>
             <key>sms_fi</key>
             <string>..\white_reports\app\views\students\_sms_fields.html.erb</string>
             <key>smsfields</key>

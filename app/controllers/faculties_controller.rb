@@ -1,7 +1,8 @@
 class FacultiesController < ApplicationController
+  load_and_authorize_resource	
   def index
   	@title = "Faculty Index"
-  	@faculties = Faculty.all
+  	#@faculties = Faculty.all
   end
 
   def new
