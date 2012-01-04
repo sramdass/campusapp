@@ -1,0 +1,37 @@
+<table>
+    <tbody>	
+		<tr>
+			<td><%= f.label :name %></td>
+			<td><%= f.text_field :name, :size => 15 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label :description %></td>
+			<td><%= f.text_area :description, :rows => 5 %></td>
+		</tr>		
+		<%= Resource.all.each do |res| %>
+			<div class = 'resource_permissions'>
+			<tr>
+				<td> <%= res.name %></td>
+				<td>
+					<% ResourceAction.all.each do |ra| %>
+						<% if f.object.new_record? || !role.has_privilege?(res.id, ra.code)  %>
+							<% check_off = false %>
+						<% else %>
+							<% check_off = true %>
+						<% end %>
+						<%= check_box_tag ra.name, 2**ra.code, check_off %> <%=ra.name%> <br>
+					<% end %>
+					
+					<% perm = role.permissions.find_by_resource_id(res.id) %>
+					<% val = perm ? perm.privilege : 0 %>
+					<%= text_field_tag  "privilege[#{res.id}]", val, :class => 'total_permission'  %>
+				</td>
+			</tr>
+			</div>
+		<% end %>
+	
+	</tbody>
+</table>	
+ 
+ 
+	

@@ -1,0 +1,11 @@
+<div id="main-column">
+	<p>
+		<i> 
+		  	Note that the code values are from 0 to 31. The code values are splitted into an interval of 6.
+		  	1 t0 6 correspond to read, the next for edit, the next for create and the last 6 are for delete.
+		  	When adding a new action, provide the code values in the proper interval 
+  		</i>
+	</p>
+  <%= render 'form', :resource_action => @resource_action %>
+</div>
+

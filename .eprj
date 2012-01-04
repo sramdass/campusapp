@@ -92,6 +92,8 @@
             <string>app\views\faculties\_form.html.erb</string>
             <key>_form.</key>
             <string>..\white_reports\app\views\schools\_form.html.erb</string>
+            <key>_form.html.erb</key>
+            <string>app\views\sections\_form.html.erb</string>
             <key>_instit</key>
             <string>..\white_reports\app\views\institutions\_institutions.html.erb</string>
             <key>_institutio</key>
@@ -352,6 +354,8 @@
             <string>app\models\branch_scoped_model.rb</string>
             <key>branch_scope</key>
             <string>app\models\branch_scoped_model.rb</string>
+            <key>branch_scoped</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>branch_scp</key>
             <string>app\models\branch_scoped_model.rb</string>
             <key>branch_spec</key>
@@ -380,6 +384,8 @@
             <string>..\white_reports\app\views\institutions\branchnew.html.erb</string>
             <key>branchnew</key>
             <string>..\white_reports\app\views\institutions\_branchnew.html.erb</string>
+            <key>branchscope</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>branchscoped</key>
             <string>app\models\branch_scoped_model.rb</string>
             <key>branchscopedmod</key>
@@ -436,6 +442,8 @@
             <string>..\white_reports\app\views\marks\cols_and_spline.html.erb</string>
             <key>common</key>
             <string>app\assets\javascripts\common.js</string>
+            <key>common.js</key>
+            <string>app\assets\javascripts\common.js</string>
             <key>con_spec</key>
             <string>spec\controllers\homes_controller_spec.rb</string>
             <key>confere</key>
@@ -444,6 +452,8 @@
             <string>..\white_reports\config\initializers\global_constants.rb</string>
             <key>creaesectestm</key>
             <string>db\migrate\20111231065309_create_sec_test_maps.rb</string>
+            <key>creaperm</key>
+            <string>db\migrate\20120103024027_create_permissions.rb</string>
             <key>creasecsub</key>
             <string>db\migrate\20111231065621_create_sec_sub_maps.rb</string>
             <key>create_Fa</key>
@@ -596,6 +606,8 @@
             <string>..\white_reports\public\stylesheets\form_styles.css</string>
             <key>from_sec</key>
             <string>..\white_reports\db\migrate\20110902042737_remove_branch_id_from_sections.rb</string>
+            <key>fromperm</key>
+            <string>db\migrate\20120104014150_remove_resource_action_id_from_permissions.rb</string>
             <key>gef</key>
             <string>Gemfile</string>
             <key>gem</key>
@@ -659,7 +671,7 @@
             <key>index.html.er</key>
             <string>..\white_reports\app\views\teachers\index.html.erb</string>
             <key>index.html.erb</key>
-            <string>..\white_reports\app\views\institutions\index.html.erb</string>
+            <string>app\views\resource_actions\index.html.erb</string>
             <key>index.htmle</key>
             <string>app\views\clazzs\index.html.erb</string>
             <key>index.js</key>
@@ -745,7 +757,9 @@
             <key>negative_St</key>
             <string>..\white_reports\app\views\marks\negative_stack.html.erb</string>
             <key>new</key>
-            <string>app\views\branches\new.html.erb</string>
+            <string>app\views\resource_actions\new.html.erb</string>
+            <key>new.</key>
+            <string>app\views\resource_actions\new.html.erb</string>
             <key>new.ht</key>
             <string>..\white_reports\spec\views\institutions\new.html.erb_spec.rb</string>
             <key>new.htm</key>
@@ -778,6 +792,14 @@
             <string>..\white_reports\app\models\period.rb</string>
             <key>period_f</key>
             <string>..\white_reports\app\views\branches\_period_fields.html.erb</string>
+            <key>permi</key>
+            <string>db\migrate\20120104014150_remove_resource_action_id_from_permissions.rb</string>
+            <key>permiss</key>
+            <string>app\models\permission.rb</string>
+            <key>permissio</key>
+            <string>app\models\permission.rb</string>
+            <key>permissions.rb</key>
+            <string>db\migrate\20120103024027_create_permissions.rb</string>
             <key>pie_anc</key>
             <string>..\white_reports\app\views\marks\pie_and_col.erb</string>
             <key>pr_co</key>
@@ -820,23 +842,43 @@
             <string>..\white_reports\app\views\sections\_report_options.html.erb</string>
             <key>reports</key>
             <string>..\white_reports\app\views\sections\_report_options.html.erb</string>
+            <key>resction.r</key>
+            <string>app\models\resource_action.rb</string>
             <key>reso</key>
             <string>app\models\resource.rb</string>
             <key>resour.rb</key>
             <string>app\models\resource.rb</string>
             <key>resourc</key>
             <string>app\models\resource.rb</string>
+            <key>resource.r</key>
+            <string>app\models\resource.rb</string>
+            <key>resource.rb</key>
+            <string>app\models\resource.rb</string>
+            <key>resource_A</key>
+            <string>app\models\resource_action.rb</string>
+            <key>resource_Ac</key>
+            <string>app\models\resource_action.rb</string>
+            <key>resource_Aci</key>
+            <string>app\models\resource_action.rb</string>
+            <key>resource_Actions_Co</key>
+            <string>app\controllers\resource_actions_controller.rb</string>
             <key>resource_on_schedulers.rb</key>
             <string>..\white_reports\db\migrate\20111110130508_rename_resource_on_schedulers.rb</string>
             <key>resource_ty</key>
             <string>app\models\resource_type.rb</string>
             <key>resource_typ</key>
             <string>app\models\resource_type.rb</string>
+            <key>resourceac</key>
+            <string>db\migrate\20120104013626_add_fields_to_resource_actions.rb</string>
+            <key>resourceaction.rb</key>
+            <string>app\models\resource_action.rb</string>
             <key>resourcenew</key>
             <string>app\views\resources\resource_typenew.html.erb</string>
             <key>resources_C</key>
             <string>app\controllers\resources_controller.rb</string>
             <key>resources_Co</key>
+            <string>app\controllers\resources_controller.rb</string>
+            <key>resources_con</key>
             <string>app\controllers\resources_controller.rb</string>
             <key>resourct</key>
             <string>app\models\resource_type.rb</string>
@@ -845,7 +887,19 @@
             <key>role.r</key>
             <string>..\white_reports\app\models\role.rb</string>
             <key>role.rb</key>
-            <string>..\white_reports\app\models\role.rb</string>
+            <string>app\models\role.rb</string>
+            <key>role_fi</key>
+            <string>app\views\roles\_role_fields.html.erb</string>
+            <key>role_fields</key>
+            <string>app\views\branches\_role_fields.html.erb</string>
+            <key>rolenew</key>
+            <string>app\views\branches\rolenew.html.erb</string>
+            <key>roles_c</key>
+            <string>app\controllers\roles_controller.rb</string>
+            <key>roles_con</key>
+            <string>app\controllers\roles_controller.rb</string>
+            <key>roles_cont</key>
+            <string>app\controllers\roles_controller.rb</string>
             <key>route</key>
             <string>..\white_reports\config\routes.rb</string>
             <key>routes</key>
@@ -932,6 +986,8 @@
             <string>..\white_reports\app\models\sec_sub_map.rb</string>
             <key>sec_sub_maps</key>
             <string>spec\models\sec_sub_map_spec.rb</string>
+            <key>sec_submap</key>
+            <string>app\models\sec_sub_map.rb</string>
             <key>sec_test</key>
             <string>..\white_reports\app\models\sec_test_map.rb</string>
             <key>sec_test_ma</key>
@@ -992,12 +1048,14 @@
             <string>..\white_reports\app\views\sections\_sections.html.erb</string>
             <key>sections_C</key>
             <string>app\controllers\sections_controller.rb</string>
+            <key>sections_Co</key>
+            <string>app\controllers\sections_controller.rb</string>
             <key>sections_c</key>
             <string>app\controllers\sections_controller.rb</string>
             <key>sections_co</key>
             <string>app\controllers\sections_controller.rb</string>
             <key>sections_con</key>
-            <string>..\white_reports\app\controllers\sections_controller.rb</string>
+            <string>app\controllers\sections_controller.rb</string>
             <key>sections_cont</key>
             <string>app\controllers\sections_controller.rb</string>
             <key>sections_contr</key>
@@ -1047,7 +1105,7 @@
             <key>show.htm</key>
             <string>..\white_reports\app\views\sections\show.html.erb</string>
             <key>show.html</key>
-            <string>..\white_reports\app\views\events\show.html.erb</string>
+            <string>app\views\roles\show.html.erb</string>
             <key>show.html.</key>
             <string>..\white_reports\app\views\schools\show.html.erb</string>
             <key>show.html.e</key>
@@ -1117,7 +1175,7 @@
             <key>subject_fiel</key>
             <string>..\white_reports\app\views\schools\_subject_fields.html.erb</string>
             <key>subjects_c</key>
-            <string>..\white_reports\app\controllers\subjects_controller.rb</string>
+            <string>app\controllers\subjects_controller.rb</string>
             <key>subjects_co</key>
             <string>app\controllers\subjects_controller.rb</string>
             <key>subjects_con</key>

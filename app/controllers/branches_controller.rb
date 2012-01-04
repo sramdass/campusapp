@@ -1,5 +1,5 @@
 class BranchesController < ApplicationController
-  skip_before_filter :set_tenant_branch
+  skip_before_filter :set_tenant_branch, :only => [:new, :create, :show, :update, :edit, :delete]
   
   def new
   	@title = "New Branch"
@@ -109,5 +109,20 @@ class BranchesController < ApplicationController
       render :studentnew
     end
   end    
+  
+    def rolenew
+  	@title = "New Role"  	
+    @branch = Branch.find(params[:id])
+  end
+  
+  def rolecreate
+    @branch = Branch.find(params[:id])
+    if @branch.update_attributes(params[:branch])
+      flash[:notice] = "Roles successfully created (updated)"    	
+	  redirect_to dashboard_path
+	else
+      render :rolenew
+    end
+  end      
   
 end

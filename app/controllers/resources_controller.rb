@@ -56,7 +56,7 @@ class ResourcesController < ApplicationController
       flash[:notice] = "Resource types successfully created (updated)"
 	  redirect_to @resource
     else
-      render :resourcetypenew
+      render :resource_typenew
     end
   end
   

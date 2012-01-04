@@ -1,0 +1,5 @@
+<%= form_for resource_action do |f| %>		
+	<%= render 'shared/error_messages', :target => resource_action %>
+	<%= render 'resource_action_fields', :f => f, :resource_action => resource_action %>
+    <p class='button'> <%= f.submit %> </p>
+<% end %>

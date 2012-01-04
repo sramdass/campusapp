@@ -1,0 +1,30 @@
+<div id="main-column">
+	<h1>Resource Index </h1>
+	<table class='index_table_z' >
+	    <thead>	
+			<tr>
+				<th>Name </th>
+				<th>Code </th>
+				<th> Description </th>
+				<th>Action </th>
+			</tr>
+		</thead>
+	    <tbody>
+		<% @resource_actions.each do |resource_action| %>
+			<tr>
+				<td><%= link_to resource_action.name, resource_action %></td>
+				<td><%= resource_action.code %> </td>
+				<td><%= resource_action.description %></td>
+				<td> <%= link_to 'Show', resource_action_path(resource_action) %> | 
+						<%= link_to 'Edit', edit_resource_action_path(resource_action) %> | 
+					    <%= link_to 'Destroy', resource_action, :confirm => 'Are you sure?', :method => :delete %> 
+				</td>
+			</tr>
+		<% end %>
+	    </tbody>	
+	</table>		
+	<p>
+		<%= link_to "Add new resource action", new_resource_action_path %>
+	</p>
+</div>
+

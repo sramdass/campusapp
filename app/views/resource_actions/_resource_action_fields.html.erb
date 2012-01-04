@@ -1,0 +1,36 @@
+<table>
+    <tbody>	
+		<tr>
+			<td> 
+				<strong><%= f.label :name %> </strong> 
+			</td>
+			<td> 	 
+		    	<%= f.text_field :name %>	</td>
+			</td>
+		</tr>
+		<tr>
+			<td> 
+				<strong><%= f.label :code %> </strong> 
+			</td>			
+			<td>
+				<% vals = [] %>
+				<% for i in 0..31 do%>
+					<% vals << [i.to_s, i]%>
+				<% end %>
+			 	<% if f.object.new_record?%>
+					<%= f.select :code, options_for_select(vals), {:include_blank => 'Select Code'}  %>
+				<% else %>
+					<%= f.select :code, options_for_select(vals, f.object.code )%>
+				<% end %>		
+			</td> 			
+		</tr>		
+		<tr>
+			<td> 
+				<strong><%= f.label :description %> </strong> 
+			</td>
+			<td> 	 
+		    	<%= f.text_area :description %>	</td>
+			</td>
+		</tr>					
+	</tbody>
+</table>				 

@@ -1,0 +1,22 @@
+<div id="main-column">
+	<h1><%= @role.name %> </h1><br>
+	In branch: <%= @role.branch.name %><br>
+	<h2> Privileges </h2>
+	<%= Resource.all.each do |res| %>
+		<h2> <%= res.name %></h2>
+		<% ResourceAction.all.each do |ra| %>
+			<ol>
+			<% if @role.has_privilege?(res.id, ra.code)%>
+				<li> Can &nbsp; <%= ResourceAction.find_by_code(ra.code).name %> </li>
+			<% end %>
+			</ol>
+		<% end %>
+	<% end %>
+
+	<p>
+		<%= link_to "Edit this Role", edit_role_path(@role) %>
+	</p>
+</div>
+
+	
+

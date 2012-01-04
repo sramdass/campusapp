@@ -18,6 +18,8 @@ Campusapp::Application.routes.draw do
       put 'examcreate'
   	  get 'studentnew'  
   	  put 'studentcreate'      
+  	  get 'rolenew'  
+  	  put 'rolecreate'  	  
     end 	
   end
   resources :faculties
@@ -47,5 +49,7 @@ Campusapp::Application.routes.draw do
   	  put 'resource_typecreate'
   	end
   end
+  resources :resource_actions
+  resources :roles
   root :to => 'sessions#new'
 end

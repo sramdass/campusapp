@@ -50,5 +50,15 @@
 		<h2>Resources </h2> <br>
 		<%= link_to "Add new resource", new_resource_path %> <br>
 		<%= link_to "Resources Index ", resources_path %>
+		
+		<h2>Resource Actions </h2> <br>
+		<%= link_to "Add new resource action", new_resource_action_path %> <br>
+		<%= link_to "Resource Action Index ", resource_actions_path %>		
+		
+		<h2> Roles </h2> <br>
+		<%= link_to "Quick Add Roles", rolenew_branch_path(@branch)%> <br>
+		<%= link_to "Roles index", roles_path%><br>
+		<%= link_to "Add Role", new_role_path %><br>
+				
 	<% end %>
 </div>

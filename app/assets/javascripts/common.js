@@ -23,4 +23,25 @@ $( ".datepicker" ).datepicker({
 		changeYear: true,
 		showOtherMonths: true			
 	});
+
+//Roles.
+//hide the textbox with through which the permission values are sent.
+$('input.total_permission').hide();
+
+$("input:checkbox").click(function() {
+    var amount = 0;
+    var existing_value = $(this).parent().find('.total_permission').val();
+    if (existing_value.length > 0 ){
+      amount = parseInt(existing_value);
+    }
+    if ($(this).is(":checked")) {
+        amount += parseInt($(this).attr('value'));
+    } else {
+        amount -= parseInt($(this).attr('value'));
+    }
+    //$(this).closest('input:text').val(amount);
+    //$(this).parent("div").find("input[type=text]").val(amount);
+    $(this).parent().find('.total_permission').val(amount);
+});
+	
 });

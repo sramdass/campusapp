@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102072054) do
+ActiveRecord::Schema.define(:version => 20120104014150) do
 
   create_table "blood_groups", :force => true do |t|
     t.string   "name"
@@ -69,6 +69,23 @@ ActiveRecord::Schema.define(:version => 20120102072054) do
     t.string   "id_no"
   end
 
+  create_table "permissions", :force => true do |t|
+    t.integer  "role_id"
+    t.integer  "resource_id"
+    t.integer  "privilege"
+    t.integer  "constraints"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resource_actions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "code"
+    t.string   "description"
+  end
+
   create_table "resource_types", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -78,6 +95,14 @@ ActiveRecord::Schema.define(:version => 20120102072054) do
 
   create_table "resources", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.integer  "branch_id"
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

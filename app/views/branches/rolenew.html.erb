@@ -1,0 +1,19 @@
+<%= debug params %>
+<%= form_for([@branch], { :url => { :action => "rolecreate" } }) do |f| %>	
+    <%= render 'shared/error_messages', :target => @branch %>
+	<table class="input_form_table">
+		<thead>
+	    	<tr>
+	    		<!--All the required fields for the Role model should come here-->
+	        	<th scope="col">Name</th>
+	        </tr>
+	    </thead>
+	    <tbody>		
+		<%= f.fields_for :roles do |builder| %>	
+	 		<%= render "role_fields", :f => builder %>	 	  
+		<% end %>
+	    </tbody>		
+	</table>			
+ 	<p class='add-button'> <%= link_to_add_fields "Add Role", f, :roles %> </p>
+ 	<p class='button'> <%= f.submit  "Update Roles" %>  </p>
+<% end %>
