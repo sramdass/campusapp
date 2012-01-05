@@ -2,6 +2,9 @@ class Role < BranchScopedModel
   has_many :permissions, :dependent => :destroy
   belongs_to :branch
   
+  has_many :role_memberships, :dependent => true, :dependent => :destroy
+  has_many :user_profiles, :through => :role_memberships  
+  
   validates 	:name, 	:presence => true, 
                						:length => {:maximum => 30},
                						:uniqueness => true	

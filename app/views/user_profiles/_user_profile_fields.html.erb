@@ -1,0 +1,12 @@
+<tr>
+	<td> Roles </td>
+	<td>
+		<% Role.all.each do |role| %>
+			<% if f.object.new_record? %>
+				<%= check_box_tag "profile_roles[]", "#{role.id}" , false %> <%= role.name%> <br>
+			<% else %>
+				<%= check_box_tag "profile_roles[]", "#{role.id}" , user_profile.has_this_role?(role.id)  %> <%= role.name %> <br>
+			<% end %>
+		<% end %>
+	</td>
+</tr>

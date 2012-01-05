@@ -538,6 +538,8 @@
             <string>spec\models\faculty_spec.rb</string>
             <key>faccontrol</key>
             <string>app\controllers\faculties_controller.rb</string>
+            <key>faccontrol.rb</key>
+            <string>app\controllers\faculties_controller.rb</string>
             <key>faccontrsp</key>
             <string>spec\controllers\faculties_controller_spec.rb</string>
             <key>facne</key>
@@ -552,6 +554,8 @@
             <string>spec\factories.rb</string>
             <key>facucon</key>
             <string>app\controllers\faculties_controller.rb</string>
+            <key>faculites</key>
+            <string>spec\controllers\faculties_controller_spec.rb</string>
             <key>facult.rb</key>
             <string>app\models\faculty.rb</string>
             <key>facult_c</key>
@@ -832,6 +836,8 @@
             <string>..\white_reports\app\controllers\profiles_controller.rb</string>
             <key>profiles_controll</key>
             <string>..\white_reports\app\controllers\profiles_controller.rb</string>
+            <key>profiles_controller</key>
+            <string>app\controllers\user_profiles_controller.rb</string>
             <key>rakefile</key>
             <string>Rakefile</string>
             <key>reate_events</key>
@@ -888,6 +894,8 @@
             <string>app\models\resource_type.rb</string>
             <key>role</key>
             <string>..\white_reports\app\models\role.rb</string>
+            <key>role.</key>
+            <string>app\models\role.rb</string>
             <key>role.r</key>
             <string>..\white_reports\app\models\role.rb</string>
             <key>role.rb</key>
@@ -896,9 +904,13 @@
             <string>app\views\roles\_role_fields.html.erb</string>
             <key>role_fields</key>
             <string>app\views\branches\_role_fields.html.erb</string>
+            <key>role_mem</key>
+            <string>app\models\role_membership.rb</string>
             <key>rolenew</key>
             <string>app\views\branches\rolenew.html.erb</string>
             <key>roles_c</key>
+            <string>app\controllers\roles_controller.rb</string>
+            <key>roles_co</key>
             <string>app\controllers\roles_controller.rb</string>
             <key>roles_con</key>
             <string>app\controllers\roles_controller.rb</string>
@@ -1268,6 +1280,8 @@
             <string>..\white_reports\app\views\schools\tnew.html.erb</string>
             <key>to_Fac</key>
             <string>db\migrate\20111222030629_add_id_no_to_faculties.rb</string>
+            <key>touser</key>
+            <string>db\migrate\20111224111726_add_branch_id_to_user_profiles.rb</string>
             <key>upcon</key>
             <string>app\controllers\user_profiles_controller.rb</string>
             <key>useprof.rb</key>

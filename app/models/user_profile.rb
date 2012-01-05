@@ -19,20 +19,24 @@
 class UserProfile < ActiveRecord::Base
   belongs_to :user, :polymorphic => true
   validates_presence_of :user
-  attr_accessible :login, :password, :password_confirmation, :user, :branch, :branch_id
+
   belongs_to :branch
   validates_presence_of :branch
   
+  has_many :role_memberships, :dependent => true, :dependent => :destroy
+  has_many :roles, :through => :role_memberships	  
+  
   attr_accessor :password
+  attr_accessible :login, :password, :password_confirmation, :user, :branch, :branch_id
   before_save :encrypt_password
   before_create { generate_token(:auth_token) }
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
-  validates_length_of :password, :minimum => 6, :maximum => 50
+  validates_length_of :password, :minimum => 3, :maximum => 50
   validates_presence_of :login
   validates_uniqueness_of :login
-
+  
   def authenticate(password)	
     if self.password_hash == BCrypt::Engine.hash_secret(password, self.password_salt)
       self
@@ -59,6 +63,10 @@ class UserProfile < ActiveRecord::Base
     begin
       self[column] = SecureRandom.base64
     end while UserProfile.exists?(column => self[column])
+  end
+  
+  def has_this_role?(role_id)
+    !RoleMembership.for_role(role_id).for_user_profile(self.id).all.empty?
   end
 			  
 end
