@@ -7,8 +7,16 @@
 	<% end %>
 	</ol>
 	
+	<h2> ResourceActions: </h2>
+	<ol>
+	<% @resource.resource_actions.each do |ra| %>
+		<li>  <%= ra.name  %> - <%= ra.code %>  - <%=ra.description %></li>
+	<% end %>
+	</ol>	
+	
 	<h2> Resource Links </h2>
 	<%= link_to "Add types to this resource", resource_typenew_resource_path(@resource)%><br>
+	<%= link_to "Add action to this resource", resource_actionnew_resource_path(@resource)%><br>
 	<%= link_to "Edit this Resource", edit_resource_path(@resource) %> <br>
 	<%= link_to "Back to dashboard", dashboard_path %>
 </div>

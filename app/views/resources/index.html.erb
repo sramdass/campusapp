@@ -13,7 +13,8 @@
 				<td><%= link_to resource.name, resource %></td>
 				<td> <%= link_to 'Show', resource_path(resource) %> | 
 						<%= link_to 'Edit', edit_resource_path(resource) %> | 
-						<%= link_to 'Add resource types', resource_typenew_resource_path(resource) %> |
+						<%= link_to 'Resource types', resource_typenew_resource_path(resource) %> |
+						<%= link_to 'Resource actions', resource_actionnew_resource_path(resource) %> |
 					    <%= link_to 'Destroy', resource, :confirm => 'Are you sure?', :method => :delete %> 
 				</td>
 			</tr>

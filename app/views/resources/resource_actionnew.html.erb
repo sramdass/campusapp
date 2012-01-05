@@ -1,0 +1,24 @@
+<h2>TODO: The codes can be repeated when two entries with the same code are added at the same time. This needs to be corrected</h2>
+<%= form_for([@resource], { :url => { :action => "resource_actioncreate" } }) do |f| %>	
+    <%= render 'shared/error_messages', :target => @resource %>
+	<table class="input_form_table">
+		<thead>
+	    	<tr>
+	    		<!--All the required fields for the ResourceType model should come here-->
+	        	<th scope="col">Name</th>
+	        	<th scope="col">Code</th>
+	        	<th scope="col">Description</th>
+	            <th scope="col">Delete</th>            
+	        </tr>
+	    </thead>
+	    <tbody>		
+		<%= f.fields_for :resource_actions do |builder| %>	
+	 		<%= render "resource_action_fields", :f => builder %>	 	  
+		<% end %>
+	    </tbody>		
+	</table>			
+ 	<p class='add-button'> <%= link_to_add_fields "Add Resource Action", f, :resource_actions %> </p>
+ 	<p class='button'> <%= f.submit  "Update Types" %>  </p>
+ 	<p> <%= link_to "Cancel and go back to the resource", resource_path(@resource) %>
+ 	<p> <%= link_to "Cancel and go back to the resources index ", resources_path %>
+<% end %>

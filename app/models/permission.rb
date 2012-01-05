@@ -1,4 +1,4 @@
 class Permission < ActiveRecord::Base
-  belongs_to :resource, :dependent => :destroy
-  belongs_to :role, :dependent => :destroy	
+  belongs_to :resource
+  belongs_to :role
 end

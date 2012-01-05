@@ -60,4 +60,19 @@ class ResourcesController < ApplicationController
     end
   end
   
+  def resource_actionnew
+  	@title = "New Resource Action"
+    @resource = Resource.find(params[:id])
+  end
+  
+  def resource_actioncreate 
+    @resource = Resource.find(params[:id])
+    if @resource.update_attributes(params[:resource])
+      flash[:notice] = "Resource Actions successfully created (updated)"
+	  redirect_to @resource
+    else
+      render :resource_actionnew
+    end
+  end  
+  
 end

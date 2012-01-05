@@ -226,6 +226,8 @@
             <string>app\models\ability.rb</string>
             <key>action_box</key>
             <string>..\white_reports\app\views\branches\actions_box.html.erb</string>
+            <key>actionnew</key>
+            <string>app\views\resources\resource_actionnew.html.erb</string>
             <key>actions</key>
             <string>..\white_reports\app\views\sections\actions_box.html.erb</string>
             <key>actions_b</key>
@@ -379,7 +381,7 @@
             <key>branches_cont</key>
             <string>app\controllers\branches_controller.rb</string>
             <key>branches_contr</key>
-            <string>..\white_reports\app\controllers\branches_controller.rb</string>
+            <string>app\controllers\branches_controller.rb</string>
             <key>branchescont</key>
             <string>app\controllers\branches_controller.rb</string>
             <key>branchne</key>
@@ -753,7 +755,7 @@
             <key>master_g</key>
             <string>..\white_reports\app\views\marks\student_master_graphs.html.erb</string>
             <key>member</key>
-            <string>db\migrate\20120102072054_add_member_id_to_details.rb</string>
+            <string>app\models\role_membership.rb</string>
             <key>member_f</key>
             <string>app\views\shared\_member_detail_fields.html.erb</string>
             <key>membership.rb</key>
@@ -805,6 +807,8 @@
             <key>permiss</key>
             <string>app\models\permission.rb</string>
             <key>permissio</key>
+            <string>app\models\permission.rb</string>
+            <key>permission.r</key>
             <string>app\models\permission.rb</string>
             <key>permissions.rb</key>
             <string>db\migrate\20120103024027_create_permissions.rb</string>
@@ -870,8 +874,14 @@
             <string>app\models\resource_action.rb</string>
             <key>resource_Aci</key>
             <string>app\models\resource_action.rb</string>
+            <key>resource_Actin.rb</key>
+            <string>app\models\resource_action.rb</string>
+            <key>resource_Actio.rb</key>
+            <string>app\models\resource_action.rb</string>
             <key>resource_Actions_Co</key>
             <string>app\controllers\resource_actions_controller.rb</string>
+            <key>resource_actio.rb</key>
+            <string>app\models\resource_action.rb</string>
             <key>resource_on_schedulers.rb</key>
             <string>..\white_reports\db\migrate\20111110130508_rename_resource_on_schedulers.rb</string>
             <key>resource_ty</key>
@@ -880,6 +890,10 @@
             <string>app\models\resource_type.rb</string>
             <key>resourceac</key>
             <string>db\migrate\20120104013626_add_fields_to_resource_actions.rb</string>
+            <key>resourceactiofil</key>
+            <string>app\views\resource_actions\_resource_action_fields.html.erb</string>
+            <key>resourceaction</key>
+            <string>app\models\resource_action.rb</string>
             <key>resourceaction.rb</key>
             <string>app\models\resource_action.rb</string>
             <key>resourcenew</key>
@@ -888,9 +902,15 @@
             <string>app\controllers\resources_controller.rb</string>
             <key>resources_Co</key>
             <string>app\controllers\resources_controller.rb</string>
+            <key>resources_c</key>
+            <string>app\controllers\resources_controller.rb</string>
+            <key>resources_co</key>
+            <string>app\controllers\resources_controller.rb</string>
             <key>resources_con</key>
             <string>app\controllers\resources_controller.rb</string>
             <key>resourct</key>
+            <string>app\models\resource_type.rb</string>
+            <key>restype.rb</key>
             <string>app\models\resource_type.rb</string>
             <key>role</key>
             <string>..\white_reports\app\models\role.rb</string>
@@ -903,7 +923,7 @@
             <key>role_fi</key>
             <string>app\views\roles\_role_fields.html.erb</string>
             <key>role_fields</key>
-            <string>app\views\branches\_role_fields.html.erb</string>
+            <string>app\views\roles\_role_fields.html.erb</string>
             <key>role_mem</key>
             <string>app\models\role_membership.rb</string>
             <key>rolenew</key>
@@ -925,6 +945,8 @@
             <key>routes.r</key>
             <string>config\routes.rb</string>
             <key>routes.rb</key>
+            <string>config\routes.rb</string>
+            <key>routs.</key>
             <string>config\routes.rb</string>
             <key>rsourc.rb</key>
             <string>app\models\resource.rb</string>
@@ -1129,7 +1151,11 @@
             <key>show.html.er</key>
             <string>app\views\clazzs\show.html.erb</string>
             <key>show.html.erb</key>
-            <string>app\views\faculties\show.html.erb</string>
+            <string>app\views\roles\show.html.erb</string>
+            <key>show.rb</key>
+            <string>app\views\resources\show.html.erb</string>
+            <key>show.tmlerb</key>
+            <string>app\views\resources\show.html.erb</string>
             <key>sms_fi</key>
             <string>..\white_reports\app\views\students\_sms_fields.html.erb</string>
             <key>smsfields</key>

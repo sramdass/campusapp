@@ -1,0 +1,19 @@
+<tr class = "tfields">
+	<td><%= f.text_field :name, :size => 15 %></td>
+	<td>
+		<% vals = [] %>
+		<% for i in 1..31 do%>
+			<% vals << [i.to_s, i]%>
+		<% end %>
+	 	<% if f.object.new_record?%>
+			<%= f.select :code, options_for_select(vals), {:include_blank => 'Select Code'}  %>
+		<% else %>
+			<%= f.select :code, options_for_select(vals, f.object.code )%>
+		<% end %>		
+	</td> 	
+	<td><%= f.text_area :description, :rows => 3 %></td>
+	<td class='remove-button'><%= link_to_remove_fields "Delete", f %></td>	
+</tr>
+ 
+ 
+	

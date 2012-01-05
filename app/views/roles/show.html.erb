@@ -2,17 +2,16 @@
 	<h1><%= @role.name %> </h1><br>
 	In branch: <%= @role.branch.name %><br>
 	<h2> Privileges </h2>
-	<%= Resource.all.each do |res| %>
-		<h2> <%= res.name %></h2>
-		<% ResourceAction.all.each do |ra| %>
-			<ol>
+	<% Resource.all.each do |res| %>
+		<h2> <%= res.name if !res.resource_actions.empty? %> </h2>
+		<ol>
+		<% res.resource_actions.each do |ra| %>
 			<% if @role.has_privilege?(res.id, ra.code)%>
 				<li> Can &nbsp; <%= ResourceAction.find_by_code(ra.code).name %> </li>
 			<% end %>
-			</ol>
 		<% end %>
+		</ol>
 	<% end %>
-
 	<p>
 		<%= link_to "Edit this Role", edit_role_path(@role) %>
 	</p>

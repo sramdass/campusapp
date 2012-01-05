@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120105051157) do
+ActiveRecord::Schema.define(:version => 20120105102847) do
 
   create_table "blood_groups", :force => true do |t|
     t.string   "name"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20120105051157) do
     t.datetime "updated_at"
     t.integer  "code"
     t.string   "description"
+    t.integer  "resource_id"
   end
 
   create_table "resource_types", :force => true do |t|

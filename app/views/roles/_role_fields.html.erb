@@ -1,4 +1,4 @@
-<table>
+<table >
     <tbody>	
 		<tr>
 			<td><%= f.label :name %></td>
@@ -8,12 +8,12 @@
 			<td><%= f.label :description %></td>
 			<td><%= f.text_area :description, :rows => 5 %></td>
 		</tr>		
-		<%= Resource.all.each do |res| %>
+		<% Resource.all.each do |res| %>
 			<div class = 'resource_permissions'>
-			<tr>
-				<td> <%= res.name %></td>
+			<tr >
+				<td> <%= res.name if !res.resource_actions.empty? %></td> <!--do not print the resource name if there are no actions associated with the resource-->
 				<td>
-					<% ResourceAction.all.each do |ra| %>
+					<% res.resource_actions.each do |ra| %>
 						<% if f.object.new_record? || !role.has_privilege?(res.id, ra.code)  %>
 							<% check_off = false %>
 						<% else %>
@@ -24,7 +24,11 @@
 					
 					<% perm = role.permissions.find_by_resource_id(res.id) %>
 					<% val = perm ? perm.privilege : 0 %>
+					<!--This field is populated by javascript and is located by relative position to these checkboxes.
+						     Know what you do, before you touch this code.
+					-->
 					<%= text_field_tag  "privilege[#{res.id}]", val, :class => 'total_permission'  %>
+					<br><br><br>
 				</td>
 			</tr>
 			</div>

@@ -47,6 +47,8 @@ Campusapp::Application.routes.draw do
   	member do
   	  get 'resource_typenew'
   	  put 'resource_typecreate'
+  	  get 'resource_actionnew'
+  	  put 'resource_actioncreate'  	  
   	end
   end
   resources :resource_actions
