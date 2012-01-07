@@ -18,6 +18,9 @@ class Faculty < BranchScopedModel
   belongs_to :branch
   belongs_to :resource_type
   
+  #These are the section to which this faculty is class teacher
+  has_many :sections
+  
   has_one :user_profile, :as => :user, :dependent => :destroy
   has_one :detail, :as => :member, :dependent => :destroy
   accepts_nested_attributes_for :detail,  :reject_if => :has_only_destroy?, :allow_destroy => true  

@@ -43,7 +43,7 @@ class UserProfilesController < ApplicationController
     #coming as a part of old_memberships. When we delete the old_memberships
     #the newly built ones will also get deleted, resulting in no roles for this profile.
 	old_memberships = RoleMembership.for_user_profile(@user_profile.id)
-    role_ids = params[:profile_roles]
+    role_ids = params[:profile_roles] || []
     role_ids.each do |role_id|
       memberships << {:role_id => role_id}
     end

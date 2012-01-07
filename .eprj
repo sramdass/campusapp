@@ -222,6 +222,8 @@
             <string>..\white_reports\app\models\ability.rb</string>
             <key>ability</key>
             <string>..\white_reports\app\models\ability.rb</string>
+            <key>ability.</key>
+            <string>app\models\ability.rb</string>
             <key>ability.rb</key>
             <string>app\models\ability.rb</string>
             <key>action_box</key>
@@ -679,7 +681,7 @@
             <key>index.html.e</key>
             <string>..\white_reports\app\views\profiles\index.html.erb</string>
             <key>index.html.er</key>
-            <string>..\white_reports\app\views\teachers\index.html.erb</string>
+            <string>app\views\faculties\index.html.erb</string>
             <key>index.html.erb</key>
             <string>app\views\resource_actions\index.html.erb</string>
             <key>index.htmle</key>
@@ -856,6 +858,8 @@
             <string>..\white_reports\app\views\sections\_report_options.html.erb</string>
             <key>reports</key>
             <string>..\white_reports\app\views\sections\_report_options.html.erb</string>
+            <key>resaction.rb</key>
+            <string>app\models\resource_action.rb</string>
             <key>resction.r</key>
             <string>app\models\resource_action.rb</string>
             <key>reso</key>
@@ -878,6 +882,8 @@
             <string>app\models\resource_action.rb</string>
             <key>resource_Actio.rb</key>
             <string>app\models\resource_action.rb</string>
+            <key>resource_Actions</key>
+            <string>spec\factories\resource_actions.rb</string>
             <key>resource_Actions_Co</key>
             <string>app\controllers\resource_actions_controller.rb</string>
             <key>resource_actio.rb</key>
@@ -1316,6 +1322,8 @@
             <string>..\dynamic_models\app\models\user.rb</string>
             <key>user.rb</key>
             <string>C:\Users\sramdass.PSFT\Desktop\ruby\source\stffn-decl_auth_demo_app-b1c29dc\stffn-decl_auth_demo_app-b1c29dc\app\models\user.rb</string>
+            <key>user_prof_c</key>
+            <string>app\controllers\user_profiles_controller.rb</string>
             <key>user_profile</key>
             <string>spec\models\user_profile_spec.rb</string>
             <key>user_profile.r</key>

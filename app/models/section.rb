@@ -1,4 +1,5 @@
 class Section < ActiveRecord::Base
+  #This is the class teacher
   belongs_to :faculty
   
   belongs_to :clazz

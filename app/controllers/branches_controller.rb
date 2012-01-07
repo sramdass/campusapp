@@ -110,8 +110,8 @@ class BranchesController < ApplicationController
     end
   end    
   
-    def rolenew
-  	@title = "New Role"  	
+  def rolenew
+    @title = "New Role"  	
     @branch = Branch.find(params[:id])
   end
   

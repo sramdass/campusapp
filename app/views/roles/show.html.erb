@@ -7,13 +7,14 @@
 		<ol>
 		<% res.resource_actions.each do |ra| %>
 			<% if @role.has_privilege?(res.id, ra.code)%>
-				<li> Can &nbsp; <%= ResourceAction.find_by_code(ra.code).name %> </li>
+				<li> Can &nbsp; <%= res.resource_actions.find_by_code(ra.code).name %> </li>
 			<% end %>
 		<% end %>
 		</ol>
 	<% end %>
 	<p>
-		<%= link_to "Edit this Role", edit_role_path(@role) %>
+		<%= link_to "Edit this Role", edit_role_path(@role) %> <br>
+		<%= link_to "Add new Role", new_role_path%>
 	</p>
 </div>
 

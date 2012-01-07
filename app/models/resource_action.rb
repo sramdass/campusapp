@@ -10,10 +10,11 @@ class ResourceAction < ActiveRecord::Base
   validates 	:code,	 	:presence => true, 
   									:numericality => {:less_than => 32, :greater_than => 0}
                					    
-  validates 	:name, 	:presence => true, 
-               					    :length => {:maximum => 300}  
-               					    
-  validate :code_should_not_repeat_in_a_resource               					    
+  validates 	:description, 	:presence => true, 
+               					    		:length => {:maximum => 300}  
+    
+  #TODO: This is not working as desired. Rectify this problem.               					    		           					    
+  #validate :code_should_not_repeat_in_a_resource               					    
 
 #This module was originally written to update the code automatically when the resource actions were created.
 #But this poses a large problem. When a particular privilege(which is dependent on these code values) is stored 
