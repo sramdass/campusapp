@@ -4,6 +4,7 @@ class UserProfilesController < ApplicationController
   def index
   	@user_profiles=UserProfile.all
   end
+  
   def new
     @title = 'Sign Up'
     @profile = UserProfile.new

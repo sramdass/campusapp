@@ -948,6 +948,8 @@
             <string>app\controllers\roles_controller.rb</string>
             <key>roles_cont</key>
             <string>app\controllers\roles_controller.rb</string>
+            <key>rolescontro</key>
+            <string>app\controllers\roles_controller.rb</string>
             <key>rolescot</key>
             <string>app\controllers\roles_controller.rb</string>
             <key>route</key>

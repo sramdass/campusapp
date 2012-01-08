@@ -95,6 +95,24 @@ class Ability
   #for Faculty resource, then 'faculty_section_read' will get executed and the permissions
   #are given accordingly.
   
+  #BRANCH
+  
+  def branch_read
+    can :read, Branch
+  end
+  
+  def branch_edit
+    can :edit, Branch  	
+  end
+  
+  def branch_create
+    can :create, Branch  	
+  end
+  
+  def branch_destroy
+    can :destroy, Branch  	
+  end
+  
   #FACULTY
   def faculty_self_read
     can :read, Faculty, :id_no => @profile.login
@@ -145,6 +163,60 @@ class Ability
   
   #CLAZZ
   
+  def clazz_self_read
+  	if @user_type.eql?("Faculty")
+  	  can :read, Clazz do |clz|
+  	    (class_teacher_for_clazz_ids(@profile.login) + teaches_clazz_ids(@profile.login)).include?(clz.id)
+  	  end
+  	elsif @user_type.eql?("Student")
+  		
+  	end
+  end
+  
+  def clazz_all_read
+    can :read, Clazz
+  end
+  
+  def clazz_self_edit
+  	if @user_type.eql?("Faculty")
+  	  can :edit, Clazz do |clz|
+  	    (class_teacher_for_clazz_ids(@profile.login) + teaches_clazz_ids(@profile.login)).include?(clz.id)
+  	  end
+  	elsif @user_type.eql?("Student")
+  		
+  	end  	
+  end
+  
+  def clazz_all_edit
+  	can :edit, Clazz
+  end
+  
+  def clazz_create
+  	can :create, Clazz
+  end
+  
+  def clazz_self_destroy
+  	if @user_type.eql?("Faculty")
+  	  can :destroy, Clazz do |clz|
+  	    (class_teacher_for_clazz_ids(@profile.login) + teaches_clazz_ids(@profile.login)).include?(clz.id)
+  	  end
+  	elsif @user_type.eql?("Student")
+  		
+  	end  	  	
+  end
+  
+  def clazz_all_destroy
+  	can :destroy, Clazz
+  end   
+  
+  def clazz_bulk_op
+    can [:clazznew, :clazzcreate]	, Branch
+  end
+  	
+  def all_op
+  	clazz_bulk_op
+    can :manage, Clazz
+  end  
   
   #SECTION
   
@@ -238,8 +310,61 @@ class Ability
   	can :assign_students, Section
   end  
   
+  def section_bulk_op
+    can [:sectionnew, :sectioncreate], Clazz
+  end  
+  
   def all_op
   	section_all_assign_students
-    can :all, Section
+    can :manage, Section
   end
+  
+  #ROLE
+  
+  def role_self_read
+  	
+  end
+  
+  def role_all_read
+  	
+  end  
+
+  def role_self_edit
+  	
+  end
+
+  def role_all_edit
+  	
+  end
+    
+  def role_create
+  	
+  end
+  
+  def role_destroy
+  	
+  end
+  
+  #USER_PROFILE
+  
+  def userprofile_self_read
+  	
+  end  
+  
+  def userprofile_all_read
+  	
+  end  
+  
+  def userprofile_self_edit
+  	
+  end  
+  
+  def userprofile_all_edit
+  	
+  end
+  
+  def userprofile_destroy
+  	
+  end  
+  
 end
