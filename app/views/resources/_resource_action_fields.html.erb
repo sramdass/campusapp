@@ -11,7 +11,7 @@
 			<%= f.select :code, options_for_select(vals, f.object.code )%>
 		<% end %>		
 	</td> 	
-	<td><%= f.text_area :description, :rows => 3 %></td>
+	<td><%= f.text_area :description, :rows => 1 %></td>
 	<td class='remove-button'><%= link_to_remove_fields "Delete", f %></td>	
 </tr>
  

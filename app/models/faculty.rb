@@ -21,6 +21,9 @@ class Faculty < BranchScopedModel
   #These are the section to which this faculty is class teacher
   has_many :sections
   
+  #These are the section + subject combination the faculty teaches
+  has_many :sec_sub_maps
+  
   has_one :user_profile, :as => :user, :dependent => :destroy
   has_one :detail, :as => :member, :dependent => :destroy
   accepts_nested_attributes_for :detail,  :reject_if => :has_only_destroy?, :allow_destroy => true  

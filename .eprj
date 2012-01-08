@@ -380,6 +380,8 @@
             <string>app\controllers\branches_controller.rb</string>
             <key>branches_co</key>
             <string>app\controllers\branches_controller.rb</string>
+            <key>branches_con</key>
+            <string>app\controllers\branches_controller.rb</string>
             <key>branches_cont</key>
             <string>app\controllers\branches_controller.rb</string>
             <key>branches_contr</key>
@@ -675,7 +677,7 @@
             <key>index.ht</key>
             <string>..\white_reports\app\views\teachers\index.html.erb</string>
             <key>index.htm</key>
-            <string>app\views\sections\index.html.erb</string>
+            <string>app\views\roles\index.html.erb</string>
             <key>index.html</key>
             <string>app\views\resources\index.html.erb</string>
             <key>index.html.e</key>
@@ -902,6 +904,8 @@
             <string>app\models\resource_action.rb</string>
             <key>resourceaction.rb</key>
             <string>app\models\resource_action.rb</string>
+            <key>resourceacton.r</key>
+            <string>app\models\resource_action.rb</string>
             <key>resourcenew</key>
             <string>app\views\resources\resource_typenew.html.erb</string>
             <key>resources_C</key>
@@ -923,7 +927,7 @@
             <key>role.</key>
             <string>app\models\role.rb</string>
             <key>role.r</key>
-            <string>..\white_reports\app\models\role.rb</string>
+            <string>app\models\role.rb</string>
             <key>role.rb</key>
             <string>app\models\role.rb</string>
             <key>role_fi</key>
@@ -932,6 +936,8 @@
             <string>app\views\roles\_role_fields.html.erb</string>
             <key>role_mem</key>
             <string>app\models\role_membership.rb</string>
+            <key>rolefields</key>
+            <string>app\views\roles\_role_fields.html.erb</string>
             <key>rolenew</key>
             <string>app\views\branches\rolenew.html.erb</string>
             <key>roles_c</key>
@@ -941,6 +947,8 @@
             <key>roles_con</key>
             <string>app\controllers\roles_controller.rb</string>
             <key>roles_cont</key>
+            <string>app\controllers\roles_controller.rb</string>
+            <key>rolescot</key>
             <string>app\controllers\roles_controller.rb</string>
             <key>route</key>
             <string>..\white_reports\config\routes.rb</string>
@@ -1024,6 +1032,8 @@
             <string>app\models\sec_sub_map.rb</string>
             <key>sec_sub_ma</key>
             <string>..\white_reports\app\models\sec_sub_map.rb</string>
+            <key>sec_sub_map</key>
+            <string>app\models\sec_sub_map.rb</string>
             <key>sec_sub_map.r</key>
             <string>..\white_reports\app\models\sec_sub_map.rb</string>
             <key>sec_sub_map.rb</key>
@@ -1112,6 +1122,8 @@
             <string>app\controllers\sections_controller.rb</string>
             <key>sections_cp</key>
             <string>..\white_reports\spec\controllers\sections_controller_spec.rb</string>
+            <key>sectionscontroller</key>
+            <string>app\controllers\sections_controller.rb</string>
             <key>secure_ran</key>
             <string>..\white_reports\annotate\ruby\1.8\gems\activesupport-3.0.9\lib\active_support\secure_random.rb</string>
             <key>seed.rb</key>

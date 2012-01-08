@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-
+  load_and_authorize_resource :only => [:new, :show, :edit, :update, :create, :destroy, :studentnew, :assign_students]
   def index
     if params[:clazz_id]
     	@sections = Clazz.find(params[:clazz_id]).sections
@@ -9,21 +9,21 @@ class SectionsController < ApplicationController
   end
   
   def new
-  	@section = Section.new
+  	#@section = Section.new
   	@clazz = Clazz.find(params[:clazz_id])
   	@section.clazz = @clazz
   end
 
   def show
-    @section = Section.find(params[:id])
+    #@section = Section.find(params[:id])
   end
   
   def edit
-    @section = Section.find(params[:id])
+    #@section = Section.find(params[:id])
   end
 
   def update
-    @section = Section.find(params[:id])
+    #@section = Section.find(params[:id])
     params[:section][:subject_ids] ||= []
     params[:section][:exam_ids] ||= []
     		
@@ -50,7 +50,7 @@ class SectionsController < ApplicationController
   end
   
   def create
-    @section = Section.new(params[:section])
+    #@section = Section.new(params[:section])
     #Only after the section is saved, we can get hold of the @section.sec_sub_maps.
     #Before the save, @section.sec_sub_maps and @section.sec_exam_maps will be blank.
     #We can try parsing the parameters and create the maps manually, but with the current
@@ -84,7 +84,7 @@ class SectionsController < ApplicationController
   end  
   
   def destroy
-  	@section = Section.find(params[:id])
+  	#@section = Section.find(params[:id])
   	@section.delete
   	flash[:notice] = "Section Deleted"
   	#The redirection should happen to the previous page. We can delete the sections from the particular
@@ -105,7 +105,7 @@ class SectionsController < ApplicationController
   end  
   
   def assign_students
-  	@section=Section.find(params[:id])
+  	#@section=Section.find(params[:id])
   	@selected_student_id = params[:selected_student_id]
   	@deleted_student_id = params[:deleted_student_id]
   	
@@ -145,7 +145,7 @@ class SectionsController < ApplicationController
   end
   
   def studentnew
-  	@section = Section.find(params[:id])
+  	#@section = Section.find(params[:id])
   end
   			
   def duplicate_student(student_id, section_id)

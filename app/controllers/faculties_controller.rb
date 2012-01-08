@@ -2,7 +2,7 @@ class FacultiesController < ApplicationController
   load_and_authorize_resource	
   def index
   	@title = "Faculty Index"
-  	@faculties = Faculty.accessible_by(current_ability)
+  	#@faculties = Faculty.accessible_by(current_ability)
   end
 
   def new

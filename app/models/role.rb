@@ -12,6 +12,7 @@ class Role < BranchScopedModel
   validates 	:description, 			:length => {:maximum => 300}
   
   def has_privilege?(resource_id, action_code)
+  	result = 0
   	privilege_in_db = self.permissions.find_by_resource_id(resource_id).try(:privilege)
   	result = (privilege_in_db & 2**action_code) if privilege_in_db
   	if result !=0
