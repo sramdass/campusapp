@@ -1,3 +1,10 @@
+<% if f.object.new_record?
+		yid = current_year.id
+	else
+		yid = f.object.year_id
+	end
+%>
+<%= f.hidden_field :year_id, :value => yid %>
 <table>
     <tbody>	
 		<tr>

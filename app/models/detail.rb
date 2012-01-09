@@ -16,7 +16,7 @@
 #  member_id       :integer
 #
 
-class Detail < ActiveRecord::Base
+class Detail < BranchScopedModel
   belongs_to :member, :polymorphic => true
   #validates_presence_of :member
 

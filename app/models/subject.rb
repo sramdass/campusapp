@@ -14,12 +14,11 @@ class Subject < BranchScopedModel
   belongs_to :year
   validates_presence_of :year
   
-  belongs_to :branch
-  
   has_many :sec_sub_maps, :dependent => true, :dependent => :destroy
-  has_many :subjects, :through => :sec_sub_maps  
+  has_many :sections, :through => :sec_sub_maps  
   
   validates 	:name, 	:presence => true, 
                						:length => {:maximum => 30},
                						:uniqueness => true	
+              						
 end

@@ -14,8 +14,7 @@
 #  updated_at       :datetime
 #
 
-class Student < ActiveRecord::Base
-  belongs_to :branch
+class Student < BranchScopedModel
   belongs_to :resource_type
   
   has_one :user_profile, :as => :user, :dependent => :destroy

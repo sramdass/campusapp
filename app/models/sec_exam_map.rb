@@ -12,7 +12,7 @@
 #  updated_at :datetime
 #
 
-class SecExamMap < ActiveRecord::Base
+class SecExamMap < BranchScopedModel
   belongs_to :section, :dependent => :destroy
   belongs_to :exam, :dependent => :destroy
 end

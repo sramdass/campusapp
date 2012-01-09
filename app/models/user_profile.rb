@@ -16,12 +16,9 @@
 #  branch_id              :integer
 #
 
-class UserProfile < ActiveRecord::Base
+class UserProfile < BranchScopedModel
   belongs_to :user, :polymorphic => true
   validates_presence_of :user
-
-  belongs_to :branch
-  validates_presence_of :branch
   
   has_many :role_memberships, :dependent => true, :dependent => :destroy
   has_many :roles, :through => :role_memberships	  

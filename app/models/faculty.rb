@@ -15,7 +15,6 @@
 #
 
 class Faculty < BranchScopedModel
-  belongs_to :branch
   belongs_to :resource_type
   
   #These are the section to which this faculty is class teacher

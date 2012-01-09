@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120105102847) do
+ActiveRecord::Schema.define(:version => 20120109045815) do
 
   create_table "blood_groups", :force => true do |t|
     t.string   "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120105102847) do
     t.datetime "updated_at"
     t.integer  "blood_group_id"
     t.integer  "member_id"
+    t.integer  "branch_id"
   end
 
   create_table "exams", :force => true do |t|
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20120105102847) do
     t.integer  "constraints"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "branch_id"
   end
 
   create_table "resource_actions", :force => true do |t|
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20120105102847) do
     t.integer  "user_profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "branch_id"
   end
 
   create_table "roles", :force => true do |t|
@@ -130,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20120105102847) do
     t.integer  "section_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "branch_id"
   end
 
   create_table "sec_sub_maps", :force => true do |t|

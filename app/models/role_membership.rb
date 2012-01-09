@@ -9,7 +9,7 @@
 #  updated_at      :datetime
 #
 
-class RoleMembership < ActiveRecord::Base
+class RoleMembership < BranchScopedModel
   belongs_to :role
   belongs_to :user_profile	
   

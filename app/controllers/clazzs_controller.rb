@@ -18,7 +18,6 @@ class ClazzsController < ApplicationController
 
   def create
     @clazz = Clazz.new(params[:clazz])
-    @clazz.year = current_year
     if @clazz.save
       redirect_to(@clazz, :notice => 'Class was successfully created.') 
     else

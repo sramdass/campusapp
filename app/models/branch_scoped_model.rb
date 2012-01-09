@@ -10,13 +10,14 @@ class BranchScopedModel < ActiveRecord::Base
   end
 
   belongs_to :branch
-  #This default scope creates problem when the hirerachies are more than 1.
-  #For example, the db says that the branch_id is ambiguous when referring the exams of a particular section.
-  #Also there is a problem when querying from the rails console as there are not current profile.
-  #We need to see if his can be restricted with cancan authorization.
+  validates_presence_of :branch
+  #This default scope creates problem with has_many :through relations.
+  #So, we only update the branch_id when the records are saved and then do the authorizatoin
+  #(whether the user accesses only his branch's records) using cancan.
   
   #default_scope lambda { where('branch_id = ?', Branch.current) }
-  default_scope lambda { where('branch_id = ?', 1) }
-  #before_save { self.branch_id = Branch.current }	
-  before_save { self.branch_id = 1 }	
+  before_validation { self.branch_id = Branch.current }	
+  
+  #With before_save we cannot validate the presence of branch.
+  #before_save { self.branch_id = 1 }	
 end

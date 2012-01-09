@@ -34,6 +34,12 @@
             <string>..\white_reports\app\models\ability.rb</string>
             <key>BRANCH_CONT</key>
             <string>..\white_reports\app\controllers\branches_controller.rb</string>
+            <key>CLAZZFI</key>
+            <string>app\views\branches\_clazz_fields.html.erb</string>
+            <key>CLAZZS_CON</key>
+            <string>app\controllers\clazzs_controller.rb</string>
+            <key>FACULTY_FIE</key>
+            <string>app\views\branches\_faculty_fields.html.erb</string>
             <key>SECNEW</key>
             <string>..\white_reports\app\views\clazzs\_secnew.html.erb</string>
             <key>STUDENTS_C</key>
@@ -89,7 +95,7 @@
             <key>_facult</key>
             <string>app\views\faculties\_faculty_fields.html.erb</string>
             <key>_form</key>
-            <string>app\views\faculties\_form.html.erb</string>
+            <string>app\views\sections\_form.html.erb</string>
             <key>_form.</key>
             <string>..\white_reports\app\views\schools\_form.html.erb</string>
             <key>_form.html.erb</key>
@@ -320,6 +326,8 @@
             <string>app\controllers\application_controller.rb</string>
             <key>arrers</key>
             <string>..\white_reports\db\migrate\20111014052836_add_arrears_to_marks.rb</string>
+            <key>assignst</key>
+            <string>app\views\sections\assign_students.html.erb</string>
             <key>attenda</key>
             <string>..\white_reports\app\models\attendance.rb</string>
             <key>authenti</key>
@@ -329,6 +337,8 @@
             <key>b_c_c</key>
             <string>spec\controllers\branches_controller_spec.rb</string>
             <key>blood.rb</key>
+            <string>app\models\blood_group.rb</string>
+            <key>blood_gr</key>
             <string>app\models\blood_group.rb</string>
             <key>bra_c</key>
             <string>app\controllers\branches_controller.rb</string>
@@ -422,6 +432,8 @@
             <string>app\controllers\clazzs_controller.rb</string>
             <key>clazzfi</key>
             <string>app\views\branches\_clazz_fields.html.erb</string>
+            <key>clazzfiel</key>
+            <string>app\views\clazzs\_clazz_fields.html.erb</string>
             <key>clazzs</key>
             <string>..\white_reports\app\controllers\clazzs_controller.rb</string>
             <key>clazzs_C</key>
@@ -1022,6 +1034,8 @@
             <string>..\white_reports\app\controllers\searches_controller.rb</string>
             <key>searches_cont</key>
             <string>..\white_reports\app\controllers\searches_controller.rb</string>
+            <key>sec_exam</key>
+            <string>app\models\sec_exam_map.rb</string>
             <key>sec_stud</key>
             <string>app\models\sec_student_map.rb</string>
             <key>sec_su</key>
@@ -1090,6 +1104,8 @@
             <string>app\controllers\sections_controller.rb</string>
             <key>section_f</key>
             <string>..\white_reports\app\views\schools\_section_fields.html.erb</string>
+            <key>section_fiel</key>
+            <string>app\views\clazzs\_section_fields.html.erb</string>
             <key>section_mar</key>
             <string>..\white_reports\app\views\searches\_section_search_marks.html.erb</string>
             <key>section_o</key>
@@ -1128,6 +1144,8 @@
             <string>app\controllers\sections_controller.rb</string>
             <key>sections_cp</key>
             <string>..\white_reports\spec\controllers\sections_controller_spec.rb</string>
+            <key>sectionscon</key>
+            <string>app\controllers\sections_controller.rb</string>
             <key>sectionscontroller</key>
             <string>app\controllers\sections_controller.rb</string>
             <key>sectiorb</key>
@@ -1201,7 +1219,7 @@
             <key>student</key>
             <string>..\white_reports\app\views\sections\_student_fields.html.erb</string>
             <key>student.r</key>
-            <string>..\white_reports\app\models\student.rb</string>
+            <string>app\models\student.rb</string>
             <key>student.rb</key>
             <string>app\models\student.rb</string>
             <key>student_c</key>
@@ -1332,6 +1350,8 @@
             <string>..\white_reports\app\views\schools\tnew.html.erb</string>
             <key>to_Fac</key>
             <string>db\migrate\20111222030629_add_id_no_to_faculties.rb</string>
+            <key>toscoped</key>
+            <string>db\migrate\20120109045815_add_branch_id_to_scoped_models.rb</string>
             <key>touser</key>
             <string>db\migrate\20111224111726_add_branch_id_to_user_profiles.rb</string>
             <key>upcon</key>

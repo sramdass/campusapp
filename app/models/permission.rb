@@ -11,7 +11,7 @@
 #  updated_at  :datetime
 #
 
-class Permission < ActiveRecord::Base
+class Permission < BranchScopedModel
   belongs_to :resource
   belongs_to :role
 end
