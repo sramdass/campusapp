@@ -16,7 +16,8 @@
 			<li> 
 				<%= map.exam.name %> - 
 				start: &nbsp; <%= map.startdate.strftime("%d %B, %Y").to_s if map.startdate %>   &nbsp;&nbsp;
-				end: &nbsp; <%= map.enddate.strftime("%d %B, %Y").to_s if map.enddate %>   
+				end: &nbsp; <%= map.enddate.strftime("%d %B, %Y").to_s if map.enddate %>   - 
+				<%= link_to "Update Marks", select_subjects_section_path(@section, :exam_id => map.exam_id) %>
 			</li>
 			<% end %>
 		</ol>		

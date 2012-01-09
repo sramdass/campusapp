@@ -31,7 +31,8 @@ class SectionsController < ApplicationController
     		
     @section.sec_sub_maps.each do |d|
       sid = d.subject_id
-      d.attributes = 	{:subject_id => sid, :faculty_id => params["faculty"]["#{sid}"], :mark_column => ""}
+      mark_col = mark_column(sid)
+      d.attributes = 	{:subject_id => sid, :faculty_id => params["faculty"]["#{sid}"], :mark_column => mark_col}
     end			
 	@section.sec_exam_maps.each do |semap|
 	  eid = semap.exam.id
@@ -59,8 +60,8 @@ class SectionsController < ApplicationController
     if @section.save
       @section.sec_sub_maps.each do |d|
         sid = d.subject_id
-        #TODO: mark_column has to be updated once the mark tables are on.
-        d.attributes = 	{:subject_id => sid, :faculty_id => params["faculty"]["#{sid}"], :mark_column => ""}
+        mark_col = mark_column(sid)
+        d.attributes = 	{:subject_id => sid, :faculty_id => params["faculty"]["#{sid}"], :mark_column => mark_col}
       end			
 	  @section.sec_exam_maps.each do |semap|
 	    eid = semap.exam.id
@@ -103,6 +104,11 @@ class SectionsController < ApplicationController
   	  @student_index = true
   	end
   end  
+  
+  def select_subjects
+    @section = Section.find(params[:id])
+    @exam = Exam.find(params[:exam_id])
+  end
   
   def assign_students
   	#@section=Section.find(params[:id])
@@ -169,6 +175,23 @@ end
   	  return nil
   	end
   end
+  
+  
+  def mark_column(sub_id)
+  	debugger
+    temp_row = @section.sec_sub_maps.find_by_subject_id(sub_id)
+    if temp_row.mark_column	
+      return temp_row.mark_column
+    else
+      debugger
+      cols = (1..MARKS_SUBJECTS_COUNT).to_a
+      @section.sec_sub_maps.each do |map|
+        cols.delete_if {|x| x == map.mark_column}
+      end			
+      return "sub#{cols[0]}" if !cols.empty?
+      return nil
+    end	
+  end  
   
   
 end

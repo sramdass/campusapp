@@ -27,6 +27,9 @@ class Section < BranchScopedModel
   has_many :sec_student_maps, :dependent => true, :dependent => :destroy
   has_many :students, :through => :sec_student_maps  
   
+  has_many :marks, :dependent => :destroy
+  accepts_nested_attributes_for :marks, :reject_if => :has_only_destroy?, :allow_destroy => true
+  
   validates 	:name, 	:presence => true, 
                					    :length => {:maximum => 50}
                					    

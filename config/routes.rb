@@ -40,6 +40,7 @@ Campusapp::Application.routes.draw do
     end
     member do
       get 'assign_students'
+      get 'select_subjects'
 	end
   end
   resources :students
@@ -53,5 +54,10 @@ Campusapp::Application.routes.draw do
   end
   resources :resource_actions
   resources :roles
+  resources :marks do
+    collection do
+  	  get 'subject_marks'
+  	end
+  end
   root :to => 'sessions#new'
 end
