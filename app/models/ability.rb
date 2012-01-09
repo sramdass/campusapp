@@ -3,7 +3,7 @@ class Ability
 
   def initialize(profile)
 	@profile = profile
-	#Without a valid profile, no one can read anything.
+	#Without a valid profile, no one can do anything.
 	if !@profile
 	  return
 	end
@@ -24,31 +24,9 @@ class Ability
           end
 	    end
 	  end
-		
 	end
-    # Define abilities for the passed in user here. For example:
-    #
-    #   user ||= User.new # guest user (not logged in)
-    #   if user.admin?
-    #     can :manage, :all
-    #   else
-    #     can :read, :all
-    #   end
-    #
-    # The first argument to `can` is the action you are giving the user permission to do.
-    # If you pass :manage it will apply to every action. Other common actions here are
-    # :read, :create, :update and :destroy.
-    #
-    # The second argument is the resource the user can perform the action on. If you pass
-    # :all it will apply to every resource. Otherwise pass a Ruby class of the resource.
-    #
-    # The third argument is an optional hash of conditions to further filter the objects.
-    # For example, here the user can only update published articles.
-    #
-    #   can :update, Article, :published => true
-    #
-    # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
-  end
+
+  end #end of def initialize(profile)
   
   #--------------------helper modules---------------------------#
   def faculties_from_same_section(id_no)
@@ -106,7 +84,7 @@ class Ability
   end
   
   def branch_edit
-    can :edit, Branch  	
+    can :update, Branch  	
   end
   
   def branch_create
@@ -156,6 +134,18 @@ class Ability
     can :create, Faculty
   end
   
+  def faculty_section_destroy
+    can :destroy, Faculty, {:id_no => faculties_from_same_section(@profile.login)}
+  end
+  
+  def faculty_clazz_destroy
+    faculty_section_destroy 
+  end  	
+  
+  def faculty_all_destroy
+    can :destroy, Faculty
+  end
+  
   def faculty_bulk_op
     can [:facultynew, :facultycreate], Branch
   end
@@ -183,7 +173,7 @@ class Ability
   
   def clazz_self_edit
   	if @user_type.eql?("Faculty")
-  	  can :edit, Clazz do |clz|
+  	  can :update, Clazz do |clz|
   	    (class_teacher_for_clazz_ids(@profile.login) + teaches_clazz_ids(@profile.login)).include?(clz.id)
   	  end
   	elsif @user_type.eql?("Student")
@@ -192,7 +182,7 @@ class Ability
   end
   
   def clazz_all_edit
-  	can :edit, Clazz
+  	can :update, Clazz
   end
   
   def clazz_create
@@ -250,7 +240,7 @@ class Ability
   
   def section_self_edit
   	if @user_type.eql?("Faculty")
-  	  can :edit, Section do |sec|
+  	  can :update, Section do |sec|
   	    (class_teacher_for_section_ids(@profile.login) + teaches_section_ids(@profile.login)).include?(sec.id)
   	  end
   	elsif @user_type.eql?("Student")
@@ -260,7 +250,7 @@ class Ability
   
   def section_class_edit
   	if @user_type.eql?("Faculty")  	
-  	  can :edit, Section do |sec|
+  	  can :update, Section do |sec|
   	    (class_teacher_for_clazz_ids(@profile.login) + teaches_clazz_ids(@profile.login)).include?(sec.clazz.id)
   	  end
   	elsif @user_type.eql?("Student")
@@ -269,7 +259,7 @@ class Ability
   end
   
   def section_all_edit
-  	can :edit, Section
+  	can :update, Section
   end
   
   def section_create
@@ -325,50 +315,118 @@ class Ability
   
   #ROLE
   
-  def role_self_read
-  	
+  def role_read
+    can :read, Role
   end
   
-  def role_all_read
-  	
-  end  
-
-  def role_self_edit
-  	
-  end
-
-  def role_all_edit
-  	
+  def role_edit
+  	can :update, Role
   end
     
   def role_create
-  	
+    can :create, Role
   end
   
   def role_destroy
-  	
+  	can :destroy, Role
   end
+  
+  def role_bulk_op
+    can [:rolenew, :rolecreate], Branch
+  end  
+  
+  def all_op
+  	role_bulk_op
+    can :manage, Role
+  end
+    
   
   #USER_PROFILE
   
   def userprofile_self_read
-  	
+  	if @user_type.eql?("Faculty")  	
+  	  can :read, UserProfile, :id_no => @profile.login
+  	elsif @user_type.eql?("Student")
+  	  can :read, UserProfile, :id_no => @profile.login  		
+  	end
   end  
   
   def userprofile_all_read
-  	
+    can :read, UserProfile
   end  
   
   def userprofile_self_edit
-  	
+  	if @user_type.eql?("Faculty")  	
+  	  can :update, UserProfile, :id_no => @profile.login
+  	elsif @user_type.eql?("Student")
+  	  can :update, UserProfile, :id_no => @profile.login  		
+  	end  	
   end  
   
   def userprofile_all_edit
-  	
+    can :update, UserProfile  	
   end
   
   def userprofile_destroy
-  	
+    can :destroy, UserProfile
   end  
+  
+  def userprofile_all_op
+  	can :manage, UserProfile
+  end    
+  
+  #SUBJECT
+  
+  def subject_read
+    can :read, Subject
+  end
+  
+  def subject_edit
+  	can :update, Subject
+  end
+    
+  def subject_create
+    can :create, Subject
+  end
+  
+  def subject_destroy
+  	can :destroy, Subject
+  end
+  
+  def subject_bulk_op
+    can [:subjectnew, :subjectcreate], Branch
+  end  
+  
+  def all_op
+  	subject_bulk_op
+    can :manage, Subject
+  end
+  
+  #EXAM
+  
+  def exam_read
+    can :read, Exam
+  end
+  
+  def exam_edit
+  	can :update, Exam
+  end
+    
+  def exam_create
+    can :create, Exam
+  end
+  
+  def exam_destroy
+  	can :destroy, Exam
+  end
+  
+  def exam_bulk_op
+    can [:examnew, :examcreate], Branch
+  end  
+  
+  def all_op
+  	exam_bulk_op
+    can :manage, Role
+  end    
   
 end

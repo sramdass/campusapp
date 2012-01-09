@@ -544,6 +544,8 @@
             <string>app\views\branches\examnew.html.erb</string>
             <key>exams_c</key>
             <string>app\controllers\exams_controller.rb</string>
+            <key>exams_con</key>
+            <string>app\controllers\exams_controller.rb</string>
             <key>f_c_s</key>
             <string>spec\controllers\faculties_controller_spec.rb</string>
             <key>fa</key>
@@ -932,6 +934,8 @@
             <string>app\controllers\resources_controller.rb</string>
             <key>resourct</key>
             <string>app\models\resource_type.rb</string>
+            <key>resoureactionnew</key>
+            <string>app\views\resources\resource_actionnew.html.erb</string>
             <key>restype.rb</key>
             <string>app\models\resource_type.rb</string>
             <key>role</key>
@@ -959,6 +963,8 @@
             <key>roles_con</key>
             <string>app\controllers\roles_controller.rb</string>
             <key>roles_cont</key>
+            <string>app\controllers\roles_controller.rb</string>
+            <key>roles_contr</key>
             <string>app\controllers\roles_controller.rb</string>
             <key>rolescontro</key>
             <string>app\controllers\roles_controller.rb</string>
@@ -1268,6 +1274,8 @@
             <string>..\white_reports\app\controllers\subjects_controller.rb</string>
             <key>subjects_cont</key>
             <string>..\white_reports\app\controllers\subjects_controller.rb</string>
+            <key>subjects_controller</key>
+            <string>app\controllers\subjects_controller.rb</string>
             <key>subnew</key>
             <string>..\white_reports\app\views\branches\subnew.html.erb</string>
             <key>subnew.html</key>

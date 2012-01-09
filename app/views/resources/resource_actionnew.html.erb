@@ -1,4 +1,7 @@
-<h2>TODO: The codes can be repeated when two entries with the same code are added at the same time. This needs to be corrected</h2>
+<h3>TODO: The codes can be repeated when two entries with the same code are added at the same time. This needs to be corrected</h3>
+
+<h2> Resource actions for <%= @resource.name %> </h2>
+
 <%= form_for([@resource], { :url => { :action => "resource_actioncreate" } }) do |f| %>	
     <%= render 'shared/error_messages', :target => @resource %>
 	<table class="input_form_table">
