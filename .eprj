@@ -1062,6 +1062,10 @@
             <string>app\models\sec_student_map.rb</string>
             <key>secsu</key>
             <string>..\white_reports\app\models\sec_sub_mapper.rb</string>
+            <key>secsubmap.r</key>
+            <string>app\models\sec_sub_map.rb</string>
+            <key>secsubmaps.r</key>
+            <string>spec\factories\sec_sub_maps.rb</string>
             <key>sectestma</key>
             <string>db\migrate\20111231065309_create_sec_test_maps.rb</string>
             <key>sectinscontro</key>
@@ -1126,6 +1130,8 @@
             <string>..\white_reports\spec\controllers\sections_controller_spec.rb</string>
             <key>sectionscontroller</key>
             <string>app\controllers\sections_controller.rb</string>
+            <key>sectiorb</key>
+            <string>app\models\section.rb</string>
             <key>secure_ran</key>
             <string>..\white_reports\annotate\ruby\1.8\gems\activesupport-3.0.9\lib\active_support\secure_random.rb</string>
             <key>seed.rb</key>

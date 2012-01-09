@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: resource_actions
+#
+#  id          :integer         not null, primary key
+#  name        :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  code        :integer
+#  description :string(255)
+#  resource_id :integer
+#
+
 class ResourceAction < ActiveRecord::Base
   #  Refer the reason before the module definition
   #before_validation :update_action_code

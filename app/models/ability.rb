@@ -289,7 +289,7 @@ class Ability
   	  end
   	elsif @user_type.eql?("Student")
   		
-  	end  	  	
+  	end
   end
   
   def section_all_destroy

@@ -1,4 +1,18 @@
-class SecSubMap < ActiveRecord::Base
+# == Schema Information
+#
+# Table name: sec_sub_maps
+#
+#  id          :integer         not null, primary key
+#  section_id  :integer
+#  subject_id  :integer
+#  faculty_id  :integer
+#  mark_column :string(255)
+#  branch_id   :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+class SecSubMap < BranchScopedModel
   belongs_to :section, :dependent => :destroy
   belongs_to :subject, :dependent => :destroy
 	

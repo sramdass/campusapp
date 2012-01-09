@@ -16,5 +16,7 @@ class BranchScopedModel < ActiveRecord::Base
   #We need to see if his can be restricted with cancan authorization.
   
   #default_scope lambda { where('branch_id = ?', Branch.current) }
-  before_save { self.branch_id = Branch.current }	
+  default_scope lambda { where('branch_id = ?', 1) }
+  #before_save { self.branch_id = Branch.current }	
+  before_save { self.branch_id = 1 }	
 end

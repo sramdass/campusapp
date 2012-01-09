@@ -1,4 +1,17 @@
-class Section < ActiveRecord::Base
+# == Schema Information
+#
+# Table name: sections
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  faculty_id :integer
+#  clazz_id   :integer
+#  branch_id  :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+class Section < BranchScopedModel
   #This is the class teacher
   belongs_to :faculty
   
