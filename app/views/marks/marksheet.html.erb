@@ -1,0 +1,51 @@
+ <h1> Mark Sheet: <%= @exam.name %> </h1>
+ <!--Make sure that the 'section_markcreate' action is given as a collection. If the section_markcreate is given
+ 	     as a member, then rails will expect a Mark instance and will result in no routes error.
+ 	     
+ 	     NOTE: Even the instance for form_for is that of a Section, the controller taken for routes is 'marks'.
+ 	     I guess the controller is determined by the controller from where the request comes.
+ -->
+ <%= form_for([@section], { :url => {:action => 'section_markcreate'} }) do |f| %>	
+	<%= render 'shared/error_messages', :target => @section %>
+	<!--Pass all the parameters again to the controller so that when there is a problem in the section_markcreate,
+		 	we will have the values when we have to render the marksheet again.
+		 	
+		 	Refer the section_markcreate action in marks controller
+	-->
+    	<%= hidden_field_tag :section_id, @section.id %>
+    	<%= hidden_field_tag :exam_id, @exam.id%>    	
+    	<% if @subject %>
+			<%= hidden_field_tag :subject_id, @subject.id%>
+    	<% end %>
+		<table class="input_form_table"  summary="Section Mark Index">
+			<thead>
+		    	<tr>
+		        	<th scope="col">Student Name</th>
+		        	<!--If the @subject is nil, display all the subjects for this section -->
+		        	<% if @subject %>
+		        	  	<th scope="col"> <%= @subject.name.humanize %> </th>
+		        	<% else %>
+		        		<!--Force the order of the sec_sub_maps, just in case the label fields mixes up with different text fields for marks
+        			            We are displaying the Subject names as heading, but using the mark_column for the subjects in the name field 
+        			            for text_fields. Refer, _mark_fields.html.erb. 
+    			            -->
+			        	<% @section.sec_sub_maps.order('id asc').each do |map| %>
+			        		<th scope="col"> <%= Subject.find(map.subject_id).name.humanize %> </th>
+			            <% end %>
+			        <% end %>
+		        </tr>
+		    </thead>
+		    <tbody>
+				<%= f.fields_for :marks do |builder| %>
+					<!--Without this condition, all the mark rows for this section will be displayed. -->
+					<% if builder.object.exam_id == @exam.id %>
+						<!--Now render the mark fields for the '@section + @exam + @subject' combination -->
+						<%=render 'mark_fields',  :f => builder, :section => @section, :exam => @exam, :subject => @subject %>	 	  
+					<% end %>					
+			 	<% end %>
+		    </tbody>		
+		</table>	
+	<p class='button'> <%= f.submit  "Update Marks" %>  </p>	  
+<% end %>
+
+

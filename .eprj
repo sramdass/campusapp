@@ -772,6 +772,10 @@
             <string>..\white_reports\app\controllers\marks_controller.rb</string>
             <key>marks_controller.r</key>
             <string>app\controllers\marks_controller.rb</string>
+            <key>markscont</key>
+            <string>app\controllers\marks_controller.rb</string>
+            <key>marksconto</key>
+            <string>app\controllers\marks_controller.rb</string>
             <key>master</key>
             <string>..\white_reports\app\views\marks\student_master_graphs.html.erb</string>
             <key>master_g</key>
@@ -1094,6 +1098,8 @@
             <string>spec\factories\sec_sub_maps.rb</string>
             <key>sectestma</key>
             <string>db\migrate\20111231065309_create_sec_test_maps.rb</string>
+            <key>sectin.rb</key>
+            <string>app\models\section.rb</string>
             <key>sectinscontro</key>
             <string>app\controllers\sections_controller.rb</string>
             <key>sectio</key>
@@ -1199,7 +1205,7 @@
             <key>show.ht</key>
             <string>..\white_reports\app\views\subjects\show.html.erb</string>
             <key>show.htm</key>
-            <string>..\white_reports\app\views\sections\show.html.erb</string>
+            <string>app\views\sections\show.html.erb</string>
             <key>show.html</key>
             <string>app\views\roles\show.html.erb</string>
             <key>show.html.</key>

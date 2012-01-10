@@ -55,8 +55,11 @@ Campusapp::Application.routes.draw do
   resources :resource_actions
   resources :roles
   resources :marks do
+  	member do
+  	end
     collection do
-  	  get 'subject_marks'
+  	  get 'marksheet'
+  	  put 'section_markcreate'  	  
   	end
   end
   root :to => 'sessions#new'

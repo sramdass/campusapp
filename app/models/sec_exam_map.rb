@@ -13,6 +13,6 @@
 #
 
 class SecExamMap < BranchScopedModel
-  belongs_to :section, :dependent => :destroy
-  belongs_to :exam, :dependent => :destroy
+  belongs_to :section
+  belongs_to :exam
 end

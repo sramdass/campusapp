@@ -3,7 +3,7 @@
 	<h2><%= @exam.name %></h2>
 	<h3> Select the subject to update marks  </h3>
 	<% @section.sec_sub_maps.each do |ssmap| %>
-		<%= link_to ssmap.subject.name, subject_marks_marks_path(:section_id => @section.id, :subject_id => ssmap.subject_id, :exam_id => @exam.id )%> <br>
+		<%= link_to ssmap.subject.name, marksheet_marks_path(:section_id => @section.id, :subject_id => ssmap.subject_id, :exam_id => @exam.id )%> <br>
 	<% end %>
-	<%= link_to "All Subjects", subject_marks_marks_path(:section_id => @section.id )%>
+	<%= link_to "All Subjects", marksheet_marks_path(:section_id => @section.id,  :exam_id => @exam.id )%>
 </div>

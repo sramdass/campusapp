@@ -1,0 +1,14 @@
+<tr class = "tfields">	
+	 <!-- <td> <%= f.select( 'student_id', section.students.map {|p| [ p.name, p.id ] }, {:include_blank => 'None', :selected => f.object.student_id}) %> </td> -->
+	<td> <strong> <%= Student.find(f.object.student_id).name %> </strong> </td>
+	<%= f.hidden_field :exam_id, :value => exam.id %>
+ 	<% if subject %>
+ 	  <% map = section.sec_sub_maps.find_by_subject_id(subject.id) %>
+ 	  <td><%= f.text_field map.mark_column, :size => 10 %> </td>
+ 	<% else %>
+		<% section.sec_sub_maps.order('id asc').each do |map| %>
+			<td><%= f.text_field map.mark_column, :size => 10 %> </td>
+		<% end %>
+	<% end %>
+ </tr>
+	

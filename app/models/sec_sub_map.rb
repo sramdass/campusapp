@@ -22,17 +22,4 @@ class SecSubMap < BranchScopedModel
   # If we give this we will always get "Faculty cannot be blank validation error." During the update and create the section along with its
   #sec_sub_maps and sec_exam_maps are saved before we parse the parameters and update the faculty_ids.
   #validates_presence_of :faculty
-  
-  validate :mark_column_should_in_valid_range
-  
-  def mark_column_should_in_valid_range
-  	if !mark_column
-      errors.add(:mark_column, "should not be blank")
-  	end
-  	col_nos = (1..MARKS_SUBJECTS_COUNT).to_a
-  	mark_cols = col_nos.map {|col_no| "sub#{col_no}"}
-  	if !mark_cols.include?(mark_column)
-  	  errors.add(:mark_column, "is not valid")
-  	end
-  end
 end

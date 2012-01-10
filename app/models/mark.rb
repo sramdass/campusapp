@@ -7,7 +7,7 @@ class Mark < ActiveRecord::Base
   validates_presence_of :student
   validates_presence_of :exam	
 
-  before_save :update_total, :update_arrears
+  #before_save :update_total, :update_arrears
   
   scope :for_student, lambda { |student_id| where('student_id = ? ', student_id)}             					    
   scope :for_section, lambda { |section_id| where('section_id = ? ', section_id)}

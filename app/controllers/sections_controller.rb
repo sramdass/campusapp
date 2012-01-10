@@ -28,7 +28,6 @@ class SectionsController < ApplicationController
     params[:section][:exam_ids] ||= []
     		
     @section.attributes = params[:section]
-    		
     @section.sec_sub_maps.each do |d|
       sid = d.subject_id
       mark_col = mark_column(sid)
@@ -140,7 +139,7 @@ class SectionsController < ApplicationController
       #This will return only one entry as an array. Convert the array into a single element
       #Also, Make sure the same student id not called for delete twice (just by url, not by clicking) by checking for nil
       if del = SecStudentMap.for_student(@deleted_student_id ).for_section(@section.id).all.first  
-      	del.delete
+      	del.destroy
       	flash.now[:notice] = "Removed #{Student.find(@deleted_student_id).name} from this section"
       end
     end
@@ -159,7 +158,7 @@ class SectionsController < ApplicationController
       return false
     else
 	  return true
-end
+    end
   end
   
   def present_in_other_section(student_id, section)
@@ -178,15 +177,13 @@ end
   
   
   def mark_column(sub_id)
-  	debugger
     temp_row = @section.sec_sub_maps.find_by_subject_id(sub_id)
     if temp_row.mark_column	
       return temp_row.mark_column
     else
-      debugger
       cols = (1..MARKS_SUBJECTS_COUNT).to_a
       @section.sec_sub_maps.each do |map|
-        cols.delete_if {|x| x == map.mark_column}
+        cols.delete_if {|x| map.mark_column == "sub#{x}"}
       end			
       return "sub#{cols[0]}" if !cols.empty?
       return nil

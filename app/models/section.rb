@@ -35,4 +35,13 @@ class Section < BranchScopedModel
                					    
   scope :from_branch, lambda { |branch_id| joins(:clazz).where('clazzs.branch_id = ? ', branch_id)}         
   
+  def has_only_destroy?(attrs)
+    attrs.each do |k,v|
+     if k !="_destroy" && !v.blank?
+       return false
+     end
+    end
+    return true	
+  end	  
+  
 end
