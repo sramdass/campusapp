@@ -21,6 +21,38 @@
 			</li>
 			<% end %>
 		</ol>		
+	<h3> Students and Marks </h3>
+
+	<% @section.sec_exam_maps.each do |semap| %>
+		<h3> <i> <%= semap.exam.name %> </i> </h3>
+		<% marks = Mark.for_section(@section.id).for_exam(semap.exam.id).all %>
+		<table>
+			<tr>
+				<th> Student Name </th>
+	        	<% @section.sec_sub_maps.order('id asc').each do |ssmap| %>
+		    		<th> 
+		        		<%= Subject.find(ssmap.subject_id).name.humanize %> <br>
+		        	  	<% mc = MarkCriteria.find_by_section_id_and_subject_id_and_exam_id(@section.id, ssmap.subject_id, semap.exam_id) %>
+		        	  	<% if mc %>
+							(<%= mc.pass_marks %> / <%= mc.max_marks %>)
+		        	  	<% end %>				        		
+			  		</th>
+	            <% end %>
+		        <th>Total</th>
+		        <th>Arrears</th>	
+	        </tr>
+	        <% marks.each do |mark| %>
+    	        <tr>
+		        	<td> <%= mark.student.name %> </td>
+		        	<% @section.sec_sub_maps.order('id asc').each do |ssmap| %>
+		        		<td> <%= mark.send(ssmap.mark_column)%> </td>
+		        	<% end %>
+		        	<td><%= mark.total %></td>
+		        	<td><%= mark.arrears %></td>
+	        	</tr>
+	        <% end %>
+		</table>
+	<% end %>
 	<p>
 		<%= link_to "Edit this Section", edit_section_path(@section) %>
 	</p>
