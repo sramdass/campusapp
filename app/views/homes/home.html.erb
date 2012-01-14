@@ -64,6 +64,9 @@
 		
 		<h2> Profiles </h2> <br>
 		<%= link_to "User Profile Index", user_profiles_path%><br>
+		
+		<h2> Marks </h2> <br>
+		<%= link_to "Update Marks", select_sections_path(:branch_id => @branch.id, :update_marks => true)%> <br>		
 				
 	<% end %>
 </div>

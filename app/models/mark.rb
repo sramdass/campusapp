@@ -31,9 +31,8 @@ class Mark < ActiveRecord::Base
     #This will get hsh[subject_id] = 'corresponding_mark_column' in the marks table
     hsh = mark_columns_with_subject_ids(self.section) 
     hsh.each do |sub_id, col_name|
-      #The crietria should be there for these set of marks. In the marks#section_markcreate -> the criteria is saved before we update the marks
-      pass_marks = MarkCriteria.find_by_section_id_and_subject_id_and_exam_id(self.section_id, sub_id, self.exam_id).pass_marks
-      if self.send(col_name) && (self.send(col_name) < pass_marks)
+      pass_marks = get_pass_marks(self.section_id, sub_id, self.exam_id)  
+      if self.send(col_name) && pass_marks && (self.send(col_name) < pass_marks)
         arrears = arrears + 1
       end
     end
@@ -49,8 +48,8 @@ class Mark < ActiveRecord::Base
     #This will get hsh[subject_id] = 'corresponding_mark_column' in the marks table
     hsh = mark_columns_with_subject_ids(self.section) 
     hsh.each do |sub_id, col_name|
-      max_marks = MarkCriteria.find_by_section_id_and_subject_id_and_exam_id(self.section_id, sub_id, self.exam_id).max_marks
-      if self.send(col_name) && self.send(col_name) > max_marks
+      max_marks = get_max_marks(self.section_id, sub_id, self.exam_id)  
+      if self.send(col_name) && max_marks && (self.send(col_name) > max_marks)
         errors.add(col_name.to_sym, "should not be greater than the max_marks")      	
       end
     end
@@ -66,4 +65,15 @@ class Mark < ActiveRecord::Base
     return h
   end		
   
+  def get_max_marks(section_id, subject_id, exam_id)
+    m = MarkCriteria.find_by_section_id_and_subject_id_and_exam_id(section_id, subject_id, exam_id)
+    return m.max_marks if m
+    return nil
+  end
+  
+  def get_pass_marks(section_id, subject_id, exam_id)
+    m = MarkCriteria.find_by_section_id_and_subject_id_and_exam_id(section_id, subject_id, exam_id)
+    return m.pass_marks if m
+    return nil
+  end  
 end

@@ -96,11 +96,13 @@ class SectionsController < ApplicationController
   def select
   	@branch=Branch.find(params[:branch_id])
   	@sections = Section.from_branch(@branch.id).all
-  	@assign_students = @students_index = false
+  	@assign_students = @students_index = @update_marks = false
   	if params[:assign_students]
   	  @assign_students = true
   	elsif params[:student_index]
   	  @student_index = true
+  	elsif params[:update_marks]
+  	  @update_marks = true
   	end
   end  
   

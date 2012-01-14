@@ -19,7 +19,7 @@ class MarkCriteria < BranchScopedModel
     marks = Mark.for_section(self.section_id).for_exam(self.exam_id).all
     col_name = hsh[self.subject_id]
     marks.each do |mark|
-      if mark.send(col_name) && (mark.send(col_name) > self.max_marks)
+      if mark.send(col_name) && max_marks && (mark.send(col_name) > max_marks)
         errors.add(:max_marks, "should not be less than individual marks")
       end
     end
@@ -32,7 +32,7 @@ class MarkCriteria < BranchScopedModel
     marks.each do |mark|
       arrears = 0	
       hsh.each do |sub_id, col_name|
-        if mark.send(col_name) && (mark.send(col_name) < self.pass_marks)
+        if mark.send(col_name) && pass_marks && (mark.send(col_name) <  pass_marks)
           arrears = arrears + 1
         end
         mark.arrears = arrears

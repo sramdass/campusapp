@@ -766,6 +766,8 @@
             <string>..\white_reports\app\models\mark.rb</string>
             <key>mark.rb</key>
             <string>app\models\mark.rb</string>
+            <key>mark_Cri</key>
+            <string>app\models\mark_criteria.rb</string>
             <key>mark_Re</key>
             <string>..\white_reports\db\migrate\20110902130519_create_mark_rec_defns.rb</string>
             <key>mark_rec</key>
@@ -1209,7 +1211,11 @@
             <key>seeds.rb</key>
             <string>db\seeds.rb</string>
             <key>select.html</key>
+            <string>app\views\sections\select.html.erb</string>
+            <key>select.html.erb</key>
             <string>app\views\clazzs\select.html.erb</string>
+            <key>selectsub</key>
+            <string>app\views\sections\select_subjects.html.erb</string>
             <key>session.rb</key>
             <string>..\white_reports\annotate\ruby\1.8\gems\rack-test-0.5.7\lib\rack\mock_session.rb</string>
             <key>sessions</key>

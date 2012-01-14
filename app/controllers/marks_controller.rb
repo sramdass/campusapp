@@ -24,20 +24,25 @@ class MarksController < ApplicationController
     @section.sec_sub_maps.each do |ssmap|
       mc = MarkCriteria.find_or_create_by_section_id_and_subject_id_and_exam_id(@section.id, ssmap.subject_id, @exam.id)
       #assign in this order - param value or already existing value(if this is not a new record) or default value (if this is a new record and the params is blank)
-      mc.max_marks = params[:max_marks]["#{ssmap.subject_id}"] || mc.max_marks || DEFAULT_MAX_MARKS  #default max_marks
-      mc.pass_marks = params[:pass_marks]["#{ssmap.subject_id}"]  || mc.pass_marks || mc.max_marks * (DEFAULT_PASS_MARKS_PERCENTAGE / 100)  #default passmarks
+      mc.max_marks = params[:max_marks]["#{ssmap.subject_id}"] if params[:max_marks]["#{ssmap.subject_id}"]
+      mc.pass_marks = params[:pass_marks]["#{ssmap.subject_id}"] if params[:pass_marks]["#{ssmap.subject_id}"]
       if !mc.save
       	flash.now[:error] = "Cannot update max marks or pass marks for  #{ssmap.subject.name.humanize}  Error: #{mc.errors.first}"
         render :marksheet
         return
       end
 	end
-    if @section.update_attributes(params[:section])
-      redirect_to(@section,  :notice => 'Marks were successfully updated.')    	
+    if !@section.update_attributes(params[:section]) 
+      flash.now[:error] = "Cannot update marks for this section"
+  	  render :marksheet    	
     else
-  	#Reinitialize the instance variable incase we need to render the marksheet again.
-  	#These are passed as hidden variables from the views.
-      render :marksheet, :error => "Cannot update marks for this section"
+      if params[:stay_back]
+      	flash.now[:notice] = "Marks were successfully updated"
+        render :marksheet
+        return
+      else
+        redirect_to(@section,  :notice => 'Marks were successfully updated.')    	
+      end
     end
   end  
 
