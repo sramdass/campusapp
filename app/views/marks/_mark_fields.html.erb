@@ -10,5 +10,7 @@
 			<td><%= f.text_field map.mark_column, :size => 10 %> </td>
 		<% end %>
 	<% end %>
+	<td> <%= f.object.total if !f.object.new_record? %> </td>
+    <td> <%= f.object.arrears if !f.object.new_record? %> </td>
  </tr>
 	

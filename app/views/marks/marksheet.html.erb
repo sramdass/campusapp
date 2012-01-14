@@ -7,6 +7,9 @@
  -->
  <%= form_for([@section], { :url => {:action => 'section_markcreate'} }) do |f| %>	
 	<%= render 'shared/error_messages', :target => @section %>
+	<% @section.mark_criterias.each do |mc| %>
+		<%= render 'shared/error_messages', :target => mc %>
+	<% end %>
 	<!--Pass all the parameters again to the controller so that when there is a problem in the section_markcreate,
 		 	we will have the values when we have to render the marksheet again.
 		 	
@@ -23,16 +26,40 @@
 		        	<th scope="col">Student Name</th>
 		        	<!--If the @subject is nil, display all the subjects for this section -->
 		        	<% if @subject %>
-		        	  	<th scope="col"> <%= @subject.name.humanize %> </th>
+		        	  	<th scope="col"> 
+			        	  	<%= @subject.name.humanize %> <br>
+			        	  	<% max_marks = pass_marks = nil %>
+			        	  	<% mc = MarkCriteria.find_or_create_by_section_id_and_subject_id_and_exam_id(@section.id, @subject.id, @exam.id) %>
+			        	  	<% if mc %>
+				        	  	<% pass_marks = mc.pass_marks%>
+				        	  	<% max_marks = mc.max_marks %>
+			        	  	<% end %>
+			        	  	<%= text_field_tag "pass_marks[#{@subject.id}]", pass_marks, :size => 4%> Pass Marks  <br>
+			        	  	<%= text_field_tag "max_marks[#{@subject.id}]", max_marks, :size => 4%>  Max Marks <br>
+		        	  	 </th>
 		        	<% else %>
 		        		<!--Force the order of the sec_sub_maps, just in case the label fields mixes up with different text fields for marks
         			            We are displaying the Subject names as heading, but using the mark_column for the subjects in the name field 
         			            for text_fields. Refer, _mark_fields.html.erb. 
     			            -->
 			        	<% @section.sec_sub_maps.order('id asc').each do |map| %>
-			        		<th scope="col"> <%= Subject.find(map.subject_id).name.humanize %> </th>
+			        		<th scope="col"> 
+			        	  		<% max_marks = pass_marks = nil %>			        			
+				        		<%= Subject.find(map.subject_id).name.humanize %> <br>
+				        	  	<% mc = MarkCriteria.find_or_create_by_section_id_and_subject_id_and_exam_id(@section.id, map.subject_id, @exam.id) %>
+				        	  	<% if mc %>
+					        	  	<% pass_marks = mc.pass_marks%>
+					        	  	<% max_marks = mc.max_marks %>
+				        	  	<% end %>				        		
+								<%= text_field_tag "pass_marks[#{map.subject_id}]", pass_marks, :size => 4 %> Pass Marks <br>
+			        	  		<%= text_field_tag "max_marks[#{map.subject_id}]", max_marks, :size => 4 %> Max Marks <br>
+		        	  		</th>
 			            <% end %>
+			            <!-- display the total and arrears only when they update the marks for all the subjects -->
+				        <th scope="col">Total</th>
+				        <th scope="col">Arrears</th>			            
 			        <% end %>
+
 		        </tr>
 		    </thead>
 		    <tbody>

@@ -6,8 +6,10 @@ class Mark < ActiveRecord::Base
   validates_presence_of :section
   validates_presence_of :student
   validates_presence_of :exam	
+  
+  validate :mark_should_not_be_greater_than_max_marks
 
-  #before_save :update_total, :update_arrears
+  before_save :update_total, :update_arrears
   
   scope :for_student, lambda { |student_id| where('student_id = ? ', student_id)}             					    
   scope :for_section, lambda { |section_id| where('section_id = ? ', section_id)}
@@ -25,17 +27,16 @@ class Mark < ActiveRecord::Base
   end
 
   def update_arrears
-   arrears = 0	
-   #This will get hsh[subject_id] = 'corresponding_mark_column' in the marks table
-   hsh = mark_columns_with_subject_ids(self.section) 
-   hsh.each do |sub_id, col_name|
-     pass_marks = self.section.sec_sub_maps.find_by_subject_id(sub_id).pass_marks
-     if self.send(col_name) != nil
-      if self.send(col_name) < pass_marks
+    arrears = 0	
+    #This will get hsh[subject_id] = 'corresponding_mark_column' in the marks table
+    hsh = mark_columns_with_subject_ids(self.section) 
+    hsh.each do |sub_id, col_name|
+      #The crietria should be there for these set of marks. In the marks#section_markcreate -> the criteria is saved before we update the marks
+      pass_marks = MarkCriteria.find_by_section_id_and_subject_id_and_exam_id(self.section_id, sub_id, self.exam_id).pass_marks
+      if self.send(col_name) && (self.send(col_name) < pass_marks)
         arrears = arrears + 1
       end
-     end
-   end
+    end
    self.arrears=arrears
    end
 
@@ -44,6 +45,16 @@ class Mark < ActiveRecord::Base
    where('section_id = ? and exam_id = ?', section_id, exam_id).sum(column_name.to_sym)
   end
 
+  def mark_should_not_be_greater_than_max_marks  
+    #This will get hsh[subject_id] = 'corresponding_mark_column' in the marks table
+    hsh = mark_columns_with_subject_ids(self.section) 
+    hsh.each do |sub_id, col_name|
+      max_marks = MarkCriteria.find_by_section_id_and_subject_id_and_exam_id(self.section_id, sub_id, self.exam_id).max_marks
+      if self.send(col_name) && self.send(col_name) > max_marks
+        errors.add(col_name.to_sym, "should not be greater than the max_marks")      	
+      end
+    end
+  end
 
   #This will return a hash with each of the subject id of the section as the key and the corresponding mark column as the value
   def mark_columns_with_subject_ids(section)
@@ -54,5 +65,5 @@ class Mark < ActiveRecord::Base
     end
     return h
   end		
-		
+  
 end

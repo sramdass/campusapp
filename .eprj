@@ -246,12 +246,16 @@
             <string>..\white_reports\app\views\clazzs\actions_box.html.erb</string>
             <key>actions_box</key>
             <string>..\white_reports\app\views\sections\actions_box.html.erb</string>
+            <key>add</key>
+            <string>db\migrate\20120104013626_add_fields_to_resource_actions.rb</string>
             <key>add_blo</key>
             <string>db\migrate\20120102065422_add_blood_group_to_details.rb</string>
             <key>add_bran</key>
             <string>..\white_reports\db\migrate\20110902035458_add_branch_ids.rb</string>
             <key>add_max</key>
             <string>..\white_reports\db\migrate\20110902125155_add_max_marks_to_subjects.rb</string>
+            <key>addbranchd</key>
+            <string>db\migrate\20120114024829_add_branch_id_to_mark_criterias.rb</string>
             <key>any1</key>
             <string>..\white_reports\app\views\marks\section_any1_graphs.html.erb</string>
             <key>aplication</key>
@@ -370,6 +374,8 @@
             <string>app\models\branch_scoped_model.rb</string>
             <key>branch_sco</key>
             <string>app\models\branch_scoped_model.rb</string>
+            <key>branch_scop</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>branch_scope</key>
             <string>app\models\branch_scoped_model.rb</string>
             <key>branch_scoped</key>
@@ -404,6 +410,8 @@
             <string>..\white_reports\app\views\institutions\branchnew.html.erb</string>
             <key>branchnew</key>
             <string>..\white_reports\app\views\institutions\_branchnew.html.erb</string>
+            <key>branchscop</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>branchscope</key>
             <string>app\models\branch_scoped_model.rb</string>
             <key>branchscoped</key>
@@ -544,6 +552,8 @@
             <string>app\models\exam.rb</string>
             <key>examnew</key>
             <string>app\views\branches\examnew.html.erb</string>
+            <key>examr</key>
+            <string>app\models\exam.rb</string>
             <key>exams_c</key>
             <string>app\controllers\exams_controller.rb</string>
             <key>exams_con</key>
@@ -650,6 +660,8 @@
             <string>Gemfile</string>
             <key>git</key>
             <string>.gitignore</string>
+            <key>globab</key>
+            <string>config\initializers\global_constants.rb</string>
             <key>gm</key>
             <string>Gemfile</string>
             <key>graph</key>
@@ -708,6 +720,8 @@
             <string>..\white_reports\app\views\teachers\index.js.erb</string>
             <key>index.js.er</key>
             <string>..\white_reports\app\views\teachers\index.js.erb</string>
+            <key>inmarkcrite</key>
+            <string>db\migrate\20120114025029_rename_sec_test_map_id_in_mark_criterias.rb</string>
             <key>insit</key>
             <string>..\white_reports\app\controllers\institutions_controller.rb</string>
             <key>insitutions_C</key>
@@ -756,6 +770,8 @@
             <string>..\white_reports\db\migrate\20110902130519_create_mark_rec_defns.rb</string>
             <key>mark_rec</key>
             <string>..\white_reports\app\models\mark_rec_defn.rb</string>
+            <key>markcri</key>
+            <string>app\models\mark_criteria.rb</string>
             <key>marknew</key>
             <string>..\white_reports\app\views\sections\_marknew.html.erb</string>
             <key>marks_co</key>
@@ -772,10 +788,14 @@
             <string>..\white_reports\app\controllers\marks_controller.rb</string>
             <key>marks_controller.r</key>
             <string>app\controllers\marks_controller.rb</string>
+            <key>markscon</key>
+            <string>app\controllers\marks_controller.rb</string>
             <key>markscont</key>
             <string>app\controllers\marks_controller.rb</string>
             <key>marksconto</key>
             <string>app\controllers\marks_controller.rb</string>
+            <key>marksheet</key>
+            <string>app\views\marks\marksheet.html.erb</string>
             <key>master</key>
             <string>..\white_reports\app\views\marks\student_master_graphs.html.erb</string>
             <key>master_g</key>
@@ -878,6 +898,8 @@
             <string>..\white_reports\db\migrate\20111014063910_remove_max_marks_from_subjects.rb</string>
             <key>remove_sch</key>
             <string>..\white_reports\db\migrate\20110902035043_remove_school_ids.rb</string>
+            <key>rename_fields_in_mark_criteria.rb</key>
+            <string>db\migrate\20120114040641_rename_fields_in_mark_criteria.rb</string>
             <key>report_op</key>
             <string>..\white_reports\app\views\sections\_report_options.html.erb</string>
             <key>reports</key>
@@ -1048,6 +1070,8 @@
             <string>..\white_reports\app\controllers\searches_controller.rb</string>
             <key>searches_cont</key>
             <string>..\white_reports\app\controllers\searches_controller.rb</string>
+            <key>sec_ex</key>
+            <string>app\models\sec_exam_map.rb</string>
             <key>sec_exam</key>
             <string>app\models\sec_exam_map.rb</string>
             <key>sec_stud</key>
@@ -1092,10 +1116,14 @@
             <string>app\models\sec_student_map.rb</string>
             <key>secsu</key>
             <string>..\white_reports\app\models\sec_sub_mapper.rb</string>
+            <key>secsub</key>
+            <string>spec\models\sec_sub_map_spec.rb</string>
             <key>secsubmap.r</key>
             <string>app\models\sec_sub_map.rb</string>
             <key>secsubmaps.r</key>
             <string>spec\factories\sec_sub_maps.rb</string>
+            <key>secsumap.rb</key>
+            <string>app\models\sec_sub_map.rb</string>
             <key>sectestma</key>
             <string>db\migrate\20111231065309_create_sec_test_maps.rb</string>
             <key>sectin.rb</key>
@@ -1172,6 +1200,8 @@
             <string>app\models\section.rb</string>
             <key>secure_ran</key>
             <string>..\white_reports\annotate\ruby\1.8\gems\activesupport-3.0.9\lib\active_support\secure_random.rb</string>
+            <key>seed</key>
+            <string>db\seeds.rb</string>
             <key>seed.rb</key>
             <string>db\seeds.rb</string>
             <key>seeds.</key>
@@ -1270,6 +1300,8 @@
             <string>..\white_reports\app\views\sections\_stunew.html.erb</string>
             <key>stunew.html</key>
             <string>..\white_reports\app\views\sections\_stunew.html.erb</string>
+            <key>subjec.rb</key>
+            <string>app\models\subject.rb</string>
             <key>subject</key>
             <string>..\white_reports\app\models\subject.rb</string>
             <key>subject.r</key>

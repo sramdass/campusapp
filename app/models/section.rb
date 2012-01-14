@@ -33,6 +33,8 @@ class Section < BranchScopedModel
   validates 	:name, 	:presence => true, 
                					    :length => {:maximum => 50}
                					    
+  has_many :mark_criterias, :dependent => :destroy  #for pass_marks and max_marks            					    
+               					    
   scope :from_branch, lambda { |branch_id| joins(:clazz).where('clazzs.branch_id = ? ', branch_id)}         
   
   def has_only_destroy?(attrs)

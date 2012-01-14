@@ -15,7 +15,9 @@ class Exam < BranchScopedModel
   validates_presence_of :year
   
   has_many :sec_exam_maps, :dependent => true, :dependent => :destroy
-  has_many :sections, :through => :sec_exam_maps    
+  has_many :sections, :through => :sec_exam_maps  
+  
+  has_many :mark_criterias, :dependent => :destroy  #for pass_marks and max_marks
   
   validates 	:name, 	:presence => true, 
                						:length => {:maximum => 30},

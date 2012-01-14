@@ -14,5 +14,7 @@
 
 class SecExamMap < BranchScopedModel
   belongs_to :section
+  validates_presence_of :section
   belongs_to :exam
+  validates_presence_of :exam
 end
