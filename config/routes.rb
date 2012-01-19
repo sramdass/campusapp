@@ -41,6 +41,7 @@ Campusapp::Application.routes.draw do
     member do
       get 'assign_students'
       get 'select_subjects'
+      get 'performance'
 	end
   end
   resources :students

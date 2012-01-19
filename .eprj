@@ -285,7 +285,7 @@
             <key>application.c</key>
             <string>..\white_reports\public\stylesheets\application.css</string>
             <key>application.cs</key>
-            <string>..\white_reports\public\stylesheets\backup\application.css</string>
+            <string>app\assets\stylesheets\application.css</string>
             <key>application.css</key>
             <string>..\white_reports\public\stylesheets\application.css</string>
             <key>application.he</key>
@@ -332,6 +332,8 @@
             <string>app\controllers\application_controller.rb</string>
             <key>arrers</key>
             <string>..\white_reports\db\migrate\20111014052836_add_arrears_to_marks.rb</string>
+            <key>assign_Stu</key>
+            <string>app\views\sections\assign_students.html.erb</string>
             <key>assignst</key>
             <string>app\views\sections\assign_students.html.erb</string>
             <key>attenda</key>
@@ -1130,6 +1132,8 @@
             <string>db\migrate\20111231065309_create_sec_test_maps.rb</string>
             <key>sectin.rb</key>
             <string>app\models\section.rb</string>
+            <key>sectinsco</key>
+            <string>app\controllers\sections_controller.rb</string>
             <key>sectinscontro</key>
             <string>app\controllers\sections_controller.rb</string>
             <key>sectio</key>
@@ -1195,6 +1199,8 @@
             <key>sectionscon</key>
             <string>app\controllers\sections_controller.rb</string>
             <key>sectionscontro</key>
+            <string>app\controllers\sections_controller.rb</string>
+            <key>sectionscontrol</key>
             <string>app\controllers\sections_controller.rb</string>
             <key>sectionscontroller</key>
             <string>app\controllers\sections_controller.rb</string>
@@ -1294,6 +1300,8 @@
             <string>app\views\branches\_student_fields.html.erb</string>
             <key>student_tota</key>
             <string>..\white_reports\app\views\marks\student_total_graphs.html.erb</string>
+            <key>studentrb</key>
+            <string>app\models\student.rb</string>
             <key>students_c</key>
             <string>app\controllers\students_controller.rb</string>
             <key>students_co</key>
@@ -1301,7 +1309,7 @@
             <key>students_cont</key>
             <string>..\white_reports\app\controllers\students_controller.rb</string>
             <key>students_contr</key>
-            <string>..\white_reports\app\controllers\students_controller.rb</string>
+            <string>app\controllers\students_controller.rb</string>
             <key>stunew</key>
             <string>..\white_reports\app\views\sections\_stunew.html.erb</string>
             <key>stunew.html</key>

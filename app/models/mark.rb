@@ -56,7 +56,7 @@ class Mark < ActiveRecord::Base
   end
 
   #This will return a hash with each of the subject id of the section as the key and the corresponding mark column as the value
-  def mark_columns_with_subject_ids(section)
+  def self.mark_columns_with_subject_ids(section)
     h = Hash.new
     section.sec_sub_maps.each do |map|
       name =map.subject_id

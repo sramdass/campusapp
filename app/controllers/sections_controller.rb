@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  load_and_authorize_resource :only => [:new, :show, :edit, :update, :create, :destroy, :studentnew, :assign_students]
+  load_and_authorize_resource :only => [:new, :show, :edit, :update, :create, :destroy, :studentnew, :assign_students, :performance]
   def index
     if params[:clazz_id]
     	@sections = Clazz.find(params[:clazz_id]).sections
@@ -154,6 +154,10 @@ class SectionsController < ApplicationController
   def studentnew
   	#@section = Section.find(params[:id])
   end
+  
+  def performance
+  	#@section = Section.find(params[:id])
+  end
   			
   def duplicate_student(student_id, section_id)
     if SecStudentMap.for_student(student_id ).for_section(section_id).all.empty?
@@ -177,7 +181,7 @@ class SectionsController < ApplicationController
   	end
   end
   
-  
+  #this will retrun the column in the mark table that will be used for storing this sub_id's marks.
   def mark_column(sub_id)
     temp_row = @section.sec_sub_maps.find_by_subject_id(sub_id)
     if temp_row.mark_column	

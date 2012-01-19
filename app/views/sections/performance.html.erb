@@ -1,0 +1,63 @@
+<% hash = Mark.mark_columns_with_subject_ids(@section) %>
+<table class = 'index_table_z'>
+<tr>
+	<th> Student Name </th>
+	<% hash.each do |sub_id, col_name| %>
+		<% exams_count = @section.exams.count %>
+		<th colspan = " <%=exams_count%> "> <%= Subject.find(sub_id).name %> </th>
+	<% end %>
+</tr>
+<tr>
+	<th> </th>
+	<% hash.each do |sub_id, col_name| %>
+		<% @section.exams.each do |exam| %>
+			<th> <%= exam.name %> </th>
+		<% end %>
+	<% end %>
+</tr>
+<% @section.students.order.each do |student| %>
+	<tr>
+	<td><%= student.name %></td>
+	<% hash.each do |sub_id, col_name| %>
+		<% student.marks.order('exam_id').each do |mark| %>
+			<td> 
+				<% if mark.send(col_name) %>
+					<%=mark.send(col_name)%> 
+				<% else %>
+					N/A
+				<% end %>
+			</td>
+		<% end %>
+	<% end %>
+	</tr>
+<% end %>
+</table>
+
+
+
+
+
+<% hash.each do |sub_id, col_name| %>
+	<table class = 'index_table_z float-left'>
+		<% exams_count = @section.exams.count %>
+		<tr> <th colspan = " <%=exams_count%> "> <%= Subject.find(sub_id).name %> </th> </tr>
+		<tr>
+			<% @section.exams.order('id').each do |exam| %> 
+				<th> <%= exam.name %> </th>
+			<% end %>
+		</tr>
+		<% @section.students.each do |student| %>
+			<tr>
+				<% student.marks.order('exam_id').select(col_name).each do |mark| %>
+					<td> 
+					<% if mark.send(col_name) %>
+						<%= mark.send(col_name)%> 
+					<% else %>
+						N/A
+					<% end %>
+					</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
