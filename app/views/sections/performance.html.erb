@@ -1,5 +1,6 @@
 <% hash = Mark.mark_columns_with_subject_ids(@section) %>
-<table class = 'index_table_z'>
+<!--
+<table>
 <tr>
 	<th> Student Name </th>
 	<% hash.each do |sub_id, col_name| %>
@@ -32,32 +33,54 @@
 	</tr>
 <% end %>
 </table>
+-->
 
 
-
-
+<div class = "subjects-marks-report">
 
 <% hash.each do |sub_id, col_name| %>
-	<table class = 'index_table_z float-left'>
+	<table class = 'subject-marks index_table_z float-left'>
 		<% exams_count = @section.exams.count %>
-		<tr> <th colspan = " <%=exams_count%> "> <%= Subject.find(sub_id).name %> </th> </tr>
-		<tr>
+		<tr class = "Subject" > <th colspan = " <%=exams_count + 3 %> "> <%= Subject.find(sub_id).name %> </th> </tr>
+		<tr class = "desc" >
+			<th> Name </th>
+			<% total = 0%>
 			<% @section.exams.order('id').each do |exam| %> 
-				<th> <%= exam.name %> </th>
+				<% mc = MarkCriteria.find_by_section_id_and_subject_id_and_exam_id(@section.id, sub_id, exam.id) %>
+				<th> 
+					<%= exam.name %>
+					<% if mc && mc.max_marks%>
+						<% total = total + mc.max_marks %>
+						<br><%= mc.max_marks.to_i %>
+					<% end %>
+				</th>
 			<% end %>
+			<th>Graph</th>
+			<th>Total <br> <%= total.to_i %> </th>
 		</tr>
 		<% @section.students.each do |student| %>
 			<tr>
+				<% total = 0 %>
+				<% graph_value = ""%>
+				<td> <%= student.name %></td>
 				<% student.marks.order('exam_id').select(col_name).each do |mark| %>
-					<td> 
 					<% if mark.send(col_name) %>
-						<%= mark.send(col_name)%> 
+						<% print_mark =  mark.send(col_name)%> 
 					<% else %>
-						N/A
+						<% print_mark = 0 %>
 					<% end %>
-					</td>
+					<% total = total + print_mark %>
+					<% if graph_value.length == 0 %>
+						<% graph_value = graph_value + "#{print_mark.to_i}" %>
+					<% else %>
+						<% graph_value = graph_value +  ", #{print_mark.to_i}" %>
+					<% end %>
+					<td class = "mark"> <%= print_mark.to_i %> </td>
 				<% end %>
+				<td class = "sparklines"> <%= graph_value %> </td>
+				<td class = "total" > <%= total.to_i %> </td>
 			</tr>
 		<% end %>
 	</table>
 <% end %>
+</div>

@@ -229,7 +229,7 @@
             <key>abi</key>
             <string>..\white_reports\app\models\ability.rb</string>
             <key>ability</key>
-            <string>..\white_reports\app\models\ability.rb</string>
+            <string>app\models\ability.rb</string>
             <key>ability.</key>
             <string>app\models\ability.rb</string>
             <key>ability.rb</key>
@@ -293,7 +293,7 @@
             <key>application.ht</key>
             <string>..\white_reports\app\views\layouts\application.html.erb</string>
             <key>application.htm</key>
-            <string>..\white_reports\app\views\layouts\application.html.erb</string>
+            <string>app\views\layouts\application.html.erb</string>
             <key>application.html</key>
             <string>..\white_reports\app\views\layouts\application.html.erb</string>
             <key>application.j</key>
@@ -404,6 +404,8 @@
             <string>app\controllers\branches_controller.rb</string>
             <key>branches_cont</key>
             <string>app\controllers\branches_controller.rb</string>
+            <key>branches_cont_s</key>
+            <string>spec\controllers\branches_controller_spec.rb</string>
             <key>branches_contr</key>
             <string>app\controllers\branches_controller.rb</string>
             <key>branchescont</key>
@@ -464,6 +466,8 @@
             <string>..\white_reports\app\views\branches\clznew.html.erb</string>
             <key>clznew</key>
             <string>..\white_reports\app\views\branches\clznew.html.erb</string>
+            <key>cols</key>
+            <string>..\white_reports\app\views\marks\cols_and_spline.html.erb</string>
             <key>cols_ad</key>
             <string>..\white_reports\app\views\marks\cols_and_spline.html.erb</string>
             <key>cols_and</key>
@@ -677,6 +681,10 @@
             <key>home</key>
             <string>app\views\homes\home.html.erb</string>
             <key>home.h</key>
+            <string>app\views\homes\home.html.erb</string>
+            <key>home.ht</key>
+            <string>app\views\homes\home.html.erb</string>
+            <key>home.htm</key>
             <string>app\views\homes\home.html.erb</string>
             <key>home.htm.</key>
             <string>app\views\homes\home.html.erb</string>
@@ -1342,6 +1350,8 @@
             <string>..\white_reports\app\views\schools\subnew.html.erb</string>
             <key>t_u_p</key>
             <string>db\migrate\20111224111726_add_branch_id_to_user_profiles.rb</string>
+            <key>table</key>
+            <string>app\assets\stylesheets\fb_table_styles.css.scss</string>
             <key>table_St</key>
             <string>..\white_reports\public\stylesheets\fb_table_styles.css</string>
             <key>table_Sty</key>

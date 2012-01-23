@@ -34,7 +34,7 @@
 		        		<%= Subject.find(ssmap.subject_id).name.humanize %> <br>
 		        	  	<% mc = MarkCriteria.find_by_section_id_and_subject_id_and_exam_id(@section.id, ssmap.subject_id, semap.exam_id) %>
 		        	  	<% if mc %>
-							(<%= mc.pass_marks %> / <%= mc.max_marks %>)
+							(<%= mc.pass_marks.to_i %> / <%= mc.max_marks.to_i %>)
 		        	  	<% end %>				        		
 			  		</th>
 	            <% end %>
@@ -45,15 +45,16 @@
     	        <tr>
 		        	<td> <%= mark.student.name %> </td>
 		        	<% @section.sec_sub_maps.order('id asc').each do |ssmap| %>
-		        		<td> <%= mark.send(ssmap.mark_column)%> </td>
+		        		<td> <%= mark.send(ssmap.mark_column).to_i %> </td>
 		        	<% end %>
-		        	<td><%= mark.total %></td>
+		        	<td><%= mark.total.to_i %></td>
 		        	<td><%= mark.arrears %></td>
 	        	</tr>
 	        <% end %>
 		</table>
 	<% end %>
 	<p>
+		<%= link_to "Section Performance", performance_section_path(@section) %> <br>
 		<%= link_to "Edit this Section", edit_section_path(@section) %>
 	</p>
 </div>

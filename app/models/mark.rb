@@ -17,7 +17,7 @@ class Mark < ActiveRecord::Base
   	
   def update_total
     total = 0
-    hsh = mark_columns_with_subject_ids(self.section) 
+    hsh = Mark.mark_columns_with_subject_ids(self.section) 
     hsh.each do |sub_id, col_name|
       if self.send(col_name)
         total = total + self.send(col_name)
@@ -29,7 +29,7 @@ class Mark < ActiveRecord::Base
   def update_arrears
     arrears = 0	
     #This will get hsh[subject_id] = 'corresponding_mark_column' in the marks table
-    hsh = mark_columns_with_subject_ids(self.section) 
+    hsh = Mark.mark_columns_with_subject_ids(self.section) 
     hsh.each do |sub_id, col_name|
       pass_marks = get_pass_marks(self.section_id, sub_id, self.exam_id)  
       if self.send(col_name) && pass_marks && (self.send(col_name) < pass_marks)
@@ -46,7 +46,7 @@ class Mark < ActiveRecord::Base
 
   def mark_should_not_be_greater_than_max_marks  
     #This will get hsh[subject_id] = 'corresponding_mark_column' in the marks table
-    hsh = mark_columns_with_subject_ids(self.section) 
+    hsh = Mark.mark_columns_with_subject_ids(self.section) 
     hsh.each do |sub_id, col_name|
       max_marks = get_max_marks(self.section_id, sub_id, self.exam_id)  
       if self.send(col_name) && max_marks && (self.send(col_name) > max_marks)
