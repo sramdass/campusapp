@@ -65,15 +65,44 @@ class Mark < ActiveRecord::Base
     return h
   end		
   
-  def get_max_marks(section_id, subject_id, exam_id)
+  def self.get_max_marks(section_id, subject_id, exam_id)
     m = MarkCriteria.find_by_section_id_and_subject_id_and_exam_id(section_id, subject_id, exam_id)
     return m.max_marks if m
     return nil
   end
   
-  def get_pass_marks(section_id, subject_id, exam_id)
+  def self.get_pass_marks(section_id, subject_id, exam_id)
     m = MarkCriteria.find_by_section_id_and_subject_id_and_exam_id(section_id, subject_id, exam_id)
     return m.pass_marks if m
     return nil
   end  
+  
+  #get_percentages: will return a hash with key as the subject_id and value as the percentages for that particular mark record.
+  def get_percentages
+  	percentages = {} 
+  	hash = Mark.mark_columns_with_subject_ids(self.section)
+  	hash.each do |sub_id, col_name|
+  	  percentages[sub_id] = (self.send(col_name) /Mark. get_max_marks(self.section_id, sub_id, self.exam_id))*100
+  	end
+  	return percentages
+  end
+  
+  def get_style_class(subject_id)
+  	percentages = get_percentages
+  	if percentages[subject_id] > 90
+  	  return 'bg-grade1'
+  	elsif percentages[subject_id] > 80
+  	  return 'bg-grade2'
+  	elsif percentages[subject_id] > 70
+  	  return 'bg-grade3'
+  	elsif percentages[subject_id] > 60
+  	  return 'bg-grade4'
+  	elsif percentages[subject_id] > 50
+  	  return 'bg-grade5'
+  	elsif percentages[subject_id] > 40
+  	  return 'bg-grade6'
+  	elsif percentages[subject_id] > 30
+  	  return 'bg-grade7'
+  	end
+  end
 end

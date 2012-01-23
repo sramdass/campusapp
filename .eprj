@@ -326,6 +326,8 @@
             <string>..\white_reports\app\helpers\application_helper.rb</string>
             <key>applicationcss</key>
             <string>..\white_reports\public\stylesheets\backup\application.css</string>
+            <key>applicationo</key>
+            <string>app\controllers\application_controller.rb</string>
             <key>applicaton.htm</key>
             <string>app\views\layouts\application.html.erb</string>
             <key>appliccon</key>
