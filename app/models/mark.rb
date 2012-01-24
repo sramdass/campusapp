@@ -119,6 +119,16 @@ class Mark < ActiveRecord::Base
   	where('student_id = ?', student_id).sum(hash[subject_id].to_sym)
   end
   
+  #Return an hash that will have student_id as the key and the total (of the subject 'subject_id')
+  #of all the exams. The hash will have information for all the students in this particular section.
+  def self.students_total_subject_marks(section_id, subject_id)
+  	hash = {}
+  	Section.find(section_id).students.each do |student|
+  	  hash[student.id] = Mark.total_subject_marks(student.id, section_id, subject_id)
+  	end
+  	return hash
+  end
+  
   #Returns the style class according to a percentage value.
   #The values are hardcoded now and they have to be fetched from the db in the future.
   def self.style_class(p)
@@ -136,6 +146,8 @@ class Mark < ActiveRecord::Base
   	  return 'bg-grade6'
   	elsif p > 30
   	  return 'bg-grade7'
+  	else
+  	  return 'bg-grade8'
   	end    	
   end
 

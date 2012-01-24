@@ -1,454 +1,108 @@
-/*
-body: #555 (Grey)
-#nav-column strong:  #777 (Grey)
-ul.nav-list li a: #000 (Black);
-#tab-bar ul li a: #fff (White);
-#header-drop-down ul li a: #000 (White);
-.posts-table td light: #999;
-.heading1, .heading2, .heading3: #333;
-*/
-
-.hidden {
-	display: none;
-}
-
-html, body {
+/*   Styles for section marks performance */
+table, th, td {
 	margin: 0;
 	padding: 0;
+	font-weight: normal;
 }
 
-body {
-	font-family: Verdana, Tahoma,  "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif; 	
+.bg-grade1 {
+	background: #00CC00;
 }
 
-h1, h2{
-    font-family: Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+.bg-grade2 {
+	background: #003333;
 }
 
-h3, h4, h5, h6, strong, em, b, i {
-    font-family: Verdana, Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif;
+.bg-grade3 {
+	background: #6699FF;
 }
 
-
-body {
-	font-size: 11px;
-	background: #ffffff;
+.bg-grade4 {
+	background: #990000;
 }
 
-#page-container {
-/*'overflow' is very important. Without this overflow, this container will shrink down to the size of the main column.
-	In that case, if the nav-column in longer than the main-column, the layout will collapse*/
-	overflow:auto;	
-	width: 1300px;	
-	margin: auto;
-	background: #fff;
-	margin-bottom: 20px;
+.bg-grade5 {
+	background: #993453;
 }
 
-#header, #header-login {
-	width:100%;
-	background:#323232 url('../images/header3.png') repeat;
-	color: #fff;
-	
+.bg-grade6 {
+	background: #A2D349;
 }
 
-#header-login {
-	height: 100px;
-	border-bottom: 1px solid #999;
+.bg-grade7 {
+	background: #9DEF12;
 }
 
-#header {
-	height: 50px;
+.bg-grade8 {
+	background: #CDEF12;
 }
 
-#header-login .login {
-	margin-left: 60%;
-	height: 100px;
-	/*This can be modified to adjust the height of the login controls (email and password fields) */
-	padding-top: 10px;		
-}
-
-#header-login .login table{
-	text-align: left;
-	border-collapse: collapse;	
-}
-
-#header-login .login table td{
-	padding-left: 10px;
-	padding-top: 5px;
-}
-
-#header-login .login table td input{
-	/*This is needed to have some space between the 'email' label and the text field*/
-	margin-top: 5px;
-}
-
-#nav-column {
-	width:225px;
-	float:left;
-	margin-left: 50px;
-	padding-top: 20px;
-}
-
-/*IMPORTANT!!*/
-/*Even if 'nav-column' div is floated, the margin of this div has to be set and the width has to be adjusted properly.*/
-#main-column {
-	float:left;
-	padding: 20px 10px 20px 20px;	
-	/*Since there is a padding, the width has to be adjusted. I guess the width is calculated without the padding. So whenever the padding is changed, the width has to be changed*/
-	width: 975px;
-	border: 1px solid #000;
-}
-	
-#footer {
-	clear: both;
-	font-family: Tahoma, Arial, Helvetica, Sans-serif;
-	font-size: 10px;
-	color: #c9c9c9;
-	border-top: 1px solid #999;
-	height: 100px;
-	width: 100%;	
-	background:#323232 url('../images/header3.png') repeat;
-}
-
-#footer #altnav {
-	width: 350px;
-	float: right;
-	text-align: right;
-}
-
-#footer a {
-	color: #c9c9c9;
-	text-decoration: none;
-}
-
-#footer a:hover {
-	color: #db6d16;
-}	
-
-#header-login .logo, #header .logo {
-	font-family: 'Passero One', cursive;	
-	float: left;
-	font-size: 48px;
-	font-weight: bold;
-	margin-left: 20%;	
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-right: 0px;
-	padding-top: 25px;
-}
-
- #header .logo {
- 	font-size: 30px;	
-	padding-top: 12px; 
- }
-
-#nav-column #photo-box {
-	border: 2px solid #C3D6F2;
-	height: 250px;
-	margin: 0 3px 0 3px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius:10px;		
-	background: #C3D6F2;;
-}
-
-#nav-column .nav-links{
-	margin-top: 20px;
-}
-
-#nav-column .nav-links strong{
-	color: #777;	
-}
-	
-ul.nav-list {
-	list-style:none;
-	padding: 0 0 0 40px; /* Important! This will cause the list to align to the left of the div. By default this has a padding of 40px*/
-}
-
-ul.nav-list li {
-	list-style:none;
-}
-
-ul.nav-list li ul{
-	padding-left: 20px; /* Important!*/
-}
-
-ul.nav-list li a {
-	color:#000;
-	display:block;
-	padding: 5px 0px 5px 10px;
-	text-decoration:none;	
-	margin:0px;	
-}
-
-ul.nav-list li a:hover {
-	background: #F2F2F2;
-	color: #43749A;
-}
-
-ul.nav-list li a.selected {
-	/*background: #E5ECFC;*/
-	background:#323232 url('../images/body3.png') repeat;
-	color:#fff;
-	font-weight:bold;
-}
-#tab-bar{
-	/* The width should be same as the page-container*/
-	width: 1250px;
-	height: 50px;	
-	margin: auto;
-}
-#tab-bar ul {
-	float:right;
-	height:50px;
-	list-style:none;
-	width:400px;
-	margin: 0px;
-}
-#tab-bar ul li {
-	float:right;
-	height:50px;
-	list-style:none;
-}
-
-#tab-bar ul li a {
-	color:#fff;
-	display:block;
-	height:20px;
-	padding: 0;
-	text-align:center;
-	text-decoration:none;	
-	margin:18px 0px 0px 0px;
-	padding: 10px 10px 0 10px;	
-}
-
-#tab-bar ul li a.selected {
-	background: #476096;
-}
-
-/****************Links at the bottom and breadcrumbs at the top of the page **************/
-
-#fav-bar, .breadcrumbs {
-	height: 20px;	
+.section-marks-report {
+	width: 90%;
+	margin: 0 auto;
+	border: 1px solid #ccc;
 	padding: 10px;
 }
 
-#fav-bar{
-	margin: 30px 10px 10px 10px;
-	/*No matter what the previous alignment it should appear to the left*/
-	clear:both;
+.section-marks-report table {
+	border-spacing: 0px;
+	border-collapse: collapse;
+	font-size: 14px;
 }
 
-.breadcrumbs {
-	margin: 10px 10px 20px 0px;
-	/*No matter what the previous alignment it should appear to the left*/	
-	clear:both;
+.section-marks-report table td {
+	border-bottom: 1px solid #ccc;
+	height: 26px;
 }
-
-#fav-bar ul, .breadcrumbs ul {
-	/*the ul is not floated here unlike the tab bar*/
-	/*height:20px;*/
-	list-style:none;
-	margin: 0; /*This also has some default top value. Needs to be set to 0*/
-	padding: 0px; /* By default this is 40px */
-	overflow:auto; /*This is required. Otherwise the layout will collapse when the child elements are floated inside*/
-}
-
-#fav-bar ul li, .breadcrumbs ul li {
-	float:left;
-	margin: 0;
-	list-style:none;
-}
-
-#fav-bar ul li{
-	border-right: 1px solid #43749A;	
-}
-
-#fav-bar ul li.first {
-	border-left: 1px solid #43749A;
-}
-
-#fav-bar ul li a, .breadcrumbs ul li a {
-	color: #43749A; /*This is the same color used in the hover in table styles*/
-	display:block;
-	text-align:center;
-	text-decoration:none;	
-	font-weight:bold;
-	padding: 4px 10px 4px 10px;
-	margin: 0;
-}
-
-.breadcrumbs ul li a {
-	/*overwrite the padding so that the adjacent breadcrumbs are not too scattered*/ 
-	padding: 4px;	
-}
-
-#fav-bar ul li a:hover, .breadcrumbs ul li a:hover {
-	text-decoration:underline;		
-}
-
-/****************Link in the bottom and top of the page **************/
-
-#header-drop-down {
-	position:relative;
-	 height: 120px; 
-	 width: 150px; 
-	 z-index: 1;
-	 /*I do not know how the hell this alignment works. Used brute force to find the correct position*/
-	 left: 76%;
-	 clear:both;
-	border:1px solid #848484;
-	background: #fff;	 
-}
-
-#header-drop-down ul {
-	margin: 0px;
-	padding: 5px 0px 5px 0px;
-}
-#header-drop-down ul li {
-	list-style:none;
-	padding: 0;
-	margin: 0;
-}
-
-#header-drop-down ul li a {
-	color:#848484;
-	display:block;
-	height:18px;
-	padding: 0;
-	text-decoration:none;	
-	padding: 5px 0px 0px 12px;
-}
-
-#header-drop-down ul li a:hover {
-	background: #E5ECFC;
-}
-
-#sign-up-layer {
-	background:#323232 url('../images/body3.png') repeat;
-	height: 150px;
-}
-
-#sign-up {
-	/* This should be converted into a right float */ 
-	float:right;
-	margin: 75px 50px 75px 0;
-	width: 250px;
-	padding: 10px 25px 10px 25px;	
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius:10px;	
-	color: #999;
-	border: 2px solid #C3D6F2;
-}
-
-#sign-up table{
-	text-align: left;
-	border-collapse: collapse;	
-}
-
-#sign-up td{
-	padding: 5px 0px 5px 0px;
-}
-
-#sign-up table td input{
-	margin: 3px 3px 3px 0px;
-}
-
-#sign-up .heading {
-	font-family: Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-	font-weight: bold;
-	font-size: 150%;
-	margin: 0px 0px 15px 0px;	
-}
-
-.heading1, .heading2, .heading3{
-	font-family: Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
-	color: #333;
-	font-weight: bold;
-	letter-spacing: -1px;
-	padding: 5px 5px 5px 10px;
-}
-
-.heading1{
-	/*background: #FAFAFA;	*/
-	/*background:#323232 url('../images/heading_bg.jpg') repeat-x;	*/
-	font-size: 200%;
-	margin-bottom: 10px;
-	margin-top: 10px;	
-}
-
-.heading2{
-	font-size: 150%;
-}
-
-.heading3{
-	font-size: 120%;
-}
-
-.float-left {
-	float:left;
-}
-
-.float-right{
-	float:right;
-}
-
-.clear {
-	clear:both;
-}
-
-div.medium, div.small {
-	width: 400px;
+	
+.section-marks-report .total-marks-report {
 	float: left;
-	border: 1px solid #C3D6F2;
-	background: #E5ECFC;
-	padding: 4px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius:3px;
-	overflow:auto;
 }
 
-div.medium {
-	width: 40%;
-	margin: 3%;
-	height: 300px;	
+.section-marks-report span.total, .section-marks-report span.mark {
+	color: white;
+	margin: 0px 0px 0px 2px;
+	text-align: center;
+	display: block;
+	width: 1.5em;
+	border: 1px solid #ccc;
+	font-weight: bold;
 }
 
-div.small {
-	width: 28%;
-	margin: 2%;
-	height: 250px;		
+.section-marks-report span.total {
+	border-radius: 3px;
+	padding: 1px 4px;
 }
 
-ul.no-list-style {
-	list-style:none;
-	padding: 0px; /* for the list alignment*/
-}	
-
-ul.no-list-style li {
-	list-style:none;
-	padding: 5px 0 5px 0;
-}	
-
-/* This is generally used to display multiple elements inside a table row. Refer section's marks search page*/
-.rows-of-two{
-	float:left;
-	width: 200px;
-	padding: 3px 0 3px 0;
+.section-marks-report span.mark {
+	border-radius: 50%;
+	padding: 2px;
 }
 
-.rows-of-three{
-	float:left;
-	width: 130px;
-	padding: 3px 0 3px 0;	
+.section-marks-report .name {
+	color: black;
 }
-.readable, .readable a {
-	color: red;
-	text-style:italic;
+
+.section-marks-report span.title {
+	display: block;
+	text-align: center;
 }
-.writable, .writable a {
-	color:green;
+
+.section-marks-report .subject-marks-report {
+	float: left;
+	margin-left: 25px;
+}
+
+.desc {
+	font-size: 10px;
+	font-weight: normal;
+}
+
+.section-marks-report table span.sparklines {
+	display:block;
+	text-align: center;
+}
+
+.clearfloat {
+	clear: both;
 }

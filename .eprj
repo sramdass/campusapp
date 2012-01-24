@@ -641,7 +641,7 @@
             <key>fb_mai</key>
             <string>..\white_reports\public\stylesheets\fb_main.css</string>
             <key>fb_main</key>
-            <string>..\white_reports\public\stylesheets\fb_main.css</string>
+            <string>app\assets\stylesheets\fb_main.css.scss</string>
             <key>fb_st</key>
             <string>..\white_reports\public\stylesheets\fb_table_styles.css</string>
             <key>fb_t</key>

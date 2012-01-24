@@ -12,6 +12,9 @@ function add_fields(link, association, content) {
 }
 
 $(function() {	
+//for the sparklines in the marks pages.
+$(".sparklines").peity("bar", {width: 8});
+
 $(".ajaxified a").live("click", function() {
   $.getScript(this.href);
   return false;
