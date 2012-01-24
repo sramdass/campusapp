@@ -60,26 +60,27 @@
 		</tr>
 		<% @section.students.each do |student| %>
 			<tr>
-				<% total = 0 %>
-				<% graph_value = ""%>
+				<% total = 0
+				graph_value = ""%>
 				<td> <%= student.name %></td>
 				<% student.marks.order('exam_id').each do |mark| %>
-					<% if mark.send(col_name) %>
-						<% print_mark =  mark.send(col_name)%> 
-					<% else %>
-						<% print_mark = 0 %>
-					<% end %>
-					<% total = total + print_mark %>
-					<% if graph_value.length == 0 %>
-						<% graph_value = graph_value + "#{print_mark.to_i}" %>
-					<% else %>
-						<% graph_value = graph_value +  ", #{print_mark.to_i}" %>
-					<% end %>
-					<% style = mark.get_style_class(sub_id) %>
-					<td class = "mark <%= style %>" %> > <%= print_mark.to_i %> </td>
+					<% if mark.send(col_name)
+						print_mark =  mark.send(col_name)
+					else
+						print_mark = 0
+					end 
+					total = total + print_mark
+					if graph_value.length == 0
+						graph_value = graph_value + "#{print_mark.to_i}"
+					else
+						graph_value = graph_value +  ", #{print_mark.to_i}"
+					end
+					style = mark.get_style_class(sub_id) %>
+					<td class = "mark <%= style %>" > <%= print_mark.to_i %> </td>
 				<% end %>
 				<td class = "sparklines"> <%= graph_value %> </td>
-				<td class = "total" > <%= total.to_i %> </td>
+				<% style = Mark.get_style_class_for_total(total, @section.id, sub_id) %>
+				<td class = "total <%=style %>" > <%= total.to_i %> </td>
 			</tr>
 		<% end %>
 	</table>

@@ -77,32 +77,59 @@ class Mark < ActiveRecord::Base
     return nil
   end  
   
+  def get_percentage(subject_id)
+  	hash = Mark.mark_columns_with_subject_ids(self.section)
+  	return (self.send(hash[subject_id]) /Mark. get_max_marks(self.section_id, subject_id, self.exam_id))*100
+  end
+  
   #get_percentages: will return a hash with key as the subject_id and value as the percentages for that particular mark record.
   def get_percentages
   	percentages = {} 
   	hash = Mark.mark_columns_with_subject_ids(self.section)
   	hash.each do |sub_id, col_name|
-  	  percentages[sub_id] = (self.send(col_name) /Mark. get_max_marks(self.section_id, sub_id, self.exam_id))*100
+  	  percentages[sub_id] = get_percentage(sub_id)
   	end
   	return percentages
   end
   
-  def get_style_class(subject_id)
-  	percentages = get_percentages
-  	if percentages[subject_id] > 90
-  	  return 'bg-grade1'
-  	elsif percentages[subject_id] > 80
-  	  return 'bg-grade2'
-  	elsif percentages[subject_id] > 70
-  	  return 'bg-grade3'
-  	elsif percentages[subject_id] > 60
-  	  return 'bg-grade4'
-  	elsif percentages[subject_id] > 50
-  	  return 'bg-grade5'
-  	elsif percentages[subject_id] > 40
-  	  return 'bg-grade6'
-  	elsif percentages[subject_id] > 30
-  	  return 'bg-grade7'
+  def self.get_max_marks_total(section_id, subject_id)
+  	total = 0
+  	Section.find(section_id).sec_exam_maps.each do |semap|
+  	  m = Mark.get_max_marks(section_id, subject_id, semap.exam_id)
+  	  total = total + m if m
   	end
+  	return total
+  end
+  
+  def self.get_percentage_for_total(total, section_id, subject_id)
+  	(total / Mark.get_max_marks_total(section_id, subject_id)) * 100
+  end
+  
+  def self.get_style_class_for_total(total, section_id, subject_id)
+  	p = Mark.get_percentage_for_total(total, section_id, subject_id)
+	Mark.style_class(p)	
+  end
+  
+  def get_style_class(subject_id)
+  	p = get_percentage(subject_id)
+	Mark.style_class(p)
+  end
+  
+  def self.style_class(p)
+  	if p > 90
+  	  return 'bg-grade1'
+  	elsif p > 80
+  	  return 'bg-grade2'
+  	elsif p > 70
+  	  return 'bg-grade3'
+  	elsif p > 60
+  	  return 'bg-grade4'
+  	elsif p > 50
+  	  return 'bg-grade5'
+  	elsif p > 40
+  	  return 'bg-grade6'
+  	elsif p > 30
+  	  return 'bg-grade7'
+  	end    	
   end
 end
