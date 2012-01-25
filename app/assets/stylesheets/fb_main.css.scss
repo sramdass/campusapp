@@ -5,6 +5,10 @@ table, th, td {
 	font-weight: normal;
 }
 
+p {
+	margin: 0;
+	padding: 0;
+}
 .bg-grade1 {
 	background: #00CC00;
 }
@@ -105,4 +109,81 @@ table, th, td {
 
 .clearfloat {
 	clear: both;
+}
+
+/****** Grade layout *************/
+
+.grade-legend {
+	border-collapse: collapse;
+	color: white;
+	font-size: 10px;
+}
+
+.grade-legend td {
+	border: 1px solid black;
+	padding: 2px;
+}
+	
+.grade-legend th {
+	color: black;
+}
+
+.grade-report {
+	width: 70%;
+	margin: 10px auto;
+	border: 1px solid #ccc;
+}
+
+.grade-report .subject {
+	float: left;
+	width: 15%;
+	margin-left: 5px;
+}
+
+.grade-report .subject .title {
+	text-align: center;
+	font-weight: bold;
+	margin: 5px;
+	font-size: 12px;
+	max-height: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.grade-report .subject .title .total {
+	font-size: 10px;
+}
+
+.grade-report .subject .grade {
+	width: 100%;
+}
+
+.grade-report .subject .grade .grade-name {
+	text-align: left;
+	color: white;
+	padding-left: 5px;
+}
+
+.grade-report .subject .grade p {
+	margin-top: 3px;
+	font-size: 12px;
+}
+
+.grade-report .subject .grade .grade-name .count {
+	float: right;
+	margin-right: 5px;
+}
+
+.grade-report .subject .grade .total {
+	font-size: 8px;
+}
+
+.grade-report .subject .grade .sparklines {
+	margin-right: 5px;
+}
+
+.grade-report .subject .grade-column-graph {
+	margin: 5px;
+	height: 100px;
 }

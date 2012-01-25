@@ -88,11 +88,14 @@
 		<% students_total = Mark.students_total_subject_marks(@section.id, sub_id).sort_by {|stu_id, total| total} %>
 		<div class="subject">
 			<% max_marks_total = Mark.get_max_marks_total(@section.id, sub_id) %>
-			<p class="title"> <span class = "total" > <%= max_marks_total %> </span> <%= Subject.find(sub_id).name %> </p>
+			<p class="title"> <span class = "total" > <%= max_marks_total.to_i %> </span> <%= Subject.find(sub_id).name %> </p>
 			<div class="grade">
+				<% style = "" %>
 				<% students_total.each do |stu_id, total| %>
-					<% style = Mark.get_style_class_for_total(total, @section.id, sub_id) %>
-					<p class= "grade-name <%=style %> "> <%= style %> <span class = "count"> 11/30 </span></p> 
+					<% if !Mark.get_style_class_for_total(total, @section.id, sub_id).eql?(style) %>
+						<% style = Mark.get_style_class_for_total(total, @section.id, sub_id) %>
+						<p class= "grade-name <%=style %> "> <%= style %> <span class = "count"> ??? </span></p> 
+					<% end %>
 					<% graph_value = ""%>
 					<% Student.find(stu_id).marks.order('exam_id').each do |mark| %>
 						<% if mark.send(col_name) %>
@@ -106,10 +109,11 @@
 						  	<% graph_value = graph_value +  ", #{print_mark.to_i}" %>
 						<% end %>
 					<% end %>
-					<p> <span class = "sparklines"> <%= graph_value %> </span> <span class = "total" > <%= total %> </span> <%= Student.find(stu_id).name %> </p>
+					<p> <span class = "sparklines"> <%= graph_value %> </span> <span class = "total" > <%= total.to_i %> </span> <%= Student.find(stu_id).name %> </p>
 				<% end %>
 			</div>
 			<div class="grade-column-graph">	Graph diagram	</div>
 		</div>
 	<% end %>
+	<div class="clearfloat"></div>	
 </div>
