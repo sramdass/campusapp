@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114040641) do
+ActiveRecord::Schema.define(:version => 20120125121335) do
 
   create_table "blood_groups", :force => true do |t|
     t.string   "name"
@@ -68,6 +68,15 @@ ActiveRecord::Schema.define(:version => 20120114040641) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "id_no"
+  end
+
+  create_table "grades", :force => true do |t|
+    t.integer  "branch_id"
+    t.string   "name"
+    t.float    "cut_off_percentage"
+    t.string   "color_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "mark_criteria", :force => true do |t|

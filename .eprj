@@ -416,6 +416,8 @@
             <string>..\white_reports\app\views\institutions\branchnew.html.erb</string>
             <key>branchnew</key>
             <string>..\white_reports\app\views\institutions\_branchnew.html.erb</string>
+            <key>branchsc</key>
+            <string>app\models\branch_scoped_model.rb</string>
             <key>branchscop</key>
             <string>app\models\branch_scoped_model.rb</string>
             <key>branchscope</key>
@@ -672,6 +674,8 @@
             <string>config\initializers\global_constants.rb</string>
             <key>gm</key>
             <string>Gemfile</string>
+            <key>grade</key>
+            <string>app\models\grade.rb</string>
             <key>graph</key>
             <string>..\white_reports\public\javascripts\graph_input.js</string>
             <key>graph_in</key>
@@ -808,6 +812,8 @@
             <string>app\controllers\marks_controller.rb</string>
             <key>marksconto</key>
             <string>app\controllers\marks_controller.rb</string>
+            <key>markscontor</key>
+            <string>app\controllers\marks_controller.rb</string>
             <key>marksheet</key>
             <string>app\views\marks\marksheet.html.erb</string>
             <key>master</key>
@@ -856,6 +862,8 @@
             <string>app\controllers\password_resets_controller.rb</string>
             <key>per</key>
             <string>..\white_reports\app\models\period.rb</string>
+            <key>performan</key>
+            <string>app\views\sections\performance.html.erb</string>
             <key>period.r</key>
             <string>..\white_reports\app\models\period.rb</string>
             <key>period.rb</key>

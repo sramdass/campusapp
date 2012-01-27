@@ -16,8 +16,8 @@ class BranchScopedModel < ActiveRecord::Base
   #(whether the user accesses only his branch's records) using cancan.
   
   #default_scope lambda { where('branch_id = ?', Branch.current) }
-  before_validation { self.branch_id = Branch.current }	
+  #before_validation { self.branch_id = Branch.current }	
   
   #With before_save we cannot validate the presence of branch.
-  #before_save { self.branch_id = 1 }	
+  before_save { self.branch_id = 1 }	
 end
